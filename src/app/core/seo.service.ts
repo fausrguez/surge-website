@@ -8,7 +8,7 @@ export interface PageMeta {
   image?: string;
 }
 
-const SITE_URL = 'https://surge-website.vercel.app';
+const SITE_URL = 'https://surge-website-plum.vercel.app';
 
 @Injectable({ providedIn: 'root' })
 export class SeoService {

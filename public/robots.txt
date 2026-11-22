@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://surge-website.vercel.app/sitemap.xml
+Sitemap: https://surge-website-plum.vercel.app/sitemap.xml

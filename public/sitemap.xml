@@ -1,37 +1,37 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>https://surge-website.vercel.app/</loc>
+    <loc>https://surge-website-plum.vercel.app/</loc>
     <changefreq>monthly</changefreq>
     <priority>1.0</priority>
   </url>
   <url>
-    <loc>https://surge-website.vercel.app/bestial-race</loc>
+    <loc>https://surge-website-plum.vercel.app/bestial-race</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://surge-website.vercel.app/sobre-nosotros</loc>
+    <loc>https://surge-website-plum.vercel.app/sobre-nosotros</loc>
     <changefreq>yearly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://surge-website.vercel.app/donde-comprar</loc>
+    <loc>https://surge-website-plum.vercel.app/donde-comprar</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://surge-website.vercel.app/legal/privacidad</loc>
+    <loc>https://surge-website-plum.vercel.app/legal/privacidad</loc>
     <changefreq>yearly</changefreq>
     <priority>0.3</priority>
   </url>
   <url>
-    <loc>https://surge-website.vercel.app/legal/aviso-legal</loc>
+    <loc>https://surge-website-plum.vercel.app/legal/aviso-legal</loc>
     <changefreq>yearly</changefreq>
     <priority>0.3</priority>
   </url>
   <url>
-    <loc>https://surge-website.vercel.app/legal/cookies</loc>
+    <loc>https://surge-website-plum.vercel.app/legal/cookies</loc>
     <changefreq>yearly</changefreq>
     <priority>0.3</priority>
   </url>
