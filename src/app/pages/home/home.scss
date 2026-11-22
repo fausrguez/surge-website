@@ -1,0 +1,644 @@
+.home {
+  position: relative;
+}
+
+/* ---------- Hero ---------- */
+
+.hero {
+  position: relative;
+  min-height: calc(100svh - var(--header));
+  display: grid;
+  align-items: center;
+  padding-block: clamp(32px, 5vw, 64px);
+  overflow: hidden;
+}
+
+.hero::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(ellipse 45% 55% at 22% 50%, rgba(183, 228, 199, 0.38), transparent 70%),
+    radial-gradient(ellipse 35% 45% at 78% 30%, rgba(244, 211, 94, 0.16), transparent 70%);
+  pointer-events: none;
+}
+
+.hero__grid {
+  position: relative;
+  display: grid;
+  grid-template-columns: minmax(0, 1.05fr) minmax(0, 0.95fr);
+  align-items: center;
+  gap: clamp(24px, 4vw, 64px);
+}
+
+.hero__escena {
+  position: relative;
+  height: clamp(380px, 52vw, 580px);
+  order: 1;
+}
+
+.modelo {
+  position: absolute;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  animation: float-soft 8s ease-in-out infinite;
+}
+
+.modelo model-viewer {
+  width: 100%;
+  height: 100%;
+  background: transparent;
+  --poster-color: transparent;
+  --progress-bar-color: transparent;
+  --progress-mask: transparent;
+}
+
+.modelo--flama {
+  left: 50%;
+  top: 14%;
+  width: clamp(190px, 24vw, 280px);
+  height: 72%;
+  margin-left: clamp(-140px, -12vw, -95px);
+  z-index: 3;
+  --rot: 0deg;
+}
+
+.modelo--mentisimo {
+  left: 1%;
+  top: 24%;
+  width: clamp(150px, 18vw, 220px);
+  height: 58%;
+  z-index: 1;
+  --rot: -9deg;
+  animation-delay: -2.4s;
+}
+
+.modelo--cocus {
+  right: 1%;
+  top: 24%;
+  width: clamp(150px, 18vw, 220px);
+  height: 58%;
+  z-index: 2;
+  --rot: 9deg;
+  animation-delay: -4.2s;
+}
+
+.hero__sombra {
+  position: absolute;
+  left: 12%;
+  right: 12%;
+  bottom: 4%;
+  height: 34px;
+  border-radius: 50%;
+  background: radial-gradient(ellipse, rgba(61, 43, 31, 0.18), transparent 70%);
+  filter: blur(8px);
+  z-index: 0;
+}
+
+.hero__texto {
+  position: relative;
+  z-index: 4;
+  display: grid;
+  gap: 18px;
+  order: 2;
+}
+
+.hero__lema {
+  display: grid;
+  font-size: clamp(3rem, 7.2vw, 6.4rem);
+  line-height: 0.94;
+  letter-spacing: -0.035em;
+}
+
+.hero__lema span:first-child {
+  color: var(--verde);
+}
+
+.hero__lema span:last-child {
+  color: var(--tierra);
+}
+
+.hero__acciones {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 6px;
+}
+
+.hero__chips {
+  margin-top: 4px;
+}
+
+.hero__scroll {
+  justify-self: start;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: 8px;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  color: var(--secundario);
+  font-size: 0.8rem;
+  font-weight: 600;
+}
+
+.hero__scroll span {
+  display: grid;
+  place-items: center;
+  width: 26px;
+  height: 26px;
+  border: 1px solid var(--linea);
+  border-radius: 50%;
+  animation: nudge 2.4s ease-in-out infinite;
+}
+
+@keyframes nudge {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(4px);
+  }
+}
+
+/* ---------- Intro sabores ---------- */
+
+.sabores-intro {
+  padding-block: clamp(56px, 8vw, 104px) clamp(32px, 5vw, 56px);
+  scroll-margin-top: calc(var(--header) + 8px);
+}
+
+/* ---------- Secciones de sabor ---------- */
+
+.sabor-seccion {
+  position: relative;
+  overflow: hidden;
+  padding-block: clamp(56px, 8vw, 108px);
+  background:
+    linear-gradient(180deg, rgba(255, 253, 245, 0.35), var(--tinte) 40%, rgba(255, 253, 245, 0.35));
+  scroll-margin-top: var(--header);
+}
+
+.sabor-seccion__grid {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  align-items: center;
+  gap: clamp(24px, 5vw, 72px);
+}
+
+.sabor-seccion__modelo {
+  position: relative;
+  height: clamp(360px, 46vw, 560px);
+  animation: float-soft 9s ease-in-out infinite;
+  --rot: 0deg;
+}
+
+.sabor-seccion__modelo model-viewer {
+  width: 100%;
+  height: 100%;
+  background: transparent;
+  --poster-color: transparent;
+  --progress-bar-color: var(--sabor);
+}
+
+.sabor-seccion__texto {
+  display: grid;
+  gap: 14px;
+  justify-items: start;
+}
+
+.sabor-seccion__momento {
+  color: var(--texto-sabor);
+}
+
+.sabor-seccion__momento::before {
+  background: var(--sabor);
+}
+
+.sabor-seccion h2 {
+  color: var(--texto-sabor);
+  font-size: clamp(2.4rem, 5vw, 4.4rem);
+}
+
+.sabor-seccion__slogan {
+  font-family: var(--fuente-titulo);
+  font-size: clamp(1.2rem, 2vw, 1.6rem);
+  font-weight: 600;
+  color: var(--tinta);
+}
+
+.sabor-seccion__datos {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 8px;
+  width: 100%;
+  margin-block: 4px;
+}
+
+.sabor-seccion__datos li {
+  display: grid;
+  gap: 2px;
+  padding: 10px 12px;
+  border: 1px solid rgba(61, 43, 31, 0.12);
+  border-radius: 12px;
+  background: rgba(255, 253, 245, 0.62);
+}
+
+.sabor-seccion__datos span {
+  color: var(--secundario);
+  font-size: 0.66rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.sabor-seccion__datos strong {
+  font-size: 0.86rem;
+}
+
+.sabor-seccion__ingredientes .chip {
+  border-color: rgba(61, 43, 31, 0.14);
+  font-size: 0.78rem;
+  line-height: 1.4;
+  text-align: left;
+}
+
+/* ---------- Suscripciones ---------- */
+
+.suscripciones {
+  padding-block: var(--seccion);
+  scroll-margin-top: var(--header);
+}
+
+.suscripciones__grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: clamp(16px, 2.4vw, 28px);
+}
+
+.plan {
+  position: relative;
+  display: grid;
+  align-content: start;
+  gap: 6px;
+  padding: clamp(22px, 3vw, 32px);
+  border: 1px solid var(--linea);
+  border-radius: var(--radio-md);
+  background: var(--superficie);
+  box-shadow: var(--sombra);
+  transition:
+    transform 220ms var(--curva),
+    box-shadow 220ms var(--curva);
+}
+
+.plan:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--sombra-hover);
+}
+
+.plan--destacado {
+  border: 2px solid var(--verde);
+  background: #f3f9ef;
+}
+
+.plan__cinta {
+  position: absolute;
+  top: -12px;
+  right: 18px;
+  padding: 4px 12px;
+  border-radius: var(--radio-pill);
+  background: var(--verde);
+  color: var(--crema);
+  font-size: 0.66rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.plan__etiqueta {
+  color: var(--verde);
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.plan h3 {
+  font-size: clamp(1.5rem, 2.4vw, 2rem);
+}
+
+.plan__latas {
+  color: var(--secundario);
+  font-size: 0.82rem;
+}
+
+.plan__precio {
+  display: flex;
+  align-items: baseline;
+  gap: 6px;
+  margin-top: 8px;
+}
+
+.plan__precio strong {
+  font-family: var(--fuente-titulo);
+  font-size: clamp(2rem, 3.2vw, 2.6rem);
+  line-height: 1;
+}
+
+.plan__precio span {
+  color: var(--secundario);
+  font-size: 0.8rem;
+}
+
+.plan__porlata {
+  color: var(--secundario);
+  font-size: 0.76rem;
+}
+
+.plan__blurb {
+  min-height: 3.4em;
+  margin-block: 8px 14px;
+  color: var(--secundario);
+  font-size: 0.88rem;
+}
+
+.plan__enlace {
+  justify-self: center;
+  margin-top: 8px;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  color: var(--verde);
+  font-size: 0.78rem;
+  font-weight: 700;
+  text-decoration: underline;
+}
+
+.suscripciones__caja {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  align-items: center;
+  gap: clamp(20px, 4vw, 48px);
+  margin-top: clamp(24px, 4vw, 48px);
+  padding: clamp(20px, 3vw, 32px);
+  border: 1px solid var(--linea);
+  border-radius: var(--radio-md);
+  background: var(--superficie);
+}
+
+.suscripciones__caja img {
+  width: clamp(140px, 18vw, 220px);
+  height: auto;
+  border-radius: 12px;
+}
+
+.suscripciones__caja h3 {
+  margin-bottom: 8px;
+}
+
+.suscripciones__caja p {
+  max-width: 56ch;
+  margin-bottom: 10px;
+  color: var(--secundario);
+}
+
+/* ---------- Instagram ---------- */
+
+.instagram {
+  padding-block: var(--seccion);
+  background: rgba(255, 253, 245, 0.55);
+  scroll-margin-top: var(--header);
+}
+
+.instagram__grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1.4fr) minmax(280px, 0.6fr);
+  gap: clamp(28px, 4vw, 56px);
+  align-items: start;
+}
+
+.instagram__posts {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 10px;
+}
+
+.instagram__posts a {
+  display: block;
+  overflow: hidden;
+  border: 1px solid var(--linea);
+  border-radius: 12px;
+  color: var(--tinta);
+  text-decoration: none;
+  background: var(--superficie);
+}
+
+.instagram__posts img {
+  width: 100%;
+  aspect-ratio: 1;
+  object-fit: cover;
+  transition: transform 300ms var(--curva);
+}
+
+.instagram__posts a:hover img {
+  transform: scale(1.04);
+}
+
+.instagram__posts span {
+  display: block;
+  padding: 8px 10px 10px;
+  color: var(--secundario);
+  font-size: 0.7rem;
+  line-height: 1.3;
+}
+
+.instagram__perfil {
+  position: sticky;
+  top: calc(var(--header) + 20px);
+  display: grid;
+  gap: 14px;
+  padding: clamp(20px, 3vw, 28px);
+  border: 1px solid var(--linea);
+  border-radius: var(--radio-md);
+  background: var(--superficie);
+  box-shadow: var(--sombra);
+}
+
+.instagram__perfil-cabecera {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.instagram__perfil-cabecera img {
+  width: 56px;
+  height: 56px;
+  padding: 8px;
+  border: 1px solid var(--linea);
+  border-radius: 50%;
+}
+
+.instagram__perfil-cabecera div {
+  display: grid;
+  line-height: 1.2;
+}
+
+.instagram__perfil-cabecera strong {
+  font-size: 1rem;
+}
+
+.instagram__perfil-cabecera span {
+  color: var(--secundario);
+  font-size: 0.76rem;
+}
+
+.instagram__perfil p {
+  color: var(--secundario);
+  font-size: 0.86rem;
+}
+
+.instagram__stats {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 8px;
+  margin: 0;
+}
+
+.instagram__stats div {
+  padding: 10px;
+  border-radius: 10px;
+  background: rgba(183, 228, 199, 0.28);
+  text-align: center;
+}
+
+.instagram__stats dt {
+  color: var(--secundario);
+  font-size: 0.64rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+.instagram__stats dd {
+  margin: 2px 0 0;
+  font-size: 0.78rem;
+  font-weight: 700;
+}
+
+.instagram__linktree {
+  justify-self: center;
+  color: var(--verde);
+  font-size: 0.8rem;
+  font-weight: 700;
+}
+
+/* ---------- Cierre ---------- */
+
+.cierre {
+  padding-block: clamp(56px, 8vw, 96px);
+}
+
+.cierre__grid {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+}
+
+.cierre h2 {
+  max-width: 22ch;
+}
+
+.cierre__acciones {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+/* ---------- Responsive ---------- */
+
+@media (max-width: 960px) {
+  .hero__grid {
+    grid-template-columns: 1fr;
+  }
+
+  .hero__escena {
+    order: 2;
+    height: clamp(340px, 62vw, 460px);
+  }
+
+  .hero__texto {
+    order: 1;
+  }
+
+  .sabor-seccion__grid {
+    grid-template-columns: 1fr;
+  }
+
+  .sabor-seccion__modelo {
+    height: clamp(320px, 58vw, 440px);
+    order: 2;
+  }
+
+  .sabor-seccion__texto {
+    order: 1;
+  }
+
+  .suscripciones__grid {
+    grid-template-columns: 1fr;
+    max-width: 520px;
+    margin-inline: auto;
+  }
+
+  .instagram__grid {
+    grid-template-columns: 1fr;
+  }
+
+  .instagram__perfil {
+    position: static;
+  }
+}
+
+@media (max-width: 640px) {
+  .hero {
+    min-height: auto;
+    padding-top: 24px;
+  }
+
+  .hero__lema {
+    font-size: clamp(2.8rem, 14vw, 4rem);
+  }
+
+  .hero__acciones .btn {
+    flex: 1;
+  }
+
+  .sabor-seccion__datos {
+    grid-template-columns: 1fr;
+  }
+
+  .suscripciones__caja {
+    grid-template-columns: 1fr;
+  }
+
+  .suscripciones__caja img {
+    justify-self: center;
+  }
+
+  .instagram__posts {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .cierre__acciones {
+    width: 100%;
+  }
+
+  .cierre__acciones .btn {
+    flex: 1;
+  }
+}

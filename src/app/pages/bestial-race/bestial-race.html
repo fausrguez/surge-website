@@ -1,0 +1,188 @@
+<main class="bestial">
+  <section class="bestial-hero banda-verde" aria-labelledby="bestial-titulo">
+    <div class="contenedor bestial-hero__grid">
+      <div class="bestial-hero__texto">
+        <p class="kicker">SURGE × Bestial Race · Canarias</p>
+        <h1 id="bestial-titulo">La energía también se corre.</h1>
+        <p class="lead">
+          Bestial Race es barro, obstáculos y gente que no se queda en el sofá. SURGE estará en la
+          edición de 2027 con energía natural para antes, durante y después.
+        </p>
+        <div class="bestial-hero__fecha">
+          <span>Junio–julio 2027</span>
+          <small>Fecha exacta por confirmar</small>
+        </div>
+        <div class="fila">
+          <a class="btn btn--claro" href="#avisos">Quiero que me avisen</a>
+          <a class="btn btn--fantasma" [href]="socials.bestialWeb" target="_blank" rel="noopener noreferrer">
+            Ver la Bestial Race
+          </a>
+        </div>
+      </div>
+
+      <figure class="bestial-hero__imagen">
+        <img
+          src="assets/img/inicial.webp"
+          alt="Las tres latas de SURGE sobre piedra clara"
+          width="1376"
+          height="768"
+        />
+        <figcaption>Flama, Mentisimo y Cocus. Tres momentos, también en carrera.</figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <section class="seccion" aria-labelledby="que-es-titulo">
+    <div class="contenedor bestial-grid">
+      <div class="bestial-texto">
+        <p class="kicker">Qué es</p>
+        <h2 id="que-es-titulo">Una carrera de obstáculos, no una carrera de fondo.</h2>
+        <p>
+          La Bestial Race es la serie OCR de referencia en Canarias. Combina distancia, barro,
+          obstáculos y pruebas de fuerza en un recorrido diseñado para poner a prueba el cuerpo y la
+          cabeza. Hay modalidades competitivas y otras pensadas para disfrutar.
+        </p>
+        <ul class="chips">
+          <li class="chip">OCR</li>
+          <li class="chip">Canarias</li>
+          <li class="chip">Desde 2014</li>
+          <li class="chip">Varias islas</li>
+        </ul>
+        <a class="enlace" [href]="socials.bestialWeb + '/bestial-race-series/'" target="_blank" rel="noopener noreferrer">
+          Conocer las modalidades →
+        </a>
+      </div>
+
+      <aside class="bestial-datos tarjeta">
+        <h3>La carrera en datos</h3>
+        <dl>
+          <div><dt>Formato</dt><dd>OCR · obstáculos</dd></div>
+          <div><dt>Islas</dt><dd>Canarias</dd></div>
+          <div><dt>Edición</dt><dd>2027</dd></div>
+          <div><dt>Fecha</dt><dd>Junio–julio · por confirmar</dd></div>
+        </dl>
+      </aside>
+    </div>
+  </section>
+
+  <section class="bestial-surge" aria-labelledby="surge-titulo">
+    <div class="contenedor">
+      <div class="seccion__cabecera">
+        <p class="kicker">SURGE en la carrera</p>
+        <h2 id="surge-titulo">Energía que sube desde dentro.</h2>
+        <p class="lead">
+          No vamos a prometerte que el barro pesa menos. Vamos a estar allí con bebidas de
+          ingredientes reales, sin azúcar añadido en Flama y Cocus, y con cafeína de té y guaraná.
+          Para el calentamiento, la carrera y la vuelta a casa.
+        </p>
+      </div>
+
+      <div class="bestial-sabores">
+        @for (flavor of flavors; track flavor.id) {
+          <article class="bestial-sabor" [style.--sabor]="flavor.color" [style.--tinte]="flavor.tint">
+            <span>{{ flavor.moment }}</span>
+            <h3>{{ flavor.name }}</h3>
+            <p>{{ flavor.ingredients }}</p>
+            <strong>{{ flavor.caffeine }} de cafeína</strong>
+          </article>
+        }
+      </div>
+
+      <p class="bestial-aviso">
+        Contenido elevado de cafeína. No recomendado para niños ni para mujeres embarazadas o en
+        período de lactancia.
+      </p>
+    </div>
+  </section>
+
+  <section class="seccion" aria-labelledby="preparacion-titulo">
+    <div class="contenedor bestial-grid">
+      <div class="bestial-texto">
+        <p class="kicker">Preparación</p>
+        <h2 id="preparacion-titulo">Llega con tiempo. Llega con ganas.</h2>
+        <ol class="bestial-lista">
+          <li>Calzado con agarre y ropa que puedas manchar.</li>
+          <li>Agua y una lata para después.</li>
+          <li>Cambio de ropa y bolsa para el barro.</li>
+          <li>Respeta tu ritmo: la carrera es larga y el cuerpo manda.</li>
+        </ol>
+        <a class="enlace" [href]="socials.bestialWeb + '/documentacion/'" target="_blank" rel="noopener noreferrer">
+          Consejos oficiales de la carrera →
+        </a>
+      </div>
+
+      <figure class="bestial-foto">
+        <img
+          src="assets/img/caja-pack.webp"
+          alt="Caja Variety Pack de SURGE con seis latas"
+          width="928"
+          height="1152"
+          loading="lazy"
+        />
+        <figcaption>La caja que se viene contigo.</figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <section class="bestial-avisos" id="avisos" aria-labelledby="avisos-titulo">
+    <div class="contenedor bestial-avisos__grid">
+      <div>
+        <p class="kicker">Fecha y avisos</p>
+        <h2 id="avisos-titulo">Junio–julio de 2027.</h2>
+        <p class="lead">
+          La organización todavía no ha publicado la fecha exacta. Déjanos tu email y te avisamos
+          cuando se abran inscripciones, cuando salga el recorrido y cuando anunciemos nuestra
+          presencia.
+        </p>
+        <a class="enlace" [href]="socials.bestialInstagram" target="_blank" rel="noopener noreferrer">
+          Seguir a Bestial Race en Instagram →
+        </a>
+      </div>
+
+      <div class="tarjeta bestial-form">
+        @if (submitted()) {
+          <div role="status" class="bestial-form__ok">
+            <strong>Apuntado.</strong>
+            <p>Te escribiremos cuando haya fecha, recorrido e inscripciones.</p>
+            <p class="bestial-form__demo">Modo demostración: no se guarda ningún dato todavía.</p>
+          </div>
+        } @else {
+          <h3>Avísame</h3>
+          <form [formGroup]="form" (ngSubmit)="subscribe()" novalidate>
+            <div class="campo">
+              <label for="bestial-email">Email</label>
+              <input
+                id="bestial-email"
+                type="email"
+                formControlName="email"
+                autocomplete="email"
+                [attr.aria-invalid]="form.controls.email.invalid && form.controls.email.touched"
+              />
+              @if (form.controls.email.invalid && form.controls.email.touched) {
+                <p class="campo__error">Revisa tu email.</p>
+              }
+            </div>
+            <label class="check">
+              <input type="checkbox" formControlName="privacidad" />
+              <span>He leído y acepto la <a routerLink="/legal/privacidad">política de privacidad</a>.</span>
+            </label>
+            @if (sendError()) {
+              <p class="campo__error">Revisa el email y acepta la privacidad.</p>
+            }
+            <button type="submit" class="btn btn--ancho">Avísame</button>
+          </form>
+        }
+      </div>
+    </div>
+  </section>
+
+  <section class="bestial-cierre banda-verde">
+    <div class="contenedor bestial-cierre__grid">
+      <h2>Monta tu pack para el día de la carrera.</h2>
+      <div class="fila">
+        <button type="button" class="btn btn--claro" (click)="openPacks()">Crea tu pack</button>
+        <a class="btn btn--fantasma" routerLink="/donde-comprar">Dónde comprar</a>
+      </div>
+    </div>
+  </section>
+</main>

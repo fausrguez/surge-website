@@ -1,0 +1,16 @@
+@if (visible()) {
+  <section class="cookies" aria-label="Aviso de cookies">
+    <div class="cookies__texto">
+      <strong>Cookies y almacenamiento local</strong>
+      <p>
+        Usamos almacenamiento técnico para recordar tu carrito y tus preferencias. No usamos cookies
+        de publicidad ni de analítica de terceros. Puedes leer más en la
+        <a routerLink="/legal/cookies">política de cookies</a>.
+      </p>
+    </div>
+    <div class="cookies__acciones">
+      <button type="button" class="btn btn--pequeno" (click)="decide('all')">Aceptar</button>
+      <button type="button" class="btn btn--pequeno btn--secundario" (click)="decide('necessary')">Solo necesarias</button>
+    </div>
+  </section>
+}

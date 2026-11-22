@@ -1,0 +1,13 @@
+{
+  "name": "SURGE — Energy from the earth",
+  "short_name": "SURGE",
+  "description": "Bebida energética natural nacida en Canarias.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#FEFAE0",
+  "theme_color": "#2D6A4F",
+  "icons": [
+    { "src": "icon-512.png", "sizes": "512x512", "type": "image/png" },
+    { "src": "apple-touch-icon.png", "sizes": "180x180", "type": "image/png" }
+  ]
+}

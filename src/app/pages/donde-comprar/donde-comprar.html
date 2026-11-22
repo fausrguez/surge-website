@@ -1,0 +1,155 @@
+<main class="comprar">
+  <section class="comprar-hero" aria-labelledby="comprar-titulo">
+    <div class="contenedor comprar-hero__grid">
+      <div>
+        <p class="kicker">Canarias · Venta online y puntos seleccionados</p>
+        <h1 id="comprar-titulo">Dónde comprar</h1>
+        <p class="lead">
+          SURGE se vende online y en puntos seleccionados de Canarias. Si todavía no estamos en tu
+          tienda, pídenos y la buscamos contigo.
+        </p>
+        <div class="fila">
+          <button type="button" class="btn" (click)="openPacks()">Crea tu pack</button>
+          <a class="btn btn--secundario" href="#tiendas">Habla con nosotros</a>
+        </div>
+      </div>
+
+      <div class="comprar-hero__resumen">
+        <div><span>Envío</span><strong>4,00 €</strong></div>
+        <div><span>Gratis desde</span><strong>39,95 €</strong></div>
+        <div><span>Entrega en Canarias</span><strong>24–72 h</strong></div>
+        <p>Precios con IGIC incluido.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="seccion" aria-labelledby="online-titulo">
+    <div class="contenedor comprar-grid">
+      <div class="comprar-texto">
+        <p class="kicker">01 — Online</p>
+        <h2 id="online-titulo">Online, sin salir de casa.</h2>
+        <p>
+          Packs de 6, 12 y 24 latas, con envío a toda España. En Canarias, entrega en 24–72 h
+          laborables. Tú eliges el reparto entre Flama, Mentisimo y Cocus.
+        </p>
+        <div class="fila">
+          <button type="button" class="btn" (click)="openPacks()">Elegir pack</button>
+          <a class="btn btn--secundario" routerLink="/sobre-nosotros#hablemos">¿Tienes una duda?</a>
+        </div>
+        <p class="comprar-nota">
+          Pago pendiente de conectar: la web funciona en modo demostración y no realiza cobros.
+        </p>
+      </div>
+
+      <figure class="comprar-foto">
+        <img
+          src="assets/img/caja-pack.webp"
+          alt="Caja Variety Pack de SURGE con seis latas"
+          width="928"
+          height="1152"
+          loading="lazy"
+        />
+        <figcaption>La caja llega con seis latas: dos de cada sabor.</figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <section class="comprar-tiendas" id="tiendas" aria-labelledby="tiendas-titulo">
+    <div class="contenedor">
+      <div class="seccion__cabecera">
+        <p class="kicker">02 — En tienda</p>
+        <h2 id="tiendas-titulo">En tienda, cuando toca.</h2>
+        <p class="lead">
+          Estamos cerrando los primeros puntos en Gran Canaria: gimnasios, cafeterías, tiendas de
+          productos naturales y comercio de barrio.
+        </p>
+      </div>
+
+      <div class="comprar-canales">
+        <article class="canal">
+          <span class="canal__icono" aria-hidden="true">01</span>
+          <h3>Gimnasios y boxes</h3>
+          <p>Nevera y lineal para antes o después del entrenamiento.</p>
+        </article>
+        <article class="canal">
+          <span class="canal__icono" aria-hidden="true">02</span>
+          <h3>Cafeterías</h3>
+          <p>La lata fría junto al café, sin competir con él.</p>
+        </article>
+        <article class="canal">
+          <span class="canal__icono" aria-hidden="true">03</span>
+          <h3>Tiendas naturales</h3>
+          <p>Ingredientes reales y composición clara en el lineal.</p>
+        </article>
+        <article class="canal">
+          <span class="canal__icono" aria-hidden="true">04</span>
+          <h3>Supermercados locales</h3>
+          <p>Puntos de barrio y compra de proximidad.</p>
+        </article>
+        <article class="canal">
+          <span class="canal__icono" aria-hidden="true">05</span>
+          <h3>Eventos deportivos</h3>
+          <p>Carreras, ferias y activaciones al aire libre.</p>
+        </article>
+      </div>
+
+      <div class="comprar-vacio">
+        <p>
+          <strong>Todavía no hay puntos publicados.</strong> Si quieres que SURGE esté en tu tienda,
+          escríbenos y lo vemos.
+        </p>
+        <a class="btn" routerLink="/sobre-nosotros" [queryParams]="{ asunto: 'tienda' }" fragment="hablemos">
+          Quiero vender SURGE
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <section class="comprar-mapa" aria-labelledby="mapa-titulo">
+    <div class="contenedor comprar-mapa__grid">
+      <div>
+        <p class="kicker">03 — Mapa</p>
+        <h2 id="mapa-titulo">El mapa está en construcción.</h2>
+        <p class="lead">
+          Cuando haya puntos firmados, aquí verás cada tienda con su dirección, horario y tipo de
+          canal. No vamos a rellenar el mapa con chinchetas que no existen.
+        </p>
+        <a class="enlace" routerLink="/sobre-nosotros" [queryParams]="{ asunto: 'tienda' }" fragment="hablemos">
+          Proponer un punto de venta →
+        </a>
+      </div>
+
+      <div class="mapa" role="img" aria-label="Ilustración del archipiélago canario con la etiqueta mapa de puntos en construcción">
+        <svg viewBox="0 0 560 320" aria-hidden="true">
+          <path class="isla" d="M60 90c18-14 46-10 58 6s4 40-16 48-46 2-52-16 0-28 10-38Z" />
+          <path class="isla" d="M132 46c12-10 30-6 38 6s2 28-12 34-30 0-34-12 2-20 8-28Z" />
+          <path class="isla" d="M196 78c18-12 44-4 50 14s-8 38-28 42-40-6-40-22 8-26 18-34Z" />
+          <path class="isla" d="M268 104c14-8 34-2 38 12s-8 28-24 30-30-6-30-18 6-18 16-24Z" />
+          <path class="isla" d="M330 130c16-10 40-2 44 14s-10 32-28 34-34-8-32-22 6-20 16-26Z" />
+          <path class="isla" d="M404 156c12-8 30-2 32 10s-8 24-22 24-24-8-22-18 4-12 12-16Z" />
+          <path class="isla" d="M468 186c10-6 24-2 26 8s-6 20-18 20-20-6-18-16 4-8 10-12Z" />
+          <path class="ruta" d="M60 110c60-20 120 40 190 30s120-40 200-20" />
+        </svg>
+        <span>Mapa de puntos en construcción</span>
+      </div>
+    </div>
+  </section>
+
+  <section class="comprar-cierre banda-verde">
+    <div class="contenedor comprar-cierre__grid">
+      <div>
+        <p class="kicker">¿Tienes una tienda o un gimnasio?</p>
+        <h2>Cuéntanos dónde estás.</h2>
+        <p class="lead">
+          Estudiamos cada punto y te respondemos con condiciones, pedido mínimo y plazo.
+        </p>
+      </div>
+      <div class="fila">
+        <a class="btn btn--claro" routerLink="/sobre-nosotros" [queryParams]="{ asunto: 'tienda' }" fragment="hablemos">
+          Quiero vender SURGE
+        </a>
+        <a class="btn btn--fantasma" [href]="'mailto:' + email">{{ email }}</a>
+      </div>
+    </div>
+  </section>
+</main>

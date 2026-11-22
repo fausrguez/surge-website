@@ -1,0 +1,189 @@
+.drawer__cabecera {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 20px 20px 16px;
+  border-bottom: 1px solid var(--linea);
+}
+
+.drawer__cabecera h2 {
+  font-size: 1.35rem;
+}
+
+.drawer__cerrar {
+  display: grid;
+  place-items: center;
+  width: 40px;
+  height: 40px;
+  border: 1px solid var(--linea);
+  border-radius: 50%;
+  background: transparent;
+  color: var(--tierra);
+}
+
+.drawer__cerrar:hover {
+  background: var(--lima);
+}
+
+.drawer__vacio {
+  display: grid;
+  place-items: center;
+  gap: 18px;
+  padding: 48px 24px;
+  text-align: center;
+}
+
+.drawer__vacio img {
+  width: 150px;
+  height: auto;
+  border-radius: var(--radio-md);
+}
+
+.drawer__envio {
+  padding: 16px 20px;
+  border-bottom: 1px solid var(--linea);
+}
+
+.drawer__envio-texto {
+  margin-bottom: 8px;
+  font-size: 0.82rem;
+  font-weight: 600;
+  color: var(--verde);
+}
+
+.drawer__barra {
+  height: 6px;
+  overflow: hidden;
+  border-radius: var(--radio-pill);
+  background: rgba(45, 106, 79, 0.14);
+}
+
+.drawer__barra span {
+  display: block;
+  height: 100%;
+  max-width: 100%;
+  border-radius: inherit;
+  background: var(--verde);
+  transition: width 300ms var(--curva);
+}
+
+.drawer__lineas {
+  flex: 1;
+  overflow-y: auto;
+  padding: 8px 20px;
+}
+
+.linea {
+  padding: 16px 0;
+  border-bottom: 1px solid var(--linea);
+}
+
+.linea__cabecera {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  font-size: 0.92rem;
+}
+
+.linea__cabecera > div {
+  display: grid;
+  gap: 2px;
+}
+
+.linea__modo {
+  color: var(--secundario);
+  font-size: 0.76rem;
+}
+
+.linea__precio {
+  white-space: nowrap;
+}
+
+.linea__desglose {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 4px 8px;
+  margin-top: 8px;
+  color: var(--secundario);
+  font-size: 0.78rem;
+}
+
+.punto {
+  display: inline-block;
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+}
+
+.linea__acciones {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 10px;
+}
+
+.linea__cantidad select {
+  min-height: 36px;
+  padding: 4px 10px;
+  border: 1px solid var(--linea);
+  border-radius: 8px;
+  background: var(--blanco);
+}
+
+.linea__eliminar {
+  border: 0;
+  background: transparent;
+  color: #8c2a1a;
+  font-size: 0.78rem;
+  font-weight: 700;
+  text-decoration: underline;
+}
+
+.drawer__pie {
+  padding: 16px 20px 24px;
+  border-top: 1px solid var(--linea);
+  background: var(--superficie);
+}
+
+.drawer__resumen {
+  display: grid;
+  gap: 6px;
+  margin: 0 0 6px;
+  font-size: 0.9rem;
+}
+
+.drawer__resumen > div {
+  display: flex;
+  justify-content: space-between;
+  gap: 16px;
+}
+
+.drawer__resumen dt,
+.drawer__resumen dd {
+  margin: 0;
+}
+
+.drawer__total {
+  margin-top: 6px;
+  padding-top: 8px;
+  border-top: 1px solid var(--linea);
+  font-size: 1.05rem;
+  font-weight: 700;
+}
+
+.drawer__impuestos,
+.drawer__demo {
+  color: var(--secundario);
+  font-size: 0.74rem;
+}
+
+.drawer__impuestos {
+  margin-bottom: 12px;
+}
+
+.drawer__demo {
+  margin-top: 8px;
+  text-align: center;
+}

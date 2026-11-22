@@ -1,0 +1,259 @@
+<main class="home">
+  <section class="hero" id="inicio" aria-labelledby="hero-titulo">
+    <div class="contenedor hero__grid">
+      <div class="hero__escena" aria-label="Modelos 3D de las tres latas">
+        <button type="button" class="modelo modelo--mentisimo" (click)="go('mentisimo')" aria-label="Ver Mentisimo">
+          <model-viewer
+            src="assets/models/mentisimo.glb"
+            alt="Lata Mentisimo de SURGE"
+            poster="assets/img/lata-mentisimo.webp"
+            interaction-prompt="none"
+            disable-zoom
+            shadow-intensity="0.5"
+            exposure="1.05"
+            camera-orbit="40deg 75deg 1m"
+            environment-image="neutral"
+          ></model-viewer>
+        </button>
+        <button type="button" class="modelo modelo--cocus" (click)="go('cocus')" aria-label="Ver Cocus">
+          <model-viewer
+            src="assets/models/cocus.glb"
+            alt="Lata Cocus de SURGE"
+            poster="assets/img/lata-cocus.webp"
+            interaction-prompt="none"
+            disable-zoom
+            shadow-intensity="0.5"
+            exposure="1.05"
+            camera-orbit="40deg 75deg 1m"
+            environment-image="neutral"
+          ></model-viewer>
+        </button>
+        <button type="button" class="modelo modelo--flama" (click)="go('flama')" aria-label="Ver Flama">
+          <model-viewer
+            src="assets/models/flama.glb"
+            alt="Lata Flama de SURGE"
+            poster="assets/img/lata-flama.webp"
+            interaction-prompt="none"
+            disable-zoom
+            shadow-intensity="0.6"
+            exposure="1.05"
+            camera-orbit="40deg 75deg 1m"
+            environment-image="neutral"
+          ></model-viewer>
+        </button>
+        <span class="hero__sombra" aria-hidden="true"></span>
+      </div>
+
+      <div class="hero__texto">
+        <p class="kicker">Energy from the earth · Canarias</p>
+        <h1 id="hero-titulo" class="hero__lema">
+          <span>+ Natural</span>
+          <span>− Agresivo</span>
+        </h1>
+        <p class="lead">
+          Bebidas energéticas de ingredientes reales, nacidas en Canarias. Cafeína de té y guaraná.
+          Sin el golpe de siempre.
+        </p>
+        <div class="hero__acciones">
+          <button type="button" class="btn" (click)="choosePack(12)">Crea tu pack</button>
+          <a class="btn btn--secundario" routerLink="/donde-comprar">Dónde comprar</a>
+        </div>
+        <ul class="chips hero__chips" aria-label="Características del producto">
+          <li class="chip">330 ml</li>
+          <li class="chip">Sin aditivos artificiales</li>
+          <li class="chip">Vegano</li>
+          <li class="chip">Cartón FSC</li>
+        </ul>
+        <button type="button" class="hero__scroll" (click)="go('sabores')">
+          <span aria-hidden="true">↓</span> Tres sabores, tres momentos
+        </button>
+      </div>
+    </div>
+  </section>
+
+  <section class="sabores-intro" id="sabores" aria-labelledby="sabores-titulo">
+    <div class="contenedor centrado">
+      <p class="kicker">La familia</p>
+      <h2 id="sabores-titulo">Tres latas. Tres momentos.</h2>
+      <p class="lead">
+        No son tres sabores del mismo producto. Son tres formas de acompañar el día: el empujón,
+        el foco y la pausa.
+      </p>
+    </div>
+  </section>
+
+  @for (flavor of flavors; track flavor.id) {
+    <section
+      class="sabor-seccion"
+      [id]="flavor.id"
+      [style.--sabor]="flavor.color"
+      [style.--tinte]="flavor.tint"
+      [style.--texto-sabor]="flavor.textColor"
+      [attr.aria-labelledby]="'titulo-' + flavor.id"
+    >
+      <app-flavor-pattern [kind]="flavor.pattern" />
+      <div class="contenedor sabor-seccion__grid">
+        <div class="sabor-seccion__modelo">
+          <model-viewer
+            [src]="flavor.model"
+            [alt]="'Lata ' + flavor.name + ' de SURGE'"
+            [poster]="flavor.image"
+            camera-controls
+            interaction-prompt="none"
+            shadow-intensity="0.7"
+            exposure="1.05"
+            camera-orbit="40deg 75deg 1m"
+            environment-image="neutral"
+            loading="lazy"
+          ></model-viewer>
+        </div>
+
+        <div class="sabor-seccion__texto">
+          <p class="kicker sabor-seccion__momento">{{ flavor.moment }}</p>
+          <h2 [id]="'titulo-' + flavor.id">{{ flavor.name }}</h2>
+          <p class="sabor-seccion__slogan">{{ flavor.slogan }}</p>
+          <p class="lead">{{ flavor.description }}</p>
+
+          <ul class="sabor-seccion__datos">
+            <li>
+              <span>Cafeína</span>
+              <strong>{{ flavor.caffeine }}</strong>
+            </li>
+            <li>
+              <span>Azúcar</span>
+              <strong>{{ flavor.sugar }}</strong>
+            </li>
+            <li>
+              <span>Temperatura</span>
+              <strong>{{ flavor.temperature }}</strong>
+            </li>
+          </ul>
+
+          <p class="sabor-seccion__ingredientes">
+            <span class="chip chip--color" [style.background]="flavor.tint" [style.color]="flavor.textColor">
+              {{ flavor.ingredients }}
+            </span>
+          </p>
+
+          <div class="fila">
+            <button type="button" class="btn" (click)="choosePack(12)">Crea tu pack</button>
+            <a class="btn btn--secundario" routerLink="/donde-comprar">Dónde comprar</a>
+          </div>
+        </div>
+      </div>
+    </section>
+  }
+
+  <section class="suscripciones" id="suscripciones" aria-labelledby="suscripciones-titulo">
+    <div class="contenedor">
+      <div class="seccion__cabecera">
+        <p class="kicker">Packs y suscripción</p>
+        <h2 id="suscripciones-titulo">Elige cómo quieres llenar la nevera.</h2>
+        <p class="lead">
+          Desde una caja para probar hasta la Rutina mensual. Precios con IGIC incluido y envío
+          gratis desde 39,95 €.
+        </p>
+      </div>
+
+      <div class="suscripciones__grid">
+        @for (size of sizes; track size) {
+          <article class="plan" [class.plan--destacado]="size === 24">
+            @if (size === 24) {
+              <span class="plan__cinta">Suscripción</span>
+            }
+            <p class="plan__etiqueta">{{ packs[size].tag }}</p>
+            <h3>{{ packs[size].name }}</h3>
+            <p class="plan__latas">{{ size }} latas · 330 ml</p>
+            <p class="plan__precio">
+              <strong>{{ formatPrice(packs[size].price) }}</strong>
+              @if (size === 24) {
+                <span>/ mes</span>
+              }
+            </p>
+            <p class="plan__porlata">{{ formatPrice(packs[size].pricePerCan) }} por lata</p>
+            <p class="plan__blurb">{{ packs[size].blurb }}</p>
+            <button type="button" class="btn btn--ancho" (click)="choosePack(size)">
+              {{ size === 24 ? 'Elegir Rutina' : 'Elegir pack' }}
+            </button>
+            @if (size === 24) {
+              <button type="button" class="plan__enlace" (click)="ui.openSubscription()">
+                Cómo funciona la suscripción
+              </button>
+            }
+          </article>
+        }
+      </div>
+
+      <div class="suscripciones__caja">
+        <img src="assets/img/caja-pack.webp" alt="Caja Variety Pack de SURGE con seis latas" width="220" height="270" loading="lazy" />
+        <div>
+          <h3>La caja también cuenta.</h3>
+          <p>
+            Cartón FSC, sin retráctil ni film. Aluminio reciclable. Menos envoltorio, más producto.
+          </p>
+          <a class="enlace" routerLink="/sobre-nosotros#compromiso">Nuestro compromiso →</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="instagram" id="instagram" aria-labelledby="instagram-titulo">
+    <div class="contenedor instagram__grid">
+      <div>
+        <div class="seccion__cabecera">
+          <p class="kicker">@surge.es</p>
+          <h2 id="instagram-titulo">Lo último en Instagram.</h2>
+          <p class="lead">Producto, ingredientes y gente que se mueve. Sin filtros de más.</p>
+        </div>
+
+        <ul class="instagram__posts">
+          @for (post of posts; track post.image) {
+            <li>
+              <a [href]="socials.instagram" target="_blank" rel="noopener noreferrer">
+                <img [src]="post.image" [alt]="post.alt" width="300" height="300" loading="lazy" />
+                <span>{{ post.caption }}</span>
+              </a>
+            </li>
+          }
+        </ul>
+      </div>
+
+      <aside class="instagram__perfil" aria-label="Perfil de Instagram de SURGE">
+        <div class="instagram__perfil-cabecera">
+          <img src="assets/logo.svg" alt="" width="56" height="56" />
+          <div>
+            <strong>surge.es</strong>
+            <span>Energy from the earth</span>
+          </div>
+        </div>
+        <p>
+          Bebida energética natural de Canarias. Flama, Mentisimo y Cocus. Ingredientes reales,
+          cafeína de té y guaraná.
+        </p>
+        <dl class="instagram__stats">
+          <div><dt>Feed</dt><dd>Producto y comunidad</dd></div>
+          <div><dt>Dónde</dt><dd>Canarias</dd></div>
+        </dl>
+        <a class="btn btn--ancho" [href]="socials.instagram" target="_blank" rel="noopener noreferrer">
+          Seguir en Instagram
+        </a>
+        <a class="instagram__linktree" [href]="socials.linktree" target="_blank" rel="noopener noreferrer">
+          linktr.ee/surge.es
+        </a>
+      </aside>
+    </div>
+  </section>
+
+  <section class="cierre banda-verde" aria-labelledby="cierre-titulo">
+    <div class="contenedor cierre__grid">
+      <div>
+        <p class="kicker">El siguiente paso</p>
+        <h2 id="cierre-titulo">Monta tu pack. Nosotros ponemos la energía.</h2>
+      </div>
+      <div class="cierre__acciones">
+        <button type="button" class="btn btn--claro" (click)="choosePack(6)">Crea tu pack</button>
+        <a class="btn btn--fantasma" routerLink="/donde-comprar">Dónde comprar</a>
+      </div>
+    </div>
+  </section>
+</main>

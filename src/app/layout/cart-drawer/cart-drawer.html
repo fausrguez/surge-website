@@ -1,0 +1,76 @@
+@if (ui.cartOpen()) {
+  <div class="overlay" (click)="close()" aria-hidden="true"></div>
+  <aside class="drawer" role="dialog" aria-modal="true" aria-labelledby="carrito-titulo">
+    <header class="drawer__cabecera">
+      <h2 id="carrito-titulo">Tu carrito ({{ cart.count() }})</h2>
+      <button #closeButton type="button" class="drawer__cerrar" (click)="close()" aria-label="Cerrar carrito">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+          <path d="M6 6l12 12M18 6L6 18" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" />
+        </svg>
+      </button>
+    </header>
+
+    @if (cart.lines().length === 0) {
+      <div class="drawer__vacio">
+        <img src="assets/img/caja-pack.webp" alt="" width="180" height="220" />
+        <p><strong>Tu carrito está vacío.</strong><br />Monta tu primer pack.</p>
+        <button type="button" class="btn" (click)="close(); ui.openPack(6)">Montar mi pack</button>
+      </div>
+    } @else {
+      <div class="drawer__envio">
+        @if (cart.shipping() === 0) {
+          <p class="drawer__envio-texto">¡Envío gratis conseguido!</p>
+        } @else {
+          <p class="drawer__envio-texto">Te faltan {{ formatPrice(cart.missingForFreeShipping()) }} para el envío gratis.</p>
+        }
+        <div class="drawer__barra" aria-hidden="true">
+          <span [style.width.%]="(cart.subtotal() / shipping.freeFrom) * 100"></span>
+        </div>
+      </div>
+
+      <ul class="drawer__lineas">
+        @for (line of cart.lines(); track line.id) {
+          <li class="linea">
+            <div class="linea__cabecera">
+              <div>
+                <strong>Pack {{ line.size }} · {{ line.size === 6 ? 'Starter' : line.size === 12 ? 'Equilibrio' : 'Rutina' }}</strong>
+                <span class="linea__modo">{{ modeLabel(line) }}</span>
+              </div>
+              <strong class="linea__precio">{{ formatPrice(line.unitPrice * line.quantity) }}</strong>
+            </div>
+
+            <p class="linea__desglose">
+              @for (item of breakdown(line); track item.name) {
+                <span class="punto" [style.background]="item.color" aria-hidden="true"></span>
+                {{ item.qty }} × {{ item.name }}
+              }
+            </p>
+
+            <div class="linea__acciones">
+              <label class="linea__cantidad">
+                <span class="sr-only">Cantidad de packs</span>
+                <select (change)="setQuantity(line, $any($event.target).value)">
+                  @for (n of [1,2,3,4,5,6,7,8,9]; track n) {
+                    <option [value]="n" [selected]="n === line.quantity">{{ n }}</option>
+                  }
+                </select>
+              </label>
+              <button type="button" class="linea__eliminar" (click)="cart.remove(line.id)">Eliminar</button>
+            </div>
+          </li>
+        }
+      </ul>
+
+      <footer class="drawer__pie">
+        <dl class="drawer__resumen">
+          <div><dt>Subtotal</dt><dd>{{ formatPrice(cart.subtotal()) }}</dd></div>
+          <div><dt>Envío</dt><dd>{{ cart.shipping() === 0 ? 'Gratis' : formatPrice(cart.shipping()) }}</dd></div>
+          <div class="drawer__total"><dt>Total</dt><dd>{{ formatPrice(cart.total()) }}</dd></div>
+        </dl>
+        <p class="drawer__impuestos">IGIC incluido.</p>
+        <button type="button" class="btn btn--ancho" (click)="checkout()">Finalizar compra</button>
+        <p class="drawer__demo">Modo demostración: no se realizará ningún cobro.</p>
+      </footer>
+    }
+  </aside>
+}

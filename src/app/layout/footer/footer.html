@@ -1,0 +1,45 @@
+<footer class="footer">
+  <div class="contenedor footer__grid">
+    <div class="footer__marca">
+      <a routerLink="/" class="footer__logo" aria-label="SURGE, inicio">
+        <img src="assets/logo.svg" alt="" width="44" height="44" />
+        <span>
+          <strong>SURGE</strong>
+          <small>Energy from the earth.</small>
+        </span>
+      </a>
+      <p class="footer__claim">+ Natural − Agresivo.<br />Bebida energética de ingredientes reales, nacida en Canarias.</p>
+      <div class="footer__redes">
+        <a [href]="socials.instagram" target="_blank" rel="noopener noreferrer">Instagram</a>
+        <a [href]="socials.linktree" target="_blank" rel="noopener noreferrer">Linktree</a>
+      </div>
+    </div>
+
+    <nav class="footer__col" aria-label="Pie de página">
+      <h2 class="footer__titulo">Explorar</h2>
+      <a routerLink="/">Inicio</a>
+      <a routerLink="/bestial-race">Bestial Race</a>
+      <a routerLink="/sobre-nosotros">Sobre nosotros</a>
+      <a routerLink="/donde-comprar">Dónde comprar</a>
+    </nav>
+
+    <div class="footer__col">
+      <h2 class="footer__titulo">Contacto</h2>
+      <a [href]="'mailto:' + email">{{ email }}</a>
+      <p>Las Palmas de Gran Canaria<br />Canarias, España</p>
+      <p class="footer__pequeno">Venta online y puntos seleccionados.</p>
+    </div>
+
+    <div class="footer__col">
+      <h2 class="footer__titulo">Legal</h2>
+      <a routerLink="/legal/privacidad">Privacidad</a>
+      <a routerLink="/legal/aviso-legal">Aviso legal</a>
+      <a routerLink="/legal/cookies">Cookies</a>
+    </div>
+  </div>
+
+  <div class="contenedor footer__legal">
+    <p class="footer__aviso">{{ warning }}</p>
+    <p class="footer__copy">© {{ year }} SURGE · Marca canaria · Precios con IGIC incluido. Consumir con moderación.</p>
+  </div>
+</footer>

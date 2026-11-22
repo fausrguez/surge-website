@@ -1,0 +1,36 @@
+<main class="legal">
+  <div class="contenedor legal__contenido">
+    <p class="kicker">{{ page.kicker }}</p>
+    <h1>{{ page.title.split(' · ')[0] }}</h1>
+    <p class="lead">{{ page.intro }}</p>
+
+    <nav class="legal__nav" aria-label="Páginas legales">
+      <a routerLink="/legal/privacidad" routerLinkActive="activo">Privacidad</a>
+      <a routerLink="/legal/aviso-legal" routerLinkActive="activo">Aviso legal</a>
+      <a routerLink="/legal/cookies" routerLinkActive="activo">Cookies</a>
+    </nav>
+
+    <div class="legal__bloques">
+      @for (block of page.blocks; track block.title) {
+        <section>
+          <h2>{{ block.title }}</h2>
+          @for (paragraph of block.paragraphs; track paragraph) {
+            <p>{{ paragraph }}</p>
+          }
+          @if (block.list) {
+            <ul>
+              @for (item of block.list; track item) {
+                <li>{{ item }}</li>
+              }
+            </ul>
+          }
+        </section>
+      }
+    </div>
+
+    <p class="legal__pie">
+      Última actualización: {{ updated }}. Este texto es provisional y debe revisarse antes de
+      publicar. Para cualquier duda: <a [href]="'mailto:' + email">{{ email }}</a>.
+    </p>
+  </div>
+</main>

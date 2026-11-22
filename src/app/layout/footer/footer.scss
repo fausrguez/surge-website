@@ -1,0 +1,131 @@
+.footer {
+  position: relative;
+  z-index: 1;
+  padding-top: clamp(56px, 8vw, 96px);
+  background: var(--verde-oscuro);
+  color: var(--crema);
+}
+
+.footer__grid {
+  display: grid;
+  grid-template-columns: 1.5fr 0.8fr 1fr 0.7fr;
+  gap: clamp(28px, 5vw, 64px);
+  padding-bottom: clamp(40px, 6vw, 72px);
+}
+
+.footer__logo {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  color: var(--crema);
+  text-decoration: none;
+}
+
+.footer__logo img {
+  width: 44px;
+  height: 44px;
+  filter: brightness(0) saturate(100%) invert(97%) sepia(15%) saturate(445%) hue-rotate(4deg) brightness(104%) contrast(99%);
+}
+
+.footer__logo span {
+  display: grid;
+  line-height: 1;
+}
+
+.footer__logo strong {
+  font-family: var(--fuente-titulo);
+  font-size: 1.4rem;
+  letter-spacing: 0.14em;
+}
+
+.footer__logo small {
+  margin-top: 5px;
+  color: var(--lima);
+  font-size: 0.7rem;
+  letter-spacing: 0.06em;
+}
+
+.footer__claim {
+  margin-top: 20px;
+  max-width: 34ch;
+  color: rgba(254, 250, 224, 0.78);
+  font-size: 0.95rem;
+  line-height: 1.6;
+}
+
+.footer__redes {
+  display: flex;
+  gap: 18px;
+  margin-top: 20px;
+}
+
+.footer__redes a {
+  color: var(--lima);
+  font-size: 0.86rem;
+  font-weight: 700;
+  text-decoration: none;
+  border-bottom: 1px solid currentColor;
+}
+
+.footer__col {
+  display: grid;
+  align-content: start;
+  gap: 10px;
+  font-size: 0.9rem;
+}
+
+.footer__col a,
+.footer__col p {
+  color: rgba(254, 250, 224, 0.78);
+  text-decoration: none;
+}
+
+.footer__col a:hover {
+  color: var(--lima);
+}
+
+.footer__titulo {
+  margin-bottom: 6px;
+  color: var(--crema);
+  font-family: var(--fuente-texto);
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+}
+
+.footer__pequeno {
+  font-size: 0.8rem;
+  opacity: 0.8;
+}
+
+.footer__legal {
+  display: grid;
+  gap: 8px;
+  padding-block: 24px 32px;
+  border-top: 1px solid rgba(254, 250, 224, 0.16);
+}
+
+.footer__aviso {
+  max-width: 90ch;
+  color: rgba(254, 250, 224, 0.68);
+  font-size: 0.78rem;
+  line-height: 1.5;
+}
+
+.footer__copy {
+  color: rgba(254, 250, 224, 0.6);
+  font-size: 0.76rem;
+}
+
+@media (max-width: 900px) {
+  .footer__grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 560px) {
+  .footer__grid {
+    grid-template-columns: 1fr;
+  }
+}
