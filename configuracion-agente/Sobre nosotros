@@ -1,0 +1,329 @@
+# PROMPT — Página "Sobre nosotros" de SURGE
+
+Actúa como diseñador UX/UI senior, copywriter de marca y desarrollador front-end. Crea la página **“Sobre nosotros”** de SURGE, una bebida energética natural nacida en Canarias. Debe ser una página editorial, cálida y honesta, coherente con la página de packs, y completamente funcional en el formulario de contacto.
+
+---
+
+## 1. Objetivo
+
+Que alguien que acaba de descubrir SURGE entienda, en menos de dos minutos:
+
+- De dónde viene la marca y por qué existe.
+- Qué quiere conseguir (misión y visión).
+- En qué cree (valores).
+- Cómo puede hablar con el equipo.
+
+La página debe sentirse como una conversación, no como un dossier corporativo. Nada de “somos líderes del sector” ni de “revolucionamos la industria”.
+
+---
+
+## 2. Contexto de marca (hechos que sí podemos usar)
+
+- **Marca:** SURGE — *Energy from the earth.*
+- **Producto:** bebida energética natural en lata de 330 ml.
+- **Origen:** Canarias, concretamente Gran Canaria.
+- **Sabores:** Flama (rojo), Mentisimo (verde) y Cocus (azul).
+- **Posicionamiento:** natural, honesta, transparente, sin greenwashing. “Calma + potencia” frente a las energéticas agresivas y neón.
+- **Público:** 24–40 años, activo, consciente, urbano.
+- **Tono:** cercano, positivo, transparente y motivador. Invita a un estilo de vida activo y equilibrado.
+- **Primer paso real del proyecto:** un piloto de **3.000 latas**, **1.000 de cada sabor**, para validar la demanda antes de crecer.
+- **Canales:** venta online y puntos seleccionados de Canarias.
+- **Packaging:** aluminio reciclable, cartón FSC, sin retráctil ni film.
+- **Atributos de producto:** ingredientes reales, composición transparente, sin aditivos artificiales, vegano.
+- **Eslogan oficial:** **“Más natural, menos agresivo. Sé equilibrado”**.
+
+> No inventes premios, certificaciones, años de fundación, oficinas, teléfonos, inversores ni testimonios. Si un dato no está aquí, no lo pongas.
+
+---
+
+## 3. Estructura y jerarquía
+
+- **H1 único:** **“Sobre nosotros”**.
+- Debajo, el contenido se divide en secciones. Cada sección lleva un **H2 más pequeño que el H1**, con un kicker numerado encima.
+- Tamaños orientativos:
+  - H1: `clamp(44px, 7vw, 76px)`.
+  - H2: `clamp(26px, 3.2vw, 38px)`.
+  - Cuerpo: 17–18 px, con un máximo de 68 caracteres por línea.
+  - Kicker: 12 px, mayúsculas, tracking 2 px.
+- Orden de secciones:
+  1. Hero con H1 y presentación.
+  2. **Nuestro origen** (historia).
+  3. **Nuestra misión**.
+  4. **Nuestra visión**.
+  5. **Nuestros valores**.
+  6. **Nuestro compromiso**.
+  7. Frase-manifiesto con el eslogan.
+  8. **Hablemos** (caja de contacto con formulario).
+  9. Footer.
+- Las secciones deben respirar: 88–120 px de padding vertical en escritorio, 56–72 px en móvil.
+- Alterna fondos crema, superficies claras y una banda verde bosque para evitar monotonía, sin convertir la página en un collage.
+
+---
+
+## 4. Contenido exacto (copy propuesto)
+
+### Hero
+
+- Kicker: “ENERGY FROM THE EARTH · CANARIAS”.
+- **H1: “Sobre nosotros”.**
+- Entradilla:
+  “Somos SURGE. Nacimos en Canarias con una idea sencilla: la energía no tiene por qué ser agresiva. Queremos acompañarte con ingredientes reales, sabor honesto y un equilibrio que puedas mantener.”
+- Botones:
+  - Primario: “Descubre los packs” → `packs.html`.
+  - Secundario: “Hablemos” → `#contacto`.
+- Chips de confianza: “330 ml”, “Sin aditivos artificiales”, “Vegano”, “Cartón FSC”.
+- Imagen principal: `INICIAL.jpg` (las tres latas juntas, con la etiqueta correcta de Cocus), dentro de un marco redondeado color crema. Añade una fruta recortada asomando por una esquina, con mucha sutileza.
+
+### 01 — Nuestro origen
+
+**H2: “Nuestro origen”**
+
+Texto:
+
+> Nacimos en Gran Canaria, entre entrenamientos, cafés y conversaciones sobre lo que bebíamos para rendir. Nos gustaba la energía, pero no los nervios ni el ruido de las latas de siempre. Queríamos algo más natural, más nuestro, que pudiéramos tomarnos sin sentir que estábamos traicionando nuestros hábitos.
+>
+> Empezamos probando, mezclando y escuchando. De ahí salieron tres sabores: Flama, Mentisimo y Cocus. Después llegó el primer piloto: 3.000 latas, 1.000 de cada sabor, para aprender de la gente, medir de verdad y mejorar antes de crecer.
+>
+> No nacimos para ser la bebida más fuerte. Nacimos para ser la que mejor te sienta.
+
+- Acompaña el texto con una **línea de tiempo de tres hitos**, sin fechas inventadas:
+  1. **La idea** — “Una energía que respete tu ritmo.”
+  2. **El piloto** — “3.000 latas. 1.000 de cada sabor.”
+  3. **El lanzamiento** — “Online y en puntos seleccionados de Canarias.”
+- Usa una foto del producto o de la caja (`CAJA_PACK.jpg`) como apoyo visual, no como fondo de texto.
+- Frase destacada opcional, en tamaño medio: “La energía también puede ser tranquila.”
+
+### 02 — Nuestra misión
+
+**H2: “Nuestra misión”**
+
+> Hacer que la energía del día a día sea más natural y menos agresiva: bebidas con ingredientes reales, sabor honesto y envases responsables, para que rindas sin dejar de estar en equilibrio.
+
+- Preséntalo en una tarjeta grande, con una hoja botánica dibujada en línea y el fondo lima muy suave.
+- No lo conviertas en una lista de tres bullets: es una frase, y funciona mejor sola.
+
+### 03 — Nuestra visión
+
+**H2: “Nuestra visión”**
+
+> Ser la referencia canaria en bebidas energéticas naturales y demostrar que se puede crecer sin renunciar al sabor, a las personas ni al entorno.
+
+- Tarjeta paralela a la misión, en crema con borde verde. Misma altura en escritorio.
+- Icono de brújula o de horizonte, en línea fina. Nada de iconos 3D.
+
+### 04 — Nuestros valores
+
+**H2: “Nuestros valores”**
+
+Cinco tarjetas, con número, título y dos líneas como máximo:
+
+1. **Naturalidad sin teatro** — “Ingredientes reales y recetas claras. Si no lo podemos explicar, no lo ponemos.”
+2. **Transparencia** — “Decimos lo que hay y lo que no. Sin letra pequeña ni promesas que no podamos demostrar.”
+3. **Equilibrio** — “Energía para el día, no para el atracón. Rendir también es saber parar.”
+4. **Sostenibilidad** — “Aluminio reciclable, cartón FSC y cero film. Reducir antes que compensar.”
+5. **Cercanía** — “Canarias, comunidad, deporte y tiendas de barrio. Crecemos escuchando.”
+
+- Grid de 3 + 2 en escritorio; una columna en móvil.
+- Cada tarjeta con una línea superior de 4 px en un color de la paleta (verde, lima, sol, tierra, azul Cocus). No todas del mismo color.
+- Hover: elevación de 4 px y borde más visible. Sin sombras dramáticas.
+
+### 05 — Nuestro compromiso
+
+**H2: “Nuestro compromiso”**
+
+Banda verde bosque a ancho completo, con texto crema y tres columnas:
+
+- **Con las personas** — “Escuchamos antes de vender. Respondemos, aprendemos y mejoramos con cada pedido.”
+- **Con el producto** — “Ingredientes reales, composición transparente y un sabor que no necesita exagerar.”
+- **Con el entorno** — “Aluminio reciclable, cartón FSC y envases sin film. Menos envoltorio, más producto.”
+
+- Añade un enlace discreto: “Ver los packs” → `packs.html`.
+- No uses sellos inventados, logos de certificaciones ni hojas verdes genéricas.
+
+### Manifiesto / eslogan
+
+Entre el compromiso y el contacto, una banda crema con una cita grande:
+
+> **“Más natural, menos agresivo. Sé equilibrado”**
+
+- Respeta el texto exacto, sin añadir puntuación al final.
+- Trátalo como `blockquote`, no como H2. Puede ser grande (40–56 px), con una línea botánica dibujada debajo.
+- Añade una línea pequeña encima: “NUESTRO MANIFIESTO”.
+
+### 06 — Hablemos (contacto)
+
+**H2: “Hablemos”**
+
+Entradilla:
+
+> ¿Tienes una duda sobre tu pedido, quieres traer SURGE a tu tienda o simplemente quieres decirnos algo? Escríbenos. Leemos todo.
+
+La sección tiene dos columnas en escritorio:
+
+**Izquierda: canales directos**
+- Instagram: **@surge.es** → `https://www.instagram.com/surge.es/`.
+- Linktree: **linktr.ee/surge.es** → `https://linktr.ee/surge.es`.
+- “Canarias · Venta online y puntos seleccionados”.
+- No inventes un email. Si existe uno real, déjalo en una constante `CONTACT.email` y muéstralo; si no, usa solo el formulario y estos canales.
+
+**Derecha: caja de contacto**
+- Tarjeta crema con borde verde de 1 px, radio 24 px y sombra suave.
+- Título pequeño: “Escríbenos”.
+- Campos:
+  - **Nombre** (`text`, required, autocomplete="name").
+  - **Email** (`email`, required, autocomplete="email").
+  - **Asunto** (`select`, required): “Pedido o envío”, “Quiero vender SURGE”, “Colaboración o prensa”, “Otro”.
+  - **Mensaje** (`textarea`, required, mínimo 20 caracteres).
+  - Checkbox obligatorio: “He leído y acepto la política de privacidad”.
+- Debajo de los campos, **botón “Enviar”** a ancho completo.
+- Incluye un `<details>` compacto llamado “Cómo tratamos tus datos” con un texto básico: “Usaremos tu nombre, email y mensaje solo para responderte. No cedemos tus datos a terceros. Puedes solicitar su eliminación escribiéndonos.” Añade un comentario en el código para sustituirlo por la política de privacidad real antes de publicar.
+- Estilo de los campos: fondo blanco crema, borde tierra al 14 %, radio 12 px, foco verde bosque de 2 px. Nada de inputs con fondo gris de formulario genérico.
+
+---
+
+## 5. Comportamiento del formulario y notificación
+
+- Validación en el cliente, en español y sin `alert()`:
+  - “Escribe tu nombre.”
+  - “Revisa tu email.”
+  - “Cuéntanos un poco más (mínimo 20 caracteres).”
+  - “Acepta la política de privacidad para continuar.”
+- Los errores aparecen junto al campo y en un resumen superior con `aria-live="polite"`.
+- Al enviar:
+  - Deshabilita el botón y cámbialo a “Enviando…” durante 800–1000 ms.
+  - Si `FORM_ENDPOINT` está vacío, simula el envío (modo demo).
+  - Si hay endpoint, haz `fetch` con método `POST` y JSON. Si falla, muestra: “No hemos podido enviar el mensaje. Inténtalo de nuevo o escríbenos por Instagram.” y conserva lo escrito.
+- Si todo va bien, **sustituye el formulario por una tarjeta de éxito** dentro de la misma caja, con icono de check, `aria-live="polite"` y foco en el título. El texto debe ser **exactamente**:
+
+  > **“¡El mensaje ha sido enviado con éxito! Nos pondremos en contacto con usted con la mayor brevedad posible. Gracias; Equipo Surge.”**
+
+- Debajo del mensaje, un botón secundario: “Enviar otro mensaje”, que vuelve al formulario vacío.
+- No recargues la página, no uses `alert()` y no cambies el texto de éxito.
+- No envíes datos a ningún sitio si no hay endpoint; deja claro en el código que es una demo.
+
+---
+
+## 6. Diseño visual
+
+- **Paleta:** crema `#FEFAE0`, superficie `#FFFDF5`, tinta `#2A2118`, tierra `#3D2B1F`, verde bosque `#2D6A4F`, lima `#B7E4C7`, sol `#F4D35E`, texto secundario `#6B5B4B`, línea `rgba(61,43,31,.14)`.
+- **Tipografía:** Bricolage Grotesque para títulos y DM Sans para texto, con fallbacks `Georgia` y `system-ui`. Si no hay conexión, la página debe verse bien igualmente.
+- Fondo crema con grano sutil y sombras de palmera muy suaves mediante gradientes radiales.
+- Tarjetas con radio 20–24 px, borde de 1 px y sombra difusa. Nada de bordes duros.
+- **Frutas decorativas en las esquinas:** usa los PNG de `SIN FONDO/` (mango, menta, lima, jengibre, coco). Capa `position: fixed; inset: 0; z-index: 0; pointer-events: none; overflow: hidden;` con `aria-hidden="true"`; el contenido va en `z-index: 1`. 4–5 piezas, 90–200 px, opacidad 0,45–0,8, rotaciones suaves. Nunca delante de texto, botones, logo, carrito o formulario. En móvil reduce a una o dos y baja la opacidad.
+- **Parallax suave:** cada fruta se mueve en vertical a una velocidad distinta (0,04–0,12 del scroll, máximo ±48 px) con `requestAnimationFrame`. Sin movimiento horizontal ni cambios de layout. Con `prefers-reduced-motion`, frutas estáticas.
+- En escritorio, el hero va a dos columnas (texto 52 % / imagen 48 %). En móvil, texto y luego imagen.
+- Usa la foto `INICIAL.jpg` como imagen principal. No uses `LATA_COCUS.jpg` en la web: su etiqueta dice “Cortelus” en lugar de “Cocus”.
+- Nada de fotos de stock de equipos sonrientes, oficinas o apretones de manos. El producto, las frutas y la caja son suficientes.
+- Microinteracciones: revelado suave de secciones al hacer scroll (12 px + fade, 400 ms), hover en tarjetas y botones. Sin confeti ni animaciones infinitas.
+
+---
+
+## 7. Header y footer
+
+- **Header:** reutiliza el de la página de packs (logo, navegación, carrito). Si esta página se entrega sola, usa logo + navegación “Packs · Sabores · Sobre nosotros · Contacto” y un botón “Comprar” que enlace a `packs.html`.
+- El enlace “Sobre nosotros” debe estar marcado como activo.
+- Header sticky con fondo crema translúcido y blur suave.
+- **Footer:** logo, “Energy from the earth”, enlaces a Packs, Sabores, Contacto e Instagram, y aviso legal:
+  “© 2026 SURGE · Hecho en Canarias · Precios con IGIC incluido. Bebida con cafeína: no recomendada para niños, mujeres embarazadas o personas sensibles a la cafeína. Consumir con moderación.”
+
+---
+
+## 8. Responsive
+
+- **≥ 1024 px:** dos columnas en hero, misión/visión y contacto; valores en 3 + 2.
+- **768–1023 px:** dos columnas más estrechas; tipografía algo menor; valores en 2 columnas.
+- **< 768 px:**
+  - Una columna.
+  - H1 a 44–48 px; H2 a 26–30 px.
+  - Imagen del hero a ancho completo, sin recortar las latas.
+  - Valores en una columna.
+  - Formulario a ancho completo, botón “Enviar” de 48 px de alto.
+  - Frutas reducidas y sin tapar el formulario.
+- Prueba a 360, 390, 768, 1024 y 1440 px. Sin scroll horizontal.
+
+---
+
+## 9. Accesibilidad
+
+- HTML semántico: `header`, `main`, `section`, `footer`, `form`, `label`, `fieldset`, `legend`, `button`.
+- Un solo H1. Los H2 siguen una jerarquía correcta; no uses H3 para los títulos de sección.
+- Contraste AA en todo el texto. El amarillo sol no se usa para texto pequeño sobre crema.
+- Foco visible de 2 px verde bosque con offset.
+- Campos con `label` visible, `autocomplete`, `required` y `aria-describedby` para errores y ayudas.
+- El resumen de errores y la confirmación de envío van en regiones `aria-live`.
+- El éxito del formulario recibe el foco y se anuncia; el botón “Enviar otro mensaje” devuelve el foco al primer campo.
+- Nada de información solo por color.
+- Respeta `prefers-reduced-motion` (revelados y parallax).
+- La página debe funcionar solo con teclado.
+
+---
+
+## 10. SEO y metadatos
+
+- `lang="es"`.
+- `<title>Sobre nosotros · SURGE — Energy from the earth</title>`.
+- Meta description: “Conoce el origen, la misión, la visión y los valores de SURGE, la bebida energética natural nacida en Canarias. Más natural, menos agresivo. Sé equilibrado.”
+- Open Graph con `INICIAL.jpg`.
+- JSON-LD `Organization`: nombre “SURGE”, descripción, `foundingLocation` “Gran Canaria, España”, `sameAs` Instagram y Linktree. Sin dirección física ni teléfono inventados.
+- Un solo H1 y URLs internas relativas.
+
+---
+
+## 11. Recursos disponibles
+
+- `INICIAL.jpg` — las tres latas juntas, con la etiqueta correcta de Cocus. **Úsala como imagen principal.**
+- `CAJA_PACK.jpg` — caja de 6 latas, útil para el origen o el piloto.
+- `LATA_FLAMA.jpg` y `LATA_MENTISIMO.jpg` — detalles de producto.
+- `logo.png` — marca botánica en negro sobre transparente.
+- `SIN FONDO/` — mango, menta, lima, jengibre, coco y pimienta recortados para las esquinas.
+- `CAMPAÑA MKT.png` y `CARRERA MK.webp` — referencia de tono y comunidad; no las incrustes en la página porque tienen mucho texto.
+- **No uses** `LATA_COCUS.jpg` hasta corregir la etiqueta “Cortelus”.
+
+Recomendación: copia los recursos a `assets/` con nombres limpios (`lata-flama.jpg`, `caja-pack.jpg`, `inicial.jpg`, `logo.png`). Optimiza la pimienta (5,2 MB) a WebP de 300–500 px antes de usarla.
+
+---
+
+## 12. Prohibido
+
+- “Somos líderes”, “revolucionamos la industria”, “sinergias”, “disruptivos” y cualquier cliché corporativo.
+- Inventar años, premios, certificaciones, oficinas, teléfonos, inversores, testimonios o fotos del equipo.
+- Claims de salud: “detox”, “quema grasa”, “cura”, “más energía” sin sustento, “100 % natural”, “sin azúcar” (no está confirmado).
+- Greenwashing: hojas verdes genéricas, sellos falsos, “eco” sin prueba.
+- Párrafos de más de 4 líneas seguidas o muros de texto.
+- Formularios con `alert()`, sin validación o que recarguen la página.
+- Cambiar el texto exacto de la notificación de éxito.
+- Que un H2 sea igual o mayor que el H1.
+- Frutas delante de texto, botones, logo, carrito o formulario.
+- Autoplay de vídeo o audio.
+
+---
+
+## 13. Criterios de aceptación
+
+1. El H1 dice exactamente **“Sobre nosotros”**.
+2. Todas las secciones usan H2 de tamaño menor que el H1.
+3. Aparecen origen, misión, visión, valores y compromiso.
+4. El eslogan **“Más natural, menos agresivo. Sé equilibrado”** aparece visible y literal.
+5. Hay una caja de contacto con nombre, email, asunto, mensaje y botón **“Enviar”** debajo.
+6. Al enviar, aparece exactamente el mensaje de éxito solicitado.
+7. El formulario valida, no recarga y es accesible con teclado y lector de pantalla.
+8. La página es coherente con la de packs: misma paleta, tipografía, header y frutas decorativas.
+9. Las frutas no tapan ni bloquean ningún control y tienen parallax suave.
+10. Es responsive a 360 px sin scroll horizontal.
+11. No hay claims, datos o imágenes inventadas.
+12. Hay un CTA claro a los packs.
+13. No hay errores en consola ni recursos 404.
+14. Título, meta description y Open Graph están configurados.
+
+---
+
+## 14. Entrega
+
+Devuelve un único archivo `sobre-nosotros.html` listo para abrir en el navegador, con:
+
+- HTML, CSS y JavaScript inline, sin frameworks ni dependencias externas (Google Fonts opcional).
+- Variables CSS de marca al principio.
+- Constantes `CONTACT` (Instagram, Linktree) y `FORM_ENDPOINT` (vacío = demo) fáciles de editar.
+- Comentarios en español, especialmente en el formulario y en el parallax.
+- Instrucciones breves al final del archivo: cómo cambiar textos, cómo conectar el formulario a Formspree o a un backend y cómo sustituir la nota de privacidad por la política real.
+- Si se integra en la landing existente, todo el contenido dentro de `<main id="sobre-nosotros">`, sin duplicar el header ni el footer globales.

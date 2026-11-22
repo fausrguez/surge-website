@@ -1,0 +1,386 @@
+# PROMPT — Página de selección de packs SURGE
+
+Actúa como diseñador UX/UI senior y desarrollador front-end. Crea una landing page funcional para configurar y comprar packs de **SURGE**, una bebida energética natural canaria. Quiero una página real, usable y visualmente memorable, no un mockup estático ni una plantilla genérica.
+
+---
+
+## 1. Objetivo de la página
+
+El usuario debe poder:
+
+1. Elegir el tamaño del pack: **6, 12 o 24 latas**.
+2. Repartir esas latas entre los tres sabores: **Flama, Mentisimo y Cocus**.
+3. Ver en todo momento cómo se llena su caja (lado izquierdo).
+4. Añadir el pack al carrito (icono en la esquina superior derecha) y revisar la compra en un panel lateral.
+
+La página debe sentirse como una tienda de bebida premium y natural, no como un configurador técnico.
+
+---
+
+## 2. Contexto de marca
+
+- **Marca:** SURGE — *Energy from the earth.*
+- **Producto:** bebida energética natural en lata de 330 ml. Ingredientes reales, sin aditivos artificiales, vegana, envase sostenible.
+- **Público:** 24–40 años, activo, consciente, urbano.
+- **Tono:** honesto, vibrante, cercano, sin greenwashing ni promesas médicas.
+- **Personalidad:** “Athletic Greens si fuera una bebida con estilo”.
+- **Tensión creativa:** las energéticas son agresivas y neón; SURGE es calma + potencia. Parecer premium y saludable sin perder la energía.
+- **Origen:** Canarias. Mencionarlo con naturalidad, sin folclore.
+- **Claim principal:** “Energy from the earth”.
+- **Claim secundario:** “La primera bebida energética que no te da vergüenza tomar delante de tu nutricionista.” Úsalo con cuidado y sin claims de salud no autorizados.
+
+---
+
+## 3. Datos exactos del producto
+
+### Packs y precios
+
+| Pack | Nombre comercial | Precio | Precio por lata | Etiqueta |
+|---|---|---|---|---|
+| 6 latas | Starter | **12,90 €** | 2,15 € | “Para probar” |
+| 12 latas | Equilibrio | **24,90 €** | 2,08 € | “El más elegido” |
+| 24 latas | Rutina | **49,90 €** suscripción / **59,90 €** compra única | 2,08 € / 2,50 € | “Mejor precio por lata” |
+
+- El precio del pack de 12 es una **propuesta** (no aparece en los documentos de precio). Déjalo en una constante fácil de cambiar y añade un comentario en el código.
+- Para el pack de 24, muestra un selector pequeño de dos opciones: **“Suscripción mensual · 49,90 €”** (por defecto, con la nota “Cancela cuando quieras”) y **“Compra única · 59,90 €”**. Si el toggle complica la demo, deja solo la suscripción a 49,90 €.
+- Referencia de ahorro: lata suelta a **3,00 €**. Muestra “Ahorras un 28 %” (6), “31 %” (12) y “31 %” (24 suscripción) respecto a la lata suelta.
+- **Envío:** 4,00 €. **Gratis a partir de 39,95 €**.
+- Precios con **IGIC incluido**. No calcules impuestos.
+
+### Sabores
+
+| Sabor | Color principal | Color suave | Slogan | Ingredientes | Nota |
+|---|---|---|---|---|---|
+| **Flama** | `#B23A2B` | `#F6E1DB` | “Energía que impulsa.” | Mango, lima, jengibre y pimienta negra. | Perfil intenso, tropical y especiado. |
+| **Mentisimo** | `#2D6A4F` | `#E4F1E9` | “Enfoque natural.” | Menta fresca y lima. | Perfil fresco y limpio. |
+| **Cocus** | `#1F6F8B` | `#E2EFF4` | “Calma que te impulsa.” | Coco, lima y jengibre. | Perfil suave, cremoso y cítrico. |
+
+> Orden en toda la página: **Flama → Mentisimo → Cocus**.
+> Escribe “Mentisimo” sin tilde, tal como lo usa la marca en la lata.
+
+### Paleta de marca
+
+- Fondo crema: `#FEFAE0`
+- Superficie: `#FFFDF5`
+- Tinta: `#2A2118`
+- Tierra: `#3D2B1F`
+- Verde bosque: `#2D6A4F`
+- Lima fresca: `#B7E4C7`
+- Amarillo sol: `#F4D35E`
+- Texto secundario: `#6B5B4B`
+- Línea: `rgba(61,43,31,.14)`
+
+### Tipografía
+
+- Títulos: **Bricolage Grotesque** (Google Fonts), con fallback `Georgia, serif`.
+- Texto e interfaz: **DM Sans** (Google Fonts), con fallback `system-ui, sans-serif`.
+- Si no hay conexión, usa la pila de fallback sin romper el diseño.
+- Títulos en mayúsculas con tracking amplio solo en kickers y etiquetas pequeñas. El resto, sentence case.
+- Nada de neón, degradados morados, glassmorphism excesivo ni estética SaaS.
+
+---
+
+## 4. Stack y entrega
+
+- **Un solo archivo** `packs.html` con HTML, CSS y JavaScript inline. Sin frameworks, sin build, sin dependencias JS externas. Google Fonts es opcional.
+- Si tu generador solo trabaja con React + Tailwind, replica exactamente la misma estructura y comportamiento con componentes y clases equivalentes.
+- Datos editables al principio del script:
+
+```js
+const PACKS = {
+  6:  { name: 'Starter',    price: 12.90, cans: 6 },
+  12: { name: 'Equilibrio', price: 24.90, cans: 12 },
+  24: { name: 'Rutina',     price: 49.90, cans: 24, singlePrice: 59.90 }
+};
+
+const FLAVORS = {
+  flama:     { name: 'Flama',     color: '#B23A2B', tint: '#F6E1DB', /* ... */ },
+  mentisimo: { name: 'Mentisimo', color: '#2D6A4F', tint: '#E4F1E9', /* ... */ },
+  cocus:     { name: 'Cocus',     color: '#1F6F8B', tint: '#E2EFF4', /* ... */ }
+};
+```
+
+- Estado único y predecible:
+
+```js
+const state = {
+  pack: 12,
+  mode24: 'sub',              // 'sub' | 'single'
+  qty: { flama: 4, mentisimo: 4, cocus: 4 },
+  cart: []                    // líneas del carrito
+};
+```
+
+- Formatea dinero con `Intl.NumberFormat('es-ES', { style: 'currency', currency: 'EUR' })` → `24,90 €`.
+- Sin `alert()`, sin `onclick` inline, sin lorem ipsum. Comentarios del código en español.
+
+---
+
+## 5. Estructura de la página
+
+### Header fijo
+
+- Barra superior fina con el mensaje: “Envío gratis desde 39,95 € · Hecho en Canarias”.
+- Header sticky, fondo crema translúcido con blur suave, borde inferior de 1 px.
+- Izquierda: logo (`logo.png`) + wordmark **SURGE** + “natural energy drink” en pequeño.
+- Centro: navegación “Packs”, “Sabores”, “Nosotros” (anclas suaves).
+- Derecha: botón de carrito con icono de bolsa, texto “Carrito” y badge circular con el número de packs. En móvil, solo icono + badge.
+- El badge se actualiza con una animación corta al añadir.
+
+### Hero compacto
+
+- Kicker: “ENERGY FROM THE EARTH”.
+- H1: **“Monta tu pack. Mezcla tu energía.”**
+- Subtítulo: “Elige 6, 12 o 24 latas de 330 ml y reparte entre Flama, Mentisimo y Cocus. Tú decides el equilibrio.”
+- Chips de confianza: “330 ml”, “Sin aditivos artificiales”, “Vegano”, “Cartón FSC · sin plástico”.
+- No ocupes toda la pantalla: el configurador debe verse casi completo al cargar.
+
+### Layout principal
+
+- Contenedor máximo: **1240 px**, con 24–32 px de padding lateral.
+- Dos columnas en escritorio: **58 % izquierda / 42 % derecha**, gap de 32–40 px.
+- Columna izquierda **sticky** (`top: 96px`) mientras se hace scroll por los sabores.
+- En móvil: una sola columna, en este orden: selector de pack → caja → sabores → resumen/CTA fijo abajo.
+
+---
+
+## 6. Columna izquierda: el pack y la caja
+
+### Selector de pack (encima de la caja)
+
+- Tres tarjetas en fila, con semántica de grupo de radio (`fieldset` + `legend` visualmente oculto o `role="radiogroup"`).
+- Cada tarjeta muestra:
+  - Número grande: **6 / 12 / 24**.
+  - “latas · 330 ml”.
+  - Precio: `12,90 €`, `24,90 €`, `49,90 €`.
+  - Precio por lata.
+  - Badge: “Para probar”, “El más elegido”, “Mejor precio por lata”.
+- Tarjeta seleccionada: borde verde bosque de 2 px, fondo crema, check circular y ligera elevación. No uses solo color: añade el check y `aria-checked`.
+- Para el pack de 24, debajo de la tarjeta aparece el selector suscripción / compra única.
+- Al cambiar de pack, si el reparto actual cabe en el nuevo tamaño, consérvalo; si no, reequilíbralo automáticamente y avisa con un toast: “Hemos reequilibrado tu pack de 12 latas.”
+
+### La caja
+
+Construye la caja como componente **CSS/SVG**, no como una foto estirada:
+
+- Caja de cartón kraft con degradado cálido (`#D9BE95` → `#B98F5F`), esquinas redondeadas de 10 px, cinta adhesiva superior y sombra suave.
+- Perspectiva ligera: frente + tapa + lateral derecho. Usa `transform: perspective(1200px) rotateY(-4deg) rotateX(2deg)`.
+- En el frontal:
+  - Logo SURGE en crema (usa `logo.png` con `filter: invert(1) sepia(1) ...` o una versión en crema; si no, colócalo dentro de un círculo crema).
+  - “SURGE” en mayúsculas, tracking amplio.
+  - “natural energy drink”.
+  - “Variety Pack”.
+  - “N latas · 330 ml”.
+  - Desglose dinámico con puntos de color: “4 × Flama · 4 × Mentisimo · 4 × Cocus”.
+  - Pie: “Cartón FSC · Sin retráctil ni film”.
+- **Zona de slots:** una cuadrícula en el frontal que representa las latas del pack:
+  - 6 latas → 3 × 2.
+  - 12 latas → 4 × 3.
+  - 24 latas → 6 × 4.
+  - Cada slot es una silueta de lata redondeada. Vacío: borde discontinuo y fondo translúcido. Ocupado: color del sabor, brillo sutil y una micro-animación de entrada.
+  - Los slots se rellenan en orden Flama → Mentisimo → Cocus.
+  - En 24 latas, reduce el tamaño de los slots para que quepan; no hagas scroll dentro de la caja.
+- La caja cambia de tamaño de forma suave al pasar de 6 a 12 y a 24 (escala 0.88 / 1 / 1.12, `transition: 300ms`).
+- Inclina la caja unos grados siguiendo el puntero (máx. 6°), solo en dispositivos con ratón y si `prefers-reduced-motion` no está activo.
+- Debajo de la caja: resumen en una línea con puntos de color y el precio total del pack.
+- Usa `CAJA_PACK.jpg` solo como referencia visual o como imagen secundaria en una sección “Así llega tu SURGE”. No la estires para simular 12 o 24 latas.
+
+---
+
+## 7. Columna derecha: sabores y cantidades
+
+- Título: “Elige tus sabores”.
+- Ayuda: “Reparte las 12 latas como quieras. Puedes mezclar los tres sabores.”
+- Tres bloques verticales, uno por sabor, siempre visibles (no acordeón).
+- Cada bloque:
+  - Barra lateral o borde superior de 4 px en su color.
+  - Fondo `tint` muy suave; al seleccionar latas, el bloque se intensifica ligeramente.
+  - Miniatura de la lata (`LATA_FLAMA.jpg`, `LATA_MENTISIMO.jpg`, `LATA_COCUS.jpg`) a la derecha, `object-fit: cover`, relación 3/4, con máscara redondeada. No recortes el logo de la lata.
+  - Nombre + slogan.
+  - Ingredientes en una línea pequeña.
+  - **Dropdown nativo estilizado** con opciones de `0` a `24`:
+    - `0 latas`, `1 lata`, `2 latas`…
+    - Las opciones que superen las latas restantes aparecen **deshabilitadas**.
+    - `label` accesible: “Latas de Flama”.
+  - Botones `−` y `+` a los lados del dropdown, de 44 × 44 px, con `aria-label` (“Quitar una lata de Flama”, “Añadir una lata de Flama”).
+  - Chip “×4” cuando haya selección.
+- El dropdown y los botones se actualizan entre sí. Nunca permitas que la suma supere el tamaño del pack.
+- Si el usuario intenta pasarse, muestra el aviso: “Tu pack es de 12 latas. Quita 2 para continuar.”
+
+### Resumen y CTA (debajo de los sabores)
+
+- Barra de progreso segmentada con los tres colores y el texto “8 de 12 latas”.
+- Estado dinámico:
+  - 0 latas: “Elige tus sabores para empezar.”
+  - Incompleto: “Te faltan 4 latas.”
+  - Completo: “¡Pack completo! Listo para añadir.”
+  - Excedido: “Te has pasado por 2 latas.”
+- Botón secundario: “Reparto equilibrado” → 2/2/2, 4/4/4 u 8/8/8 según el pack.
+- Botón primario a ancho completo:
+  - Deshabilitado hasta que la suma sea exacta: “Reparte las 12 latas (faltan 4)”.
+  - Habilitado: **“Añadir pack al carrito · 24,90 €”**.
+- Al añadir: micro-animación de la caja, badge del carrito con rebote, toast “Pack de 12 añadido al carrito” con acción “Ver carrito”. Mantén la configuración para poder añadir otro pack idéntico.
+
+---
+
+## 8. Carrito
+
+- Panel lateral (drawer) que se abre desde la derecha, 420 px, con overlay oscuro al 35 %.
+- Cabecera: “Tu carrito (2)” + botón de cerrar.
+- Barra de envío:
+  - Si subtotal < 39,95 €: “Te faltan 15,05 € para el envío gratis.” + barra de progreso.
+  - Si ≥ 39,95 €: “¡Envío gratis conseguido!”.
+- Cada línea del carrito:
+  - “Pack Equilibrio · 12 latas”.
+  - “4 Flama · 4 Mentisimo · 4 Cocus” con puntos de color.
+  - Si es pack de 24: “Suscripción mensual” o “Compra única”.
+  - Precio, selector de cantidad (1–99), botón de eliminar.
+- Si se añade un pack con exactamente la misma configuración, agrupa la línea y suma cantidad. Si cambia el reparto o el modo, crea una línea nueva.
+- Resumen: subtotal, envío (`4,00 €` o “Gratis”), total, “IGIC incluido”.
+- CTA: “Finalizar compra”. Es una demo: al pulsar, muestra un toast “Checkout pendiente de conectar” o un modal informativo. **No simules un pago real ni pidas datos de tarjeta.**
+- Estado vacío: ilustración sencilla de la caja, “Tu carrito está vacío” y botón “Montar mi pack” que cierra el panel.
+- Persistencia en `localStorage` con la clave `surge_cart_v1`. Restaura el carrito al recargar.
+- El badge del header muestra el número de packs (no de latas) y tiene `aria-live="polite"`.
+
+---
+
+## 9. Responsive
+
+- **≥ 1024 px:** dos columnas, caja sticky, CTA en la columna derecha.
+- **768–1023 px:** dos columnas más estrechas; miniaturas de lata más pequeñas; selector de pack en 3 columnas.
+- **< 768 px:**
+  - Una columna.
+  - Selector de pack en 3 columnas compactas (número + precio).
+  - Caja a ancho completo, máx. 360 px.
+  - Sabores apilados.
+  - Barra fija inferior con el total y el botón “Añadir · 24,90 €”; deja espacio inferior para que no tape el footer.
+  - Carrito a pantalla completa.
+- Prueba a 360, 390, 768, 1024 y 1440 px. Sin scroll horizontal.
+
+---
+
+## 10. Accesibilidad
+
+- HTML semántico: `header`, `main`, `section`, `footer`, `button`, `label`, `select`.
+- Contraste mínimo AA (4,5:1) en texto. No uses el rojo de Flama para texto pequeño sobre crema sin oscurecerlo.
+- Foco visible: anillo de 2 px verde bosque con offset de 2 px.
+- Objetivos táctiles de al menos 44 × 44 px.
+- Dropdowns con `label` asociado y `aria-describedby` para el texto de ayuda.
+- Totales y mensajes de estado en una región `aria-live="polite"`.
+- Drawer con `role="dialog"`, `aria-modal="true"`, foco atrapado, cierre con `Esc` y retorno del foco al botón que lo abrió.
+- No transmitas información solo por color: añade nombre, icono o texto.
+- Respeta `prefers-reduced-motion`.
+- La página debe funcionar con teclado de principio a fin.
+
+---
+
+## 11. Estética y microinteracciones
+
+- Fondo crema con grano sutil y sombras de palmera muy suaves hechas con gradientes radiales (sin imágenes pesadas).
+- Tarjetas con borde de 1 px, radio 20–24 px y sombra difusa.
+- Mucho aire; nada de bordes duros ni cajas dentro de cajas.
+- Animaciones cortas (180–300 ms), con `cubic-bezier(.2,.8,.2,1)`.
+- Al rellenar un slot: “pop” de escala 1 → 1,08 → 1.
+- Al cambiar de pack: la caja respira (scale) y el desglose se actualiza.
+- Al añadir al carrito: el badge rebota una vez y el drawer no se abre automáticamente (para no interrumpir); el toast ofrece “Ver carrito”.
+- Hover en botones: oscurece el fondo, no cambia el layout.
+- Sin confeti, sin sonidos, sin animaciones infinitas.
+
+---
+
+## 12. Copy exacto (usa este, no lo inventes)
+
+- Header: “Envío gratis desde 39,95 € · Hecho en Canarias”.
+- H1: “Monta tu pack. Mezcla tu energía.”
+- Subtítulo: “Elige 6, 12 o 24 latas de 330 ml y reparte entre Flama, Mentisimo y Cocus. Tú decides el equilibrio.”
+- Selector: “1. Elige tu pack”.
+- Sabores: “2. Reparte tus latas”.
+- Ayuda: “Puedes mezclar los tres sabores. El total debe coincidir con tu pack.”
+- Botón equilibrio: “Reparto equilibrado”.
+- CTA: “Añadir pack al carrito · {precio}”.
+- CTA deshabilitado: “Reparte las {N} latas (faltan {X})”.
+- Toast: “Pack de {N} latas añadido al carrito.”
+- Carrito vacío: “Tu carrito está vacío. Monta tu primer pack.”
+- Envío: “Te faltan {X} € para el envío gratis.” / “¡Envío gratis conseguido!”.
+- Footer: “© 2026 SURGE · Energy from the earth · Hecho en Canarias”.
+- Aviso legal: “Precios con IGIC incluido. Bebida con cafeína: no recomendada para niños, mujeres embarazadas o personas sensibles a la cafeína. Consumir con moderación.”
+- No inventes reseñas, valoraciones, contadores de stock ni cuentas atrás.
+
+---
+
+## 13. Recursos disponibles
+
+Carpeta del proyecto:
+
+- `logo.png` — marca del espiral botánico, negro sobre transparente.
+- `CAJA_PACK.jpg` — foto de la caja de 6 latas (referencia).
+- `LATA_FLAMA.jpg` — lata roja con mango, lima, jengibre y pimienta.
+- `LATA_MENTISIMO.jpg` — lata verde con menta y lima.
+- `LATA_COCUS.jpg` — lata azul con coco, lima y jengibre.
+- `SIN FONDO/coco_sinfondo_HD-Photoroom.png`, `Lima_sinfndo_HD.png`, `jengibresinfondo_HD.png`, `mango-Photoroom_HD.png`, `menta-Photoroom.png`, `pimienta-Photoroom.png` — ingredientes recortados para detalles decorativos.
+
+Recomendación: copia los recursos a una carpeta `assets/` con nombres limpios (`lata-flama.jpg`, `caja-pack.jpg`, `logo.png`…) para evitar problemas con espacios y mayúsculas.
+
+**Aviso importante:** la lata de `LATA_COCUS.jpg` muestra el nombre “Cortelus” en lugar de “Cocus”. No la uses tal cual en la web: corrige la etiqueta antes de publicar o úsala solo como marcador de posición. En la interfaz, el sabor debe llamarse siempre **Cocus**.
+
+---
+
+## 14. Prohibido
+
+- Estética neón, cyberpunk, gimnasio agresivo o “Red Bull”.
+- Degradados morados/azules de SaaS, glassmorphism excesivo, sombras duras.
+- Emojis como iconos principales.
+- Lorem ipsum, textos en inglés en la interfaz (salvo “Energy from the earth” y “natural energy drink”).
+- Claims de salud (“quema grasa”, “cura”, “detox”, “más energía” sin sustento).
+- Popups de descuento al entrar, cuentas atrás falsas, reseñas inventadas.
+- Que el botón de añadir se active con un pack incompleto.
+- Que la caja se vea como una foto estirada o como un simple rectángulo marrón sin detalle.
+- Dependencias externas innecesarias.
+
+---
+
+## 15. Criterios de aceptación
+
+1. Se ve el selector 6/12/24 encima de la caja, en la columna izquierda.
+2. La caja cambia de tamaño y de número de slots según el pack.
+3. Hay tres bloques de sabor con sus colores y un dropdown de 0 a 24 cada uno.
+4. Los dropdowns nunca permiten superar el total del pack; las opciones sobrantes se deshabilitan.
+5. El contador “X de N latas” y la barra de progreso se actualizan en tiempo real.
+6. El botón de añadir solo se activa cuando la suma es exactamente 6, 12 o 24.
+7. “Reparto equilibrado” funciona para los tres packs.
+8. El pack añadido aparece en el carrito superior derecho con el desglose correcto.
+9. El carrito calcula bien subtotal, envío gratis desde 39,95 € y total.
+10. El carrito persiste al recargar y se puede editar/eliminar.
+11. Todo funciona con teclado, foco visible y `Esc` en el drawer.
+12. La página es responsive a 360 px sin scroll horizontal.
+13. Los precios se muestran en formato español (`24,90 €`).
+14. No hay errores en consola ni recursos 404.
+15. La estética es crema, botánica, premium y canaria; nada de neón.
+
+---
+
+## 16. Entrega
+
+Devuelve el código completo de `packs.html`, listo para abrir en el navegador, con:
+
+- Un comentario inicial con instrucciones para cambiar precios, sabores y textos.
+- Los datos agrupados en `PACKS` y `FLAVORS`.
+- CSS organizado por secciones con comentarios.
+- JavaScript comentado, sin librerías.
+- Un pequeño bloque al final del README o del propio archivo explicando cómo probar: abrir el HTML, elegir pack, repartir latas, añadir al carrito y recargar para comprobar la persistencia.
+
+---
+
+### Frutas decorativas en las esquinas
+
+- Usa los PNG recortados de `SIN FONDO/`: mango, menta, coco, lima, jengibre y pimienta. No uses las fotos de las latas como decoración.
+- Coloca 4–6 piezas repartidas por las esquinas y los márgenes, siempre **detrás del contenido**: mango arriba a la izquierda; menta arriba a la derecha pero por debajo del carrito; coco y jengibre abajo a la izquierda; lima y pimienta abajo a la derecha. No es obligatorio usar las seis.
+- Crea una capa única: `position: fixed; inset: 0; z-index: 0; pointer-events: none; overflow: hidden;` con `aria-hidden="true"`. El contenido (`header`, `main`, `footer`) va en `z-index: 1`. Las tarjetas y el header tienen fondo opaco: las frutas solo asoman por los márgenes y zonas libres, nunca por debajo del texto.
+- Tamaños de 90–200 px, opacidad 0,45–0,8, rotación de −15° a 15°, sombra suave (`drop-shadow(0 18px 30px rgba(61,43,31,.18))`) y algún recorte parcial fuera del viewport. Nada de desenfoques que las ensucien.
+- **Zona de seguridad:** mínimo 24 px de separación con el logo, el menú, el botón del carrito, el selector de pack, los dropdowns, el CTA y el footer. Si una fruta se acerca a un control o al texto, redúcela, muévela o elimínala. La legibilidad manda.
+- En `< 1024 px` deja 2–3 piezas y baja la opacidad; en `< 768 px` oculta las que puedan tapar contenido y conserva como máximo una arriba y otra abajo, en los márgenes. Si la barra fija del CTA queda cerca, quita la de abajo.
+- **Parallax suave al hacer scroll:** cada fruta se desplaza en vertical a una velocidad distinta (0,04–0,12 de la distancia recorrida, máximo ±48 px), con `requestAnimationFrame` y `transform: translate3d(0, Ypx, 0) rotate(...)`. Sin movimiento horizontal, sin cambiar el layout y sin pasar por encima del contenido. No deben invadir el footer.
+- No uses `position: absolute` dentro del flujo normal: las frutas no deben crear scroll horizontal ni empujar secciones.
+- Con `prefers-reduced-motion`, sin parallax: frutas estáticas.
+- `alt=""`, `aria-hidden="true"`, `draggable="false"`, sin enlaces, sin botones y sin `cursor: pointer`. No son interactivas.
+- Optimiza los PNG a WebP/AVIF de 300–500 px de ancho (la pimienta original pesa 5 MB; no la subas tal cual) y usa `loading="lazy"` + `decoding="async"` salvo en las dos primeras.
