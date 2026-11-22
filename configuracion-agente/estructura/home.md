@@ -1,51 +1,65 @@
 # Home Requirements
 
-Home va a tener 4 secciones, se hará scroll instantaneo entre sección y sección.
+Home se compone de cinco bloques y un aviso flotante:
 
-- Hero
-- Presentacion de sabores (3 secciones)
-	- Flama
-	- Mentisimo
-	- Cocus
-- Subscripciones
-- Feed de instagram
+1. Hero.
+2. Presentación de sabores: Flama, Mentisimo y Cocus.
+3. Suscripciones y packs.
+4. Feed de Instagram.
+5. Cierre con CTA.
+6. Aviso flotante de Bestial Race (solo en la zona del hero; se oculta al hacer scroll).
 
-en la esquina inferior derecha mostrar un mensaje promocionando nuestra subpagina de bestial race.
+El scroll es suave entre bloques. En escritorio se usa `scroll-snap` con `proximity` para no atrapar al usuario.
 
 ## Hero
 
 ### Requisitos
-- (modelos3d): 3 modelos 3d de las latas, incluidos en assets. Cuando se clica en un modelo la pagina se mueve hacia la seccion de ese sabor
-- (lema): "+ Natural - Agresivo"
-- (cta text): Texto generado por los datos que tenemos para incentivar el cta.
-- (cta): dos botones "Crea tu pack" (abre modal de crea-tu-pack) y "Donde comprar" (redirige a subpagina "donde-comprar")
+- `(modelos3d)`: tres modelos 3D de las latas. Al hacer clic en un modelo, la página baja a la sección de ese sabor.
+- `(lema)`: `+ Natural − Agresivo`.
+- `(cta text)`: copy que incentive el CTA, sin claims de salud.
+- `(cta)`: dos botones, `Crea tu pack` (abre el modal de packs) y `Dónde comprar` (lleva a `/donde-comprar`).
 
-### Diseño 
-- modelos3d a la izquierda, flama en el centro, mentisimo a la izquierda detras de flama, ligeramente inclinado a la izquierda y cocus a la derecha detras de flama ligerammente inclinado a la derecha. los tres tendran un efecto de entrada con efecto de flotacion y ligera rotacion back-and-forward
-- lema en dos lineas con nuestros colores principales
-
+### Diseño
+- Grupo 3D a la izquierda de la composición. **Flama en el centro y delante**; Mentisimo detrás a la izquierda, inclinado hacia la izquierda; Cocus detrás a la derecha, inclinado hacia la derecha.
+- Los tres tienen entrada con fade y una flotación suave con ligera rotación de vaivén. Sin giro completo.
+- El lema va en dos líneas: `+ Natural` en verde y `− Agresivo` en tierra.
+- En móvil, el texto va primero y el grupo 3D después. Los modelos se reducen para que no se corten.
 
 ## Presentación de sabores
 
 ### Requisitos
-- (modelo3d): modelo correspondiente a la bebida que se presenta
-- (lema-bebida): muestra un texto que corresponda a la bebida
-- (ingredientes): muestra los main ingredients en una linea
-- (cta): dos botones "Crea tu pack" (abre modal de crea-tu-pack) y "Donde comprar" (redirige a subpagina "donde-comprar") 
-- (flavor-overlay): imagenes de los ingredientes flotando en los extremos inferiores de la seccion
+- `(modelo3d)`: modelo correspondiente a la bebida.
+- `(lema-bebida)`: texto propio de cada sabor.
+- `(ingredientes)`: ingredientes principales en una línea.
+- `(cta)`: `Crea tu pack` y `Dónde comprar`.
+- `(flavor-overlay)`: ilustración botánica de línea en el fondo. No hay recortes reales de frutas en el repositorio, así que no se usan fotos de frutas.
 
 ### Diseño
-- colores correspondientes de la bebida
-- modelo a la izquierda, texto a la derecha
-- overlay en extremos
-- cta colors en base a la bebida
+- Colores correspondientes de la bebida.
+- Modelo a la izquierda, texto a la derecha, en las tres secciones.
+- Fondo con tinte del sabor y patrón de línea (llamas, hojas o cristales).
+- Botones con el color verde de marca; el acento del sabor se usa en títulos y detalles.
 
-## Subscripciones
+## Suscripciones y packs
 
-### Requisitos
-- Muestra las posibles subscriptions y un boton de subscribirse. on click sale un modal explicando subscripcion en detalle.
+- Tres tarjetas con los precios vigentes: Starter 6 latas 12,90 €; Equilibrio 12 latas 24,90 €; Rutina 24 latas 49,90 €/mes en suscripción o 59,90 € en compra única.
+- El botón de cada tarjeta abre el modal de packs con ese tamaño preseleccionado.
+- En Rutina, un enlace secundario abre el modal de suscripción con la explicación.
+- Envío 4,00 €, gratis desde 39,95 €. Precios con IGIC incluido.
+- La caja se muestra con `caja-pack.webp` y el texto de envase responsable.
 
+## Feed de Instagram
 
-## Feed instagram
-- Muestra un screenshot the nuestra pagina de instagram a la derecha con un link directo a la misma
-- A la izquierda muestra nuestros ultimos posts
+- A la izquierda, una selección estática de publicaciones con enlace al perfil.
+- A la derecha, una tarjeta de perfil con el logo, `@surge.es`, una descripción breve y el enlace a Instagram y Linktree.
+- No se usa API de Instagram ni cookies de terceros. Las imágenes son locales.
+- Para evitar mostrar etiquetas erróneas, las publicaciones de producto usan renders de los modelos 3D (`modelo-flama.webp`, `modelo-mentisimo.webp`, `modelo-cocus.webp`), no los JPG antiguos.
+
+## Aviso de Bestial Race
+
+- Tarjeta compacta en la esquina inferior izquierda.
+- Solo aparece mientras el usuario está en la zona del hero. Al hacer scroll, se oculta.
+- Se puede cerrar; la decisión se guarda en `localStorage`.
+- Enlace a `/bestial-race`.
+- No se muestra en `/bestial-race`.
+- Espera a que el usuario acepte el aviso de cookies para no taparlo.
