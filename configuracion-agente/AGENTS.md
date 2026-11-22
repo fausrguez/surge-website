@@ -9,7 +9,7 @@ Lee tech.md sobre los requisitos técnicos de la página.
 
 Lee estructura/core.md sobre la configuración general de la página.
 
-Va a estar compuesta por 3 subpáginas y un modal.
+Va a estar compuesta por 4 subpáginas y un modal.
 
 ### Rutas
 
