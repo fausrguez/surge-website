@@ -29,4 +29,6 @@ npm run build
 
 ## Deploy
 
-Vercel, proyecto `surge-website`, conectado a `github.com/fausrguez/surge-website`. Producción desde `main`.
+Producción: https://surge-website-plum.vercel.app
+
+Vercel, proyecto `surge-website`. GitHub Actions despliega en cada push a `main` (`.github/workflows/deploy.yml`).

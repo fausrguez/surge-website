@@ -57,4 +57,6 @@ Modal de packs y modal de suscripción se abren desde cualquier CTA.
 
 ## Despliegue
 
-Vercel, proyecto `surge-website`, conectado a `github.com/fausrguez/surge-website`. Cada push a `main` actualiza producción.
+Producción: https://surge-website-plum.vercel.app
+
+Vercel, proyecto `surge-website`. El repositorio `github.com/fausrguez/surge-website` está conectado mediante GitHub Actions (`.github/workflows/deploy.yml`): cada push a `main` lanza un deploy a producción con el token guardado en los secretos del repositorio.
