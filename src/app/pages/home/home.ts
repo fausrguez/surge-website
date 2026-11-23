@@ -18,10 +18,11 @@ import {
 } from '../../core/content';
 import { SeoService } from '../../core/seo.service';
 import { UiService } from '../../core/ui.service';
+import { FlavorParticles } from '../../shared/flavor-particles/flavor-particles';
 
 @Component({
   selector: 'app-home',
-  imports: [RouterLink],
+  imports: [RouterLink, FlavorParticles],
   templateUrl: './home.html',
   styleUrl: './home.scss',
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
@@ -60,9 +61,7 @@ export class Home implements AfterViewInit, OnDestroy {
     if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
       return;
     }
-    const models = Array.from(
-      document.querySelectorAll<HTMLElement>('.hero__escena model-viewer'),
-    );
+    const models = Array.from(document.querySelectorAll<HTMLElement>('.hero__escena model-viewer'));
     if (models.length === 0) {
       return;
     }
@@ -94,5 +93,4 @@ export class Home implements AfterViewInit, OnDestroy {
   choosePack(size: PackSize): void {
     this.ui.openPack(size);
   }
-
 }

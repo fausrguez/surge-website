@@ -19,6 +19,9 @@ export interface Flavor {
   description: string;
   pattern: 'flames' | 'leaves' | 'crystals';
   patternImage: string;
+  particles: 'fire' | 'wind' | 'ice';
+  decorLeft: string;
+  decorRight: string;
 }
 
 export interface Pack {
@@ -50,6 +53,9 @@ export const FLAVORS: Flavor[] = [
       'Té negro al frente, jengibre en medio y pimienta al final. El mango redondea. La lata que empuja antes de entrenar, sin pedir permiso.',
     pattern: 'flames',
     patternImage: 'assets/patterns/patron-flama.webp',
+    particles: 'fire',
+    decorLeft: 'assets/flavors/mango.webp',
+    decorRight: 'assets/flavors/jengibre.webp',
   },
   {
     id: 'mentisimo',
@@ -69,6 +75,9 @@ export const FLAVORS: Flavor[] = [
       'Té verde, menta fresca y un final de lima. La lata diaria para empezar sin chute y seguir con la cabeza clara.',
     pattern: 'leaves',
     patternImage: 'assets/patterns/patron-mentisimo.webp',
+    particles: 'wind',
+    decorLeft: 'assets/flavors/menta.webp',
+    decorRight: 'assets/flavors/lima.webp',
   },
   {
     id: 'cocus',
@@ -88,6 +97,9 @@ export const FLAVORS: Flavor[] = [
       'Coco suave, lima al frente y jengibre al final. Mucho hielo. La pausa fresca para después del deporte o de la tarde.',
     pattern: 'crystals',
     patternImage: 'assets/patterns/patron-cocus.webp',
+    particles: 'ice',
+    decorLeft: 'assets/flavors/coco.webp',
+    decorRight: 'assets/flavors/hielo.webp',
   },
 ];
 
@@ -115,7 +127,7 @@ export const PACKS: Record<PackSize, Pack> = {
     singlePrice: 59.9,
     pricePerCan: 2.08,
     tag: 'Mejor precio por lata',
-    blurb: 'Ocho de cada, o tu mezcla. Suscripción mensual o compra única.',
+    blurb: 'Ocho de cada, o tu mezcla. SURGE Club: suscripción mensual o compra única.',
   },
 };
 
@@ -126,7 +138,6 @@ export const SHIPPING = {
 
 export const NAV_LINKS = [
   { label: 'Inicio', path: '/' },
-  { label: 'Sabores', path: '/#sabores' },
   { label: 'Bestial Race', path: '/bestial-race' },
   { label: 'Sobre nosotros', path: '/sobre-nosotros' },
   { label: 'Dónde comprar', path: '/donde-comprar' },

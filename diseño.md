@@ -223,6 +223,9 @@ Nombres limpios en `public/assets/`:
 | `img/lata3d-mentisimo.webp` | Render transparente del GLB de Mentisimo | Tarjetas de equipo |
 | `img/lata3d-cocus.webp` | Render transparente del GLB de Cocus | Tarjetas de equipo |
 | `influencers/*.webp` | Fotos públicas de perfil de Instagram | Avatares de influencers |
+| `img/hero-fondo.webp` | Fondo de sombras de palmera | Hero de la home |
+| `flavors/*.webp` | Frutas recortadas | Decoración de las secciones de sabor |
+| `tiendas/*.svg` y `*.webp` | Logos de Decathlon, CD Tamaraceite, GOfit, Areafit, Beats y Macro Fit | Tarjetas de Dónde comprar |
 
 - `08-pattern-board.jpg` está corrupto (2 bytes) y no se usa.
 - Las imágenes definitivas deben sustituir a las actuales conservando el nombre.

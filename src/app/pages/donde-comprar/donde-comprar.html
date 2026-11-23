@@ -23,41 +23,14 @@
     </div>
   </section>
 
-  <section class="seccion" aria-labelledby="online-titulo">
-    <div class="contenedor comprar-grid">
-      <div class="comprar-texto">
-        <p class="kicker">01 — Online</p>
-        <h2 id="online-titulo">Online, sin salir de casa.</h2>
-        <p>
-          Packs de 6, 12 y 24 latas, con envío a toda España. En Canarias, entrega en 24–72 h
-          laborables. Tú eliges el reparto entre Flama, Mentisimo y Cocus.
-        </p>
-        <div class="fila">
-          <button type="button" class="btn" (click)="openPacks()">Elegir pack</button>
-          <a class="btn btn--secundario" routerLink="/sobre-nosotros#hablemos">¿Tienes una duda?</a>
-        </div>
-        <p class="comprar-nota">
-          Pago pendiente de conectar: la web funciona en modo demostración y no realiza cobros.
-        </p>
-      </div>
-
-      <figure class="comprar-foto">
-        <img
-          src="assets/img/caja-pack.webp"
-          alt="Caja Variety Pack de SURGE con seis latas"
-          width="928"
-          height="1152"
-          loading="lazy"
-        />
-        <figcaption>La caja llega con seis latas: dos de cada sabor.</figcaption>
-      </figure>
-    </div>
-  </section>
-
   <section class="comprar-tiendas" id="tiendas" aria-labelledby="tiendas-titulo">
     <div class="contenedor">
+      <div class="comprar-mapa__bloque">
+        <app-store-map [points]="points" />
+      </div>
+
       <div class="seccion__cabecera">
-        <p class="kicker">02 — En tienda y en el gimnasio</p>
+        <p class="kicker">01 — En tienda y en el gimnasio</p>
         <h2 id="tiendas-titulo">Ya puedes encontrarla en Las Palmas.</h2>
         <p class="lead">
           Decathlon Tamaraceite y varios gimnasios de la ciudad. Consulta el punto más cercano,
@@ -65,14 +38,13 @@
         </p>
       </div>
 
-      <div class="comprar-mapa__bloque">
-        <app-store-map [points]="points" />
-      </div>
-
       <div class="comprar-puntos">
         @for (point of points; track point.name) {
           <article class="punto" [class.punto--gym]="point.kind === 'gimnasio'">
             <div class="punto__cabecera">
+              <span class="punto__logo" [class.punto__logo--oscuro]="point.logoOscuro">
+                <img [src]="point.logo" [alt]="'Logo de ' + point.name" loading="lazy" />
+              </span>
               <span class="punto__tipo">{{
                 point.kind === 'tienda' ? 'Punto de venta' : 'Gimnasio'
               }}</span>
@@ -130,6 +102,37 @@
           Quiero vender SURGE
         </a>
       </div>
+    </div>
+  </section>
+
+  <section class="seccion" aria-labelledby="online-titulo">
+    <div class="contenedor comprar-grid">
+      <div class="comprar-texto">
+        <p class="kicker">02 — Online</p>
+        <h2 id="online-titulo">Online, sin salir de casa.</h2>
+        <p>
+          Packs de 6, 12 y 24 latas, con envío a toda España. En Canarias, entrega en 24–72 h
+          laborables. Tú eliges el reparto entre Flama, Mentisimo y Cocus.
+        </p>
+        <div class="fila">
+          <button type="button" class="btn" (click)="openPacks()">Elegir pack</button>
+          <a class="btn btn--secundario" routerLink="/sobre-nosotros#hablemos">¿Tienes una duda?</a>
+        </div>
+        <p class="comprar-nota">
+          Pago pendiente de conectar: la web funciona en modo demostración y no realiza cobros.
+        </p>
+      </div>
+
+      <figure class="comprar-foto">
+        <img
+          src="assets/img/caja-pack.webp"
+          alt="Caja Variety Pack de SURGE con seis latas"
+          width="928"
+          height="1152"
+          loading="lazy"
+        />
+        <figcaption>La caja llega con seis latas: dos de cada sabor.</figcaption>
+      </figure>
     </div>
   </section>
 

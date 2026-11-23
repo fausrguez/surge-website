@@ -30,7 +30,8 @@ La página debe sentirse como una conversación, no como un dossier corporativo.
 
 ## 3. Estructura y jerarquía
 
-- **H1 único:** **“Sobre nosotros”**.
+- **H1 único:** **“Más natural, menos agresivo.”**, con el sello “Sé equilibrado” debajo.
+- **Kicker:** “Sobre nosotros · Energy from the earth”.
 - Debajo, el contenido se divide en secciones. Cada sección lleva un **H2 claramente más pequeño que el H1**, con un kicker numerado encima.
 - Jerarquía tipográfica orientativa:
   - H1: grande y dominante, el elemento más pesado de la página.
@@ -45,8 +46,9 @@ La página debe sentirse como una conversación, no como un dossier corporativo.
   5. **Nuestros valores**.
   6. **Nuestro compromiso**.
   7. Frase-manifiesto con el eslogan.
-  8. **Hablemos** (caja de contacto con formulario).
-  9. Footer.
+  8. **El equipo**: Juan, Antonio, Carla, Marianna y Fausto.
+  9. **Hablemos** (caja de contacto con formulario).
+  10. Footer.
 - Las secciones deben respirar: mucho aire vertical en escritorio y algo menos en móvil.
 - Alterna fondos crema, superficies claras y una banda verde bosque para evitar monotonía, sin convertir la página en un collage.
 
@@ -140,7 +142,15 @@ Entre el compromiso y el contacto, una banda crema con una cita grande:
 - Trátalo como una cita destacada, no como un H2. Puede ser grande, con una línea botánica dibujada debajo.
 - Añade una línea pequeña encima: “NUESTRO MANIFIESTO”.
 
-### 06 — Hablemos (contacto)
+### 06 — El equipo
+
+**H2: “Cinco personas, una idea.”**
+
+- Texto: “Juan, Antonio, Carla, Marianna y Fausto. Cinco formas de mirar la energía, un mismo punto de partida: una bebida que puedas tomarte sin sentir que te está tomando el pelo.”
+- Lista con los cinco nombres y un número.
+- Sin fotos, biografías, cargos inventados ni enlaces personales.
+
+### 07 — Hablemos (contacto)
 
 **H2: “Hablemos”**
 
@@ -269,7 +279,7 @@ Los recursos viven en `public/assets/img/` con nombres limpios y en WebP. No hay
 
 ## 13. Criterios de aceptación
 
-1. El H1 dice exactamente **“Sobre nosotros”**.
+1. El H1 muestra **“Más natural, menos agresivo.”** y el kicker identifica la página como “Sobre nosotros”.
 2. Todas las secciones usan H2 de tamaño menor que el H1.
 3. Aparecen origen, misión, visión, valores y compromiso.
 4. El eslogan **“Más natural, menos agresivo. Sé equilibrado”** aparece visible y literal.

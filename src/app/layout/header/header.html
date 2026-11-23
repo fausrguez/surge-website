@@ -10,14 +10,29 @@
     >
       <svg width="22" height="22" viewBox="0 0 24 24" fill="none" aria-hidden="true">
         @if (ui.mobileMenuOpen()) {
-          <path d="M6 6l12 12M18 6L6 18" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" />
+          <path
+            d="M6 6l12 12M18 6L6 18"
+            stroke="currentColor"
+            stroke-width="1.8"
+            stroke-linecap="round"
+          />
         } @else {
-          <path d="M4 7h16M4 12h16M4 17h16" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" />
+          <path
+            d="M4 7h16M4 12h16M4 17h16"
+            stroke="currentColor"
+            stroke-width="1.8"
+            stroke-linecap="round"
+          />
         }
       </svg>
     </button>
 
-    <a class="header__marca" routerLink="/" (click)="ui.closeMobileMenu()" aria-label="SURGE, inicio">
+    <a
+      class="header__marca"
+      routerLink="/"
+      (click)="ui.closeMobileMenu()"
+      aria-label="SURGE, inicio"
+    >
       <img src="assets/logo.svg" alt="" width="38" height="38" />
       <span class="header__wordmark">
         <strong>SURGE</strong>
@@ -32,16 +47,13 @@
       aria-label="Navegación principal"
     >
       @for (link of links; track link.path) {
-        @if (link.path === '/#sabores') {
-          <a routerLink="/" fragment="sabores" (click)="ui.closeMobileMenu()">{{ link.label }}</a>
-        } @else {
-          <a
-            [routerLink]="link.path"
-            routerLinkActive="activo"
-            [routerLinkActiveOptions]="{ exact: link.path === '/' }"
-            (click)="ui.closeMobileMenu()"
-          >{{ link.label }}</a>
-        }
+        <a
+          [routerLink]="link.path"
+          routerLinkActive="activo"
+          [routerLinkActiveOptions]="{ exact: link.path === '/' }"
+          (click)="ui.closeMobileMenu()"
+          >{{ link.label }}</a
+        >
       }
     </nav>
 
@@ -52,8 +64,18 @@
       [attr.aria-label]="'Abrir carrito, ' + cart.count() + ' packs'"
     >
       <svg width="22" height="22" viewBox="0 0 24 24" fill="none" aria-hidden="true">
-        <path d="M6 8h12l-1 11H7L6 8Z" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round" />
-        <path d="M9 8V6.8a3 3 0 0 1 6 0V8" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" />
+        <path
+          d="M6 8h12l-1 11H7L6 8Z"
+          stroke="currentColor"
+          stroke-width="1.7"
+          stroke-linejoin="round"
+        />
+        <path
+          d="M9 8V6.8a3 3 0 0 1 6 0V8"
+          stroke="currentColor"
+          stroke-width="1.7"
+          stroke-linecap="round"
+        />
       </svg>
       @if (cart.count() > 0) {
         <span class="header__badge" aria-live="polite">{{ cart.count() }}</span>

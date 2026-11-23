@@ -2,8 +2,12 @@
   <section class="nosotros-hero" aria-labelledby="nosotros-titulo">
     <div class="contenedor nosotros-hero__grid">
       <div class="nosotros-hero__texto">
-        <p class="kicker">Energy from the earth · Canarias</p>
-        <h1 id="nosotros-titulo">Sobre nosotros</h1>
+        <p class="kicker">Sobre nosotros · Energy from the earth</p>
+        <h1 id="nosotros-titulo" class="nosotros-hero__lema">
+          <span>Más natural,</span>
+          <span>menos agresivo.</span>
+        </h1>
+        <p class="nosotros-hero__sello">Sé equilibrado</p>
         <p class="lead">
           Somos SURGE. Nacimos en Canarias con una idea sencilla: la energía no tiene por qué ser
           agresiva. Queremos acompañarte con ingredientes reales, sabor honesto y un equilibrio que
@@ -41,17 +45,15 @@
         <p>
           Nacimos en Gran Canaria, entre entrenamientos, cafés y conversaciones sobre lo que
           bebíamos para rendir. Nos gustaba la energía, pero no los nervios ni el ruido de las latas
-          de siempre. Queríamos algo más natural, más nuestro, que pudiéramos tomarnos sin sentir que
-          estábamos traicionando nuestros hábitos.
+          de siempre. Queríamos algo más natural, más nuestro, que pudiéramos tomarnos sin sentir
+          que estábamos traicionando nuestros hábitos.
         </p>
         <p>
           Empezamos probando, mezclando y escuchando. De ahí salieron tres sabores: Flama, Mentisimo
-          y Cocus. Después llegó el primer piloto: 3.000 latas, 1.000 de cada sabor, para aprender de
-          la gente, medir de verdad y mejorar antes de crecer.
+          y Cocus. Después llegó el primer piloto: 3.000 latas, 1.000 de cada sabor, para aprender
+          de la gente, medir de verdad y mejorar antes de crecer.
         </p>
-        <p>
-          No nacimos para ser la bebida más fuerte. Nacimos para ser la que mejor te sienta.
-        </p>
+        <p>No nacimos para ser la bebida más fuerte. Nacimos para ser la que mejor te sienta.</p>
         <blockquote class="nosotros-cita">La energía también puede ser tranquila.</blockquote>
       </div>
 
@@ -131,7 +133,9 @@
         <article class="valor" style="--valor: #6b8e23">
           <span>02</span>
           <h3>Transparencia</h3>
-          <p>Decimos lo que hay y lo que no. Sin letra pequeña ni promesas que no podamos demostrar.</p>
+          <p>
+            Decimos lo que hay y lo que no. Sin letra pequeña ni promesas que no podamos demostrar.
+          </p>
         </article>
         <article class="valor" style="--valor: #b7e4c7">
           <span>03</span>
@@ -172,7 +176,9 @@
           <p>Aluminio reciclable, cartón FSC y envases sin film. Menos envoltorio, más producto.</p>
         </article>
       </div>
-      <button type="button" class="enlace compromiso__enlace" (click)="openPacks()">Ver los packs →</button>
+      <button type="button" class="enlace compromiso__enlace" (click)="openPacks()">
+        Ver los packs →
+      </button>
     </div>
   </section>
 
@@ -183,6 +189,26 @@
       <svg class="manifiesto__linea" viewBox="0 0 240 20" aria-hidden="true">
         <path d="M2 14c30-16 58 10 88-4s58-6 88 2 32-2 60-8" />
       </svg>
+    </div>
+  </section>
+
+  <section class="seccion equipo" aria-labelledby="equipo-titulo">
+    <div class="contenedor equipo__grid">
+      <div class="equipo__texto">
+        <p class="kicker">El equipo</p>
+        <h2 id="equipo-titulo">Cinco personas, una idea.</h2>
+        <p class="lead">
+          Juan, Antonio, Carla, Marianna y Fausto. Cinco formas de mirar la energía, un mismo punto
+          de partida: una bebida que puedas tomarte sin sentir que te está tomando el pelo.
+        </p>
+      </div>
+      <ul class="equipo__lista" aria-label="Equipo de SURGE">
+        <li><span>01</span><strong>Juan</strong></li>
+        <li><span>02</span><strong>Antonio</strong></li>
+        <li><span>03</span><strong>Carla</strong></li>
+        <li><span>04</span><strong>Marianna</strong></li>
+        <li><span>05</span><strong>Fausto</strong></li>
+      </ul>
     </div>
   </section>
 
@@ -203,7 +229,9 @@
           </li>
           <li>
             <span>Linktree</span>
-            <a [href]="socials.linktree" target="_blank" rel="noopener noreferrer">linktr.ee/surge.es</a>
+            <a [href]="socials.linktree" target="_blank" rel="noopener noreferrer"
+              >linktr.ee/surge.es</a
+            >
           </li>
           <li>
             <span>Email</span>
@@ -221,17 +249,25 @@
           <div class="contacto__exito" role="status">
             <span class="contacto__check" aria-hidden="true">
               <svg width="26" height="26" viewBox="0 0 24 24" fill="none">
-                <path d="M5 12.5l4.5 4.5L19 7.5" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" />
+                <path
+                  d="M5 12.5l4.5 4.5L19 7.5"
+                  stroke="currentColor"
+                  stroke-width="2.2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                />
               </svg>
             </span>
             <h3 #successTitle tabindex="-1">
-              ¡El mensaje ha sido enviado con éxito! Nos pondremos en contacto con usted con la mayor
-              brevedad posible. Gracias; Equipo Surge.
+              ¡El mensaje ha sido enviado con éxito! Nos pondremos en contacto con usted con la
+              mayor brevedad posible. Gracias; Equipo Surge.
             </h3>
             <p class="contacto__demo">
               Modo demostración: el formulario no envía datos a ningún servidor todavía.
             </p>
-            <button type="button" class="btn btn--secundario" (click)="sendAnother()">Enviar otro mensaje</button>
+            <button type="button" class="btn btn--secundario" (click)="sendAnother()">
+              Enviar otro mensaje
+            </button>
           </div>
         } @else {
           <h3 class="contacto__titulo">Escríbenos</h3>
@@ -297,7 +333,9 @@
               ></textarea>
               <p class="campo__ayuda" id="ayuda-mensaje">Mínimo 20 caracteres.</p>
               @if (showError('mensaje')) {
-                <p class="campo__error" id="error-mensaje">Cuéntanos un poco más (mínimo 20 caracteres).</p>
+                <p class="campo__error" id="error-mensaje">
+                  Cuéntanos un poco más (mínimo 20 caracteres).
+                </p>
               }
             </div>
 
@@ -309,10 +347,15 @@
                   [attr.aria-invalid]="showError('privacidad')"
                   aria-describedby="error-privacidad"
                 />
-                <span>He leído y acepto la <a routerLink="/legal/privacidad">política de privacidad</a>.</span>
+                <span
+                  >He leído y acepto la
+                  <a routerLink="/legal/privacidad">política de privacidad</a>.</span
+                >
               </label>
               @if (showError('privacidad')) {
-                <p class="campo__error" id="error-privacidad">Acepta la política de privacidad para continuar.</p>
+                <p class="campo__error" id="error-privacidad">
+                  Acepta la política de privacidad para continuar.
+                </p>
               }
             </div>
 

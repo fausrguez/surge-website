@@ -104,7 +104,11 @@
 }
 
 .comprar-mapa__bloque {
-  margin-bottom: 24px;
+  margin-bottom: clamp(28px, 4vw, 48px);
+}
+
+.comprar-tiendas .seccion__cabecera {
+  margin-top: clamp(8px, 2vw, 20px);
 }
 
 .comprar-puntos {
@@ -132,6 +136,30 @@
   flex-wrap: wrap;
   align-items: center;
   gap: 8px;
+}
+
+.punto__logo {
+  display: grid;
+  place-items: center;
+  height: 44px;
+  min-width: 64px;
+  max-width: 132px;
+  padding: 7px 10px;
+  border: 1px solid var(--linea);
+  border-radius: 10px;
+  background: #fff;
+}
+
+.punto__logo img {
+  width: auto;
+  max-width: 108px;
+  max-height: 28px;
+  object-fit: contain;
+}
+
+.punto__logo--oscuro {
+  border-color: transparent;
+  background: #16323d;
 }
 
 .punto__tipo {

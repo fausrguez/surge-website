@@ -1,5 +1,14 @@
 <main class="home">
   <section class="hero" id="inicio" aria-labelledby="hero-titulo">
+    <img
+      class="hero__fondo"
+      src="assets/img/hero-fondo.webp"
+      alt=""
+      width="928"
+      height="1152"
+      fetchpriority="high"
+      aria-hidden="true"
+    />
     <div class="contenedor hero__grid">
       <div class="hero__escena" aria-label="Modelos 3D de las tres latas">
         <button
@@ -111,6 +120,24 @@
         [style.background-image]="'url(' + flavor.patternImage + ')'"
         aria-hidden="true"
       ></div>
+
+      <app-flavor-particles [kind]="flavor.particles" />
+
+      <div class="sabor-seccion__decor" aria-hidden="true">
+        <img
+          class="sabor-seccion__fruta sabor-seccion__fruta--izq"
+          [src]="flavor.decorLeft"
+          alt=""
+          loading="lazy"
+        />
+        <img
+          class="sabor-seccion__fruta sabor-seccion__fruta--der"
+          [src]="flavor.decorRight"
+          alt=""
+          loading="lazy"
+        />
+      </div>
+
       <div class="contenedor sabor-seccion__grid">
         <div class="sabor-seccion__modelo">
           <model-viewer
@@ -173,8 +200,8 @@
         <p class="kicker">Packs y suscripción</p>
         <h2 id="suscripciones-titulo">Elige cómo quieres llenar la nevera.</h2>
         <p class="lead">
-          Desde una caja para probar hasta la Rutina mensual. Precios con IGIC incluido y envío
-          gratis desde 39,95 €.
+          Desde una caja para probar hasta la Rutina mensual de SURGE Club. Precios con IGIC
+          incluido y envío gratis desde 39,95 €.
         </p>
       </div>
 
@@ -232,7 +259,10 @@
         <div class="seccion__cabecera">
           <p class="kicker">@surge.es</p>
           <h2 id="instagram-titulo">Lo último en Instagram.</h2>
-          <p class="lead">Producto, ingredientes y gente que se mueve. Sin filtros de más.</p>
+          <p class="lead">
+            Producto, ingredientes y gente que se mueve. Sin filtros de más. Comparte con
+            #SurgeCanarias.
+          </p>
         </div>
 
         <ul class="instagram__posts">

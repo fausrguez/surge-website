@@ -13,6 +13,8 @@ interface StorePoint extends MapPoint {
   web?: string;
   maps: string;
   note: string;
+  logo: string;
+  logoOscuro?: boolean;
 }
 
 @Component({
@@ -40,6 +42,7 @@ export class DondeComprar {
       lat: 28.0949353,
       lng: -15.4729401,
       note: 'Recogida en tienda en 1 hora. Pregunta por SURGE en el lineal o en la nevera.',
+      logo: 'assets/tiendas/decathlon.svg',
     },
     {
       name: 'CD Tamaraceite',
@@ -54,6 +57,7 @@ export class DondeComprar {
       lat: 28.1006654,
       lng: -15.4761532,
       note: 'Centro deportivo de Tamaraceite.',
+      logo: 'assets/tiendas/cd-tamaraceite.webp',
     },
     {
       name: 'GOfit Las Palmas',
@@ -66,6 +70,7 @@ export class DondeComprar {
       lat: 28.132466,
       lng: -15.4422878,
       note: 'Gimnasio y piscina en Guanarteme, junto a Las Canteras.',
+      logo: 'assets/tiendas/gofit.svg',
     },
     {
       name: 'Areafit Las Palmas',
@@ -78,6 +83,8 @@ export class DondeComprar {
       lat: 28.1122677,
       lng: -15.4361753,
       note: 'Centro deportivo en Las Escaleritas.',
+      logo: 'assets/tiendas/areafit.webp',
+      logoOscuro: true,
     },
     {
       name: 'Beats Las Palmas',
@@ -92,6 +99,7 @@ export class DondeComprar {
       lat: 28.10236,
       lng: -15.4449527,
       note: 'Gimnasio en Escaleritas.',
+      logo: 'assets/tiendas/beats.webp',
     },
     {
       name: 'Macro Fit Las Palmas',
@@ -103,6 +111,7 @@ export class DondeComprar {
       lat: 28.1192029,
       lng: -15.425962,
       note: 'Gimnasio en Ciudad Jardín.',
+      logo: 'assets/tiendas/macrofit.webp',
     },
   ];
 

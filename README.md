@@ -47,7 +47,17 @@ Modal de packs y modal de suscripción se abren desde cualquier CTA.
 - Los fondos de los sabores usan el patrón oficial `08-pattern-board.png`, recortado en tres bandas.
 - Dónde comprar usa un mapa real con Leaflet y OpenStreetMap, con Decathlon Tamaraceite y cinco gimnasios de Las Palmas.
 - Bestial Race muestra avatares públicos de los influencers, sin enlaces ni biografías.
+- Sobre nosotros incluye al equipo: Juan, Antonio, Carla, Marianna y Fausto.
+- La suscripción se presenta como SURGE Club; la campaña usa #SurgeCanarias.
+- El piloto que se comunica es de 3.000 latas, no las 6.000 de una diapositiva antigua de Canva.
 - Los assets vienen de `../surge/assets`, renombrados y optimizados a WebP/GLB.
+
+## Fuentes
+
+- [Ficha de fuentes Canva/Miro](../surge/docs/fuentes-canva-miro.md).
+- Canva: presentación de 60 diapositivas.
+- Miro: tablero «SURGE: Más natural menos agresivo, Se equilibrado».
+- Los datos de los tableros que no están confirmados se marcan como `[SUPUESTO]` en `../surge`.
 
 ## Pendientes
 

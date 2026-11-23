@@ -11,6 +11,8 @@ Home se compone de cinco bloques y un aviso flotante:
 
 El scroll es suave entre bloques. En escritorio se usa `scroll-snap` con `proximity` para no atrapar al usuario.
 
+El hero usa `assets/img/hero-fondo.webp` como fondo de sombras de palmera y piedra.
+
 ## Hero
 
 ### Requisitos
@@ -33,6 +35,7 @@ El scroll es suave entre bloques. En escritorio se usa `scroll-snap` con `proxim
 - `(ingredientes)`: ingredientes principales en una línea.
 - `(cta)`: `Crea tu pack` y `Dónde comprar`.
 - `(flavor-overlay)`: patrón oficial de `08-pattern-board.png`, recortado en tres bandas: superior para Flama, central para Mentisimo e inferior para Cocus. Se usa como fondo con opacidad baja y `mix-blend-mode: multiply`.
+- `(decoración)`: frutas recortadas de `assets/flavors/` en las esquinas inferiores y partículas animadas (`fire`, `wind`, `ice`). Respetan `prefers-reduced-motion`.
 
 ### Diseño
 - Colores correspondientes de la bebida.
@@ -43,6 +46,7 @@ El scroll es suave entre bloques. En escritorio se usa `scroll-snap` con `proxim
 ## Suscripciones y packs
 
 - Tres tarjetas con los precios vigentes: Starter 6 latas 12,90 €; Equilibrio 12 latas 24,90 €; Rutina 24 latas 49,90 €/mes en suscripción o 59,90 € en compra única.
+- La suscripción se presenta como **SURGE Club** en la sección y en el modal.
 - El botón de cada tarjeta abre el modal de packs con ese tamaño preseleccionado.
 - En Rutina, un enlace secundario abre el modal de suscripción con la explicación.
 - Envío 4,00 €, gratis desde 39,95 €. Precios con IGIC incluido.
@@ -51,6 +55,7 @@ El scroll es suave entre bloques. En escritorio se usa `scroll-snap` con `proxim
 ## Feed de Instagram
 
 - A la izquierda, una selección estática de publicaciones con enlace al perfil.
+- El copy invita a compartir con `#SurgeCanarias`.
 - A la derecha, una tarjeta de perfil con el logo, `@surge.es`, una descripción breve y el enlace a Instagram y Linktree.
 - No se usa API de Instagram ni cookies de terceros. Las imágenes son locales.
 - Para evitar mostrar etiquetas erróneas, las publicaciones de producto usan renders de los modelos 3D (`modelo-flama.webp`, `modelo-mentisimo.webp`, `modelo-cocus.webp`), no los JPG antiguos.

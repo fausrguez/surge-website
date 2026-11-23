@@ -1,16 +1,35 @@
 @if (ui.subscriptionOpen()) {
   <div class="overlay" (click)="close()" aria-hidden="true"></div>
   <div class="modal" role="presentation">
-    <section class="modal__panel subs" role="dialog" aria-modal="true" aria-labelledby="subs-titulo">
-      <button #closeButton type="button" class="modal__cerrar" (click)="close()" aria-label="Cerrar información de suscripción">
+    <section
+      class="modal__panel subs"
+      role="dialog"
+      aria-modal="true"
+      aria-labelledby="subs-titulo"
+    >
+      <button
+        #closeButton
+        type="button"
+        class="modal__cerrar"
+        (click)="close()"
+        aria-label="Cerrar información de suscripción"
+      >
         <svg width="22" height="22" viewBox="0 0 24 24" fill="none" aria-hidden="true">
-          <path d="M6 6l12 12M18 6L6 18" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" />
+          <path
+            d="M6 6l12 12M18 6L6 18"
+            stroke="currentColor"
+            stroke-width="1.8"
+            stroke-linecap="round"
+          />
         </svg>
       </button>
 
-      <p class="kicker">Rutina mensual</p>
+      <p class="kicker">SURGE Club · Rutina mensual</p>
       <h2 id="subs-titulo">Tu energía, cada mes.</h2>
-      <p class="lead">24 latas al mes para que no te quedes a cero. Tú eliges el reparto entre Flama, Mentisimo y Cocus.</p>
+      <p class="lead">
+        24 latas al mes para que no te quedes a cero. SURGE Club es la suscripción: tú eliges el
+        reparto entre Flama, Mentisimo y Cocus y puedes pausar o cancelar cuando quieras.
+      </p>
 
       <div class="subs__precio">
         <strong>{{ formatPrice(price) }}</strong>
@@ -40,14 +59,19 @@
       </div>
 
       <div class="subs__nota">
-        <strong>Compra única:</strong> si prefieres probar sin compromiso, el pack de 24 latas cuesta {{ formatPrice(singlePrice) }}.
+        <strong>Compra única:</strong> si prefieres probar sin compromiso, el pack de 24 latas
+        cuesta {{ formatPrice(singlePrice) }}.
       </div>
 
       <div class="subs__acciones">
-        <button type="button" class="btn" (click)="start()">Montar mi Rutina · {{ formatPrice(price) }}</button>
+        <button type="button" class="btn" (click)="start()">
+          Montar mi Rutina · {{ formatPrice(price) }}
+        </button>
         <button type="button" class="btn btn--secundario" (click)="close()">Seguir mirando</button>
       </div>
-      <p class="subs__demo">Modo demostración: la suscripción no se cobra hasta conectar la pasarela de pago.</p>
+      <p class="subs__demo">
+        Modo demostración: la suscripción no se cobra hasta conectar la pasarela de pago.
+      </p>
     </section>
   </div>
 }
