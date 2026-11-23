@@ -103,119 +103,101 @@
   scroll-margin-top: var(--header);
 }
 
-.comprar-canales {
+.comprar-mapa__bloque {
+  margin-bottom: 24px;
+}
+
+.comprar-puntos {
   display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
+  grid-template-columns: repeat(2, minmax(0, 1fr));
   gap: 14px;
-  margin-top: 18px;
 }
 
-.comprar-tienda {
-  margin-bottom: 18px;
-}
-
-.tienda {
+.punto {
   display: grid;
-  gap: 12px;
-  padding: clamp(22px, 3vw, 30px);
-  border: 1px solid rgba(45, 106, 79, 0.34);
+  gap: 10px;
+  padding: clamp(20px, 3vw, 28px);
+  border: 1px solid var(--linea);
   border-radius: var(--radio-md);
   background: var(--superficie);
   box-shadow: var(--sombra);
 }
 
-.tienda__cabecera {
-  display: flex;
-  align-items: center;
-  gap: 10px;
+.punto--gym {
+  border-left: 5px solid var(--lima);
 }
 
-.tienda__cabecera .chip {
+.punto__cabecera {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px;
+}
+
+.punto__tipo {
+  padding: 4px 10px;
+  border-radius: var(--radio-pill);
   background: var(--lima);
   color: var(--verde-oscuro);
-  border-color: transparent;
-}
-
-.tienda__tipo {
-  color: var(--secundario);
-  font-size: 0.72rem;
+  font-size: 0.64rem;
   font-weight: 700;
   letter-spacing: 0.08em;
   text-transform: uppercase;
 }
 
-.tienda h3 {
-  font-size: clamp(1.4rem, 2.2vw, 1.8rem);
+.punto--gym .punto__tipo {
+  background: rgba(45, 106, 79, 0.12);
+  color: var(--verde);
 }
 
-.tienda__datos {
+.punto__zona {
+  color: var(--secundario);
+  font-size: 0.7rem;
+}
+
+.punto h3 {
+  font-size: clamp(1.3rem, 2vw, 1.7rem);
+}
+
+.punto__datos {
   display: grid;
   gap: 8px;
   margin: 0;
 }
 
-.tienda__datos > div {
+.punto__datos > div {
   display: grid;
-  grid-template-columns: 100px 1fr;
+  grid-template-columns: 92px 1fr;
   gap: 12px;
   padding-bottom: 6px;
   border-bottom: 1px solid var(--linea);
 }
 
-.tienda__datos dt {
+.punto__datos dt {
   color: var(--secundario);
-  font-size: 0.72rem;
+  font-size: 0.68rem;
   font-weight: 700;
   letter-spacing: 0.08em;
   text-transform: uppercase;
 }
 
-.tienda__datos dd {
+.punto__datos dd {
   margin: 0;
-  font-size: 0.9rem;
+  font-size: 0.86rem;
 }
 
-.tienda__datos a {
+.punto__datos a {
   color: var(--verde);
   font-weight: 600;
 }
 
-.tienda__nota {
+.punto__nota {
   color: var(--secundario);
-  font-size: 0.82rem;
+  font-size: 0.8rem;
 }
 
-.tienda__acciones {
+.punto__acciones {
   margin-top: 2px;
-}
-
-.canal {
-  padding: 20px;
-  border: 1px solid var(--linea);
-  border-radius: var(--radio-md);
-  background: var(--superficie);
-}
-
-.canal__icono {
-  display: inline-grid;
-  place-items: center;
-  width: 34px;
-  height: 34px;
-  border-radius: 50%;
-  background: var(--lima);
-  color: var(--verde-oscuro);
-  font-size: 0.68rem;
-  font-weight: 700;
-}
-
-.canal h3 {
-  margin-block: 10px 6px;
-  font-size: 1.1rem;
-}
-
-.canal p {
-  color: var(--secundario);
-  font-size: 0.86rem;
 }
 
 .comprar-vacio {
@@ -235,109 +217,6 @@
   max-width: 56ch;
   color: var(--secundario);
   font-size: 0.9rem;
-}
-
-.comprar-mapa {
-  padding-block: var(--seccion);
-}
-
-.comprar-mapa__grid {
-  display: grid;
-  grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr);
-  gap: clamp(28px, 5vw, 64px);
-  align-items: center;
-}
-
-.comprar-mapa__grid > div:first-child {
-  display: grid;
-  gap: 16px;
-  justify-items: start;
-}
-
-.comprar-mapa__grid p {
-  color: var(--secundario);
-}
-
-.mapa {
-  position: relative;
-  display: grid;
-  place-items: center;
-  min-height: 300px;
-  padding: 18px;
-  border: 1px solid var(--linea);
-  border-radius: var(--radio-md);
-  background:
-    radial-gradient(circle at 30% 30%, rgba(183, 228, 199, 0.4), transparent 60%),
-    var(--superficie);
-  overflow: hidden;
-}
-
-.mapa svg {
-  width: 100%;
-  height: auto;
-}
-
-.isla {
-  fill: rgba(45, 106, 79, 0.18);
-  stroke: var(--verde);
-  stroke-width: 1.4;
-}
-
-.isla--activa {
-  fill: rgba(45, 106, 79, 0.32);
-  stroke-width: 2;
-}
-
-.pin {
-  fill: var(--verde);
-  stroke: var(--crema);
-  stroke-width: 2;
-}
-
-.pin-pulso {
-  fill: none;
-  stroke: var(--verde);
-  stroke-width: 1.5;
-  opacity: 0.6;
-  animation: pin-pulse 2.4s ease-out infinite;
-  transform-origin: 352px 148px;
-}
-
-@keyframes pin-pulse {
-  0% {
-    transform: scale(1);
-    opacity: 0.6;
-  }
-  70% {
-    transform: scale(2.6);
-    opacity: 0;
-  }
-  100% {
-    transform: scale(2.6);
-    opacity: 0;
-  }
-}
-
-.ruta {
-  fill: none;
-  stroke: var(--verde);
-  stroke-width: 1.2;
-  stroke-dasharray: 4 6;
-  opacity: 0.5;
-}
-
-.mapa span {
-  position: absolute;
-  bottom: 14px;
-  left: 50%;
-  padding: 4px 10px;
-  border-radius: var(--radio-pill);
-  background: var(--crema);
-  color: var(--secundario);
-  font-size: 0.68rem;
-  font-weight: 600;
-  transform: translateX(-50%);
-  white-space: nowrap;
 }
 
 .comprar-cierre {
@@ -362,23 +241,25 @@
 
 @media (max-width: 960px) {
   .comprar-hero__grid,
-  .comprar-grid,
-  .comprar-mapa__grid {
+  .comprar-grid {
     grid-template-columns: 1fr;
   }
 
   .comprar-foto {
     max-width: 420px;
   }
+}
 
-  .comprar-canales {
-    grid-template-columns: 1fr 1fr;
+@media (max-width: 760px) {
+  .comprar-puntos {
+    grid-template-columns: 1fr;
   }
 }
 
 @media (max-width: 600px) {
-  .comprar-canales {
+  .punto__datos > div {
     grid-template-columns: 1fr;
+    gap: 2px;
   }
 
   .comprar-vacio .btn,

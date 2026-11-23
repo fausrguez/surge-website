@@ -57,114 +57,78 @@
   <section class="comprar-tiendas" id="tiendas" aria-labelledby="tiendas-titulo">
     <div class="contenedor">
       <div class="seccion__cabecera">
-        <p class="kicker">02 — En tienda</p>
-        <h2 id="tiendas-titulo">En tienda, ya puedes encontrarla.</h2>
+        <p class="kicker">02 — En tienda y en el gimnasio</p>
+        <h2 id="tiendas-titulo">Ya puedes encontrarla en Las Palmas.</h2>
         <p class="lead">
-          Ya puedes encontrar SURGE en Decathlon Tamaraceite. Seguimos cerrando gimnasios,
-          cafeterías, tiendas de productos naturales y comercio de barrio en Gran Canaria.
+          Decathlon Tamaraceite y varios gimnasios de la ciudad. Consulta el punto más cercano,
+          pásate y pregunta por SURGE en el lineal o en la nevera.
         </p>
       </div>
 
-      <div class="comprar-tienda">
-        @for (store of stores; track store.name) {
-          <article class="tienda">
-            <div class="tienda__cabecera">
-              <span class="chip chip--color">{{ store.island }}</span>
-              <span class="tienda__tipo">{{ store.type }}</span>
+      <div class="comprar-mapa__bloque">
+        <app-store-map [points]="points" />
+      </div>
+
+      <div class="comprar-puntos">
+        @for (point of points; track point.name) {
+          <article class="punto" [class.punto--gym]="point.kind === 'gimnasio'">
+            <div class="punto__cabecera">
+              <span class="punto__tipo">{{
+                point.kind === 'tienda' ? 'Punto de venta' : 'Gimnasio'
+              }}</span>
+              <span class="punto__zona">{{ point.type }}</span>
             </div>
-            <h3>{{ store.name }}</h3>
-            <dl class="tienda__datos">
+            <h3>{{ point.name }}</h3>
+            <dl class="punto__datos">
               <div>
                 <dt>Dirección</dt>
-                <dd>{{ store.address }}</dd>
+                <dd>{{ point.address }}</dd>
               </div>
               <div>
                 <dt>Horario</dt>
-                <dd>{{ store.hours }}</dd>
+                <dd>{{ point.hours }}</dd>
               </div>
-              <div>
-                <dt>Teléfono</dt>
-                <dd><a [href]="store.phoneHref">{{ store.phone }}</a></dd>
-              </div>
+              @if (point.phone) {
+                <div>
+                  <dt>Teléfono</dt>
+                  <dd>
+                    <a [href]="point.phoneHref">{{ point.phone }}</a>
+                  </dd>
+                </div>
+              }
             </dl>
-            <p class="tienda__nota">{{ store.note }}</p>
-            <div class="fila tienda__acciones">
-              <a class="btn" [href]="store.web" target="_blank" rel="noopener noreferrer">Ver tienda</a>
-              <a class="btn btn--secundario" [href]="store.maps" target="_blank" rel="noopener noreferrer">Cómo llegar</a>
+            <p class="punto__nota">{{ point.note }}</p>
+            <div class="fila punto__acciones">
+              @if (point.web) {
+                <a class="btn" [href]="point.web" target="_blank" rel="noopener noreferrer"
+                  >Ver web</a
+                >
+              }
+              <a
+                class="btn btn--secundario"
+                [href]="point.maps"
+                target="_blank"
+                rel="noopener noreferrer"
+                >Cómo llegar</a
+              >
             </div>
           </article>
         }
       </div>
 
-      <div class="comprar-canales">
-        <article class="canal">
-          <span class="canal__icono" aria-hidden="true">01</span>
-          <h3>Gimnasios y boxes</h3>
-          <p>Nevera y lineal para antes o después del entrenamiento.</p>
-        </article>
-        <article class="canal">
-          <span class="canal__icono" aria-hidden="true">02</span>
-          <h3>Cafeterías</h3>
-          <p>La lata fría junto al café, sin competir con él.</p>
-        </article>
-        <article class="canal">
-          <span class="canal__icono" aria-hidden="true">03</span>
-          <h3>Tiendas naturales</h3>
-          <p>Ingredientes reales y composición clara en el lineal.</p>
-        </article>
-        <article class="canal">
-          <span class="canal__icono" aria-hidden="true">04</span>
-          <h3>Supermercados locales</h3>
-          <p>Puntos de barrio y compra de proximidad.</p>
-        </article>
-        <article class="canal">
-          <span class="canal__icono" aria-hidden="true">05</span>
-          <h3>Eventos deportivos</h3>
-          <p>Carreras, ferias y activaciones al aire libre.</p>
-        </article>
-      </div>
-
       <div class="comprar-vacio">
         <p>
-          <strong>Estamos cerrando más puntos.</strong> Si quieres que SURGE esté en tu tienda,
-          escríbenos y lo vemos.
+          <strong>Estamos cerrando más puntos.</strong> Si tienes una tienda, un gimnasio o una
+          cafetería y quieres vender SURGE, escríbenos.
         </p>
-        <a class="btn" routerLink="/sobre-nosotros" [queryParams]="{ asunto: 'tienda' }" fragment="hablemos">
+        <a
+          class="btn"
+          routerLink="/sobre-nosotros"
+          [queryParams]="{ asunto: 'tienda' }"
+          fragment="hablemos"
+        >
           Quiero vender SURGE
         </a>
-      </div>
-    </div>
-  </section>
-
-  <section class="comprar-mapa" aria-labelledby="mapa-titulo">
-    <div class="contenedor comprar-mapa__grid">
-      <div>
-        <p class="kicker">03 — Mapa</p>
-        <h2 id="mapa-titulo">El mapa, punto a punto.</h2>
-        <p class="lead">
-          Decathlon Tamaraceite ya está publicado. El mapa interactivo con direcciones y horarios
-          llegará cuando haya más puntos firmados. No vamos a rellenarlo con chinchetas que no
-          existen.
-        </p>
-        <a class="enlace" routerLink="/sobre-nosotros" [queryParams]="{ asunto: 'tienda' }" fragment="hablemos">
-          Proponer un punto de venta →
-        </a>
-      </div>
-
-      <div class="mapa" role="img" aria-label="Ilustración del archipiélago canario con un punto publicado en Gran Canaria">
-        <svg viewBox="0 0 560 320" aria-hidden="true">
-          <path class="isla" d="M60 90c18-14 46-10 58 6s4 40-16 48-46 2-52-16 0-28 10-38Z" />
-          <path class="isla" d="M132 46c12-10 30-6 38 6s2 28-12 34-30 0-34-12 2-20 8-28Z" />
-          <path class="isla" d="M196 78c18-12 44-4 50 14s-8 38-28 42-40-6-40-22 8-26 18-34Z" />
-          <path class="isla" d="M268 104c14-8 34-2 38 12s-8 28-24 30-30-6-30-18 6-18 16-24Z" />
-          <path class="isla isla--activa" d="M330 130c16-10 40-2 44 14s-10 32-28 34-34-8-32-22 6-20 16-26Z" />
-          <path class="isla" d="M404 156c12-8 30-2 32 10s-8 24-22 24-24-8-22-18 4-12 12-16Z" />
-          <path class="isla" d="M468 186c10-6 24-2 26 8s-6 20-18 20-20-6-18-16 4-8 10-12Z" />
-          <path class="ruta" d="M60 110c60-20 120 40 190 30s120-40 200-20" />
-          <circle class="pin" cx="352" cy="148" r="7" />
-          <circle class="pin-pulso" cx="352" cy="148" r="7" />
-        </svg>
-        <span>1 punto · Gran Canaria</span>
       </div>
     </div>
   </section>
@@ -179,7 +143,12 @@
         </p>
       </div>
       <div class="fila">
-        <a class="btn btn--claro" routerLink="/sobre-nosotros" [queryParams]="{ asunto: 'tienda' }" fragment="hablemos">
+        <a
+          class="btn btn--claro"
+          routerLink="/sobre-nosotros"
+          [queryParams]="{ asunto: 'tienda' }"
+          fragment="hablemos"
+        >
           Quiero vender SURGE
         </a>
         <a class="btn btn--fantasma" [href]="'mailto:' + email">{{ email }}</a>

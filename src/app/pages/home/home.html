@@ -2,7 +2,12 @@
   <section class="hero" id="inicio" aria-labelledby="hero-titulo">
     <div class="contenedor hero__grid">
       <div class="hero__escena" aria-label="Modelos 3D de las tres latas">
-        <button type="button" class="modelo modelo--mentisimo" (click)="go('mentisimo')" aria-label="Ver Mentisimo">
+        <button
+          type="button"
+          class="modelo modelo--mentisimo"
+          (click)="go('mentisimo')"
+          aria-label="Ver Mentisimo"
+        >
           <model-viewer
             src="assets/models/mentisimo.glb"
             alt="Lata Mentisimo de SURGE"
@@ -15,7 +20,12 @@
             environment-image="neutral"
           ></model-viewer>
         </button>
-        <button type="button" class="modelo modelo--cocus" (click)="go('cocus')" aria-label="Ver Cocus">
+        <button
+          type="button"
+          class="modelo modelo--cocus"
+          (click)="go('cocus')"
+          aria-label="Ver Cocus"
+        >
           <model-viewer
             src="assets/models/cocus.glb"
             alt="Lata Cocus de SURGE"
@@ -28,7 +38,12 @@
             environment-image="neutral"
           ></model-viewer>
         </button>
-        <button type="button" class="modelo modelo--flama" (click)="go('flama')" aria-label="Ver Flama">
+        <button
+          type="button"
+          class="modelo modelo--flama"
+          (click)="go('flama')"
+          aria-label="Ver Flama"
+        >
           <model-viewer
             src="assets/models/flama.glb"
             alt="Lata Flama de SURGE"
@@ -76,8 +91,8 @@
       <p class="kicker">La familia</p>
       <h2 id="sabores-titulo">Tres latas. Tres momentos.</h2>
       <p class="lead">
-        No son tres sabores del mismo producto. Son tres formas de acompañar el día: el empujón,
-        el foco y la pausa.
+        No son tres sabores del mismo producto. Son tres formas de acompañar el día: el empujón, el
+        foco y la pausa.
       </p>
     </div>
   </section>
@@ -91,7 +106,11 @@
       [style.--texto-sabor]="flavor.textColor"
       [attr.aria-labelledby]="'titulo-' + flavor.id"
     >
-      <app-flavor-pattern [kind]="flavor.pattern" />
+      <div
+        class="sabor-seccion__patron"
+        [style.background-image]="'url(' + flavor.patternImage + ')'"
+        aria-hidden="true"
+      ></div>
       <div class="contenedor sabor-seccion__grid">
         <div class="sabor-seccion__modelo">
           <model-viewer
@@ -130,7 +149,11 @@
           </ul>
 
           <p class="sabor-seccion__ingredientes">
-            <span class="chip chip--color" [style.background]="flavor.tint" [style.color]="flavor.textColor">
+            <span
+              class="chip chip--color"
+              [style.background]="flavor.tint"
+              [style.color]="flavor.textColor"
+            >
               {{ flavor.ingredients }}
             </span>
           </p>
@@ -185,7 +208,13 @@
       </div>
 
       <div class="suscripciones__caja">
-        <img src="assets/img/caja-pack.webp" alt="Caja Variety Pack de SURGE con seis latas" width="220" height="270" loading="lazy" />
+        <img
+          src="assets/img/caja-pack.webp"
+          alt="Caja Variety Pack de SURGE con seis latas"
+          width="220"
+          height="270"
+          loading="lazy"
+        />
         <div>
           <h3>La caja también cuenta.</h3>
           <p>
@@ -231,13 +260,29 @@
           cafeína de té y guaraná.
         </p>
         <dl class="instagram__stats">
-          <div><dt>Feed</dt><dd>Producto y comunidad</dd></div>
-          <div><dt>Dónde</dt><dd>Canarias</dd></div>
+          <div>
+            <dt>Feed</dt>
+            <dd>Producto y comunidad</dd>
+          </div>
+          <div>
+            <dt>Dónde</dt>
+            <dd>Canarias</dd>
+          </div>
         </dl>
-        <a class="btn btn--ancho" [href]="socials.instagram" target="_blank" rel="noopener noreferrer">
+        <a
+          class="btn btn--ancho"
+          [href]="socials.instagram"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
           Seguir en Instagram
         </a>
-        <a class="instagram__linktree" [href]="socials.linktree" target="_blank" rel="noopener noreferrer">
+        <a
+          class="instagram__linktree"
+          [href]="socials.linktree"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
           linktr.ee/surge.es
         </a>
       </aside>

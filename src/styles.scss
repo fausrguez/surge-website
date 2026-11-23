@@ -587,6 +587,32 @@ ol {
   animation: reveal-up 400ms var(--curva) both;
 }
 
+/* ---------- Mapa real ---------- */
+
+.surge-pin {
+  display: block;
+  width: 22px;
+  height: 22px;
+  border: 3px solid var(--crema);
+  border-radius: 50%;
+  background: var(--verde);
+  box-shadow: 0 4px 12px rgba(42, 33, 24, 0.35);
+}
+
+.leaflet-container {
+  font-family: var(--fuente-texto);
+}
+
+.leaflet-popup-content {
+  margin: 10px 12px;
+  font-size: 0.8rem;
+  line-height: 1.4;
+}
+
+.leaflet-popup-content small {
+  color: var(--secundario);
+}
+
 /* ---------- Utilidades ---------- */
 
 .sr-only {

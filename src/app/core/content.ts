@@ -18,6 +18,7 @@ export interface Flavor {
   image: string;
   description: string;
   pattern: 'flames' | 'leaves' | 'crystals';
+  patternImage: string;
 }
 
 export interface Pack {
@@ -48,6 +49,7 @@ export const FLAVORS: Flavor[] = [
     description:
       'Té negro al frente, jengibre en medio y pimienta al final. El mango redondea. La lata que empuja antes de entrenar, sin pedir permiso.',
     pattern: 'flames',
+    patternImage: 'assets/patterns/patron-flama.webp',
   },
   {
     id: 'mentisimo',
@@ -66,6 +68,7 @@ export const FLAVORS: Flavor[] = [
     description:
       'Té verde, menta fresca y un final de lima. La lata diaria para empezar sin chute y seguir con la cabeza clara.',
     pattern: 'leaves',
+    patternImage: 'assets/patterns/patron-mentisimo.webp',
   },
   {
     id: 'cocus',
@@ -84,6 +87,7 @@ export const FLAVORS: Flavor[] = [
     description:
       'Coco suave, lima al frente y jengibre al final. Mucho hielo. La pausa fresca para después del deporte o de la tarde.',
     pattern: 'crystals',
+    patternImage: 'assets/patterns/patron-cocus.webp',
   },
 ];
 

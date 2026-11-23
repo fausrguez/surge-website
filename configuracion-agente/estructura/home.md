@@ -32,12 +32,12 @@ El scroll es suave entre bloques. En escritorio se usa `scroll-snap` con `proxim
 - `(lema-bebida)`: texto propio de cada sabor.
 - `(ingredientes)`: ingredientes principales en una línea.
 - `(cta)`: `Crea tu pack` y `Dónde comprar`.
-- `(flavor-overlay)`: ilustración botánica de línea en el fondo. No hay recortes reales de frutas en el repositorio, así que no se usan fotos de frutas.
+- `(flavor-overlay)`: patrón oficial de `08-pattern-board.png`, recortado en tres bandas: superior para Flama, central para Mentisimo e inferior para Cocus. Se usa como fondo con opacidad baja y `mix-blend-mode: multiply`.
 
 ### Diseño
 - Colores correspondientes de la bebida.
 - Modelo a la izquierda, texto a la derecha, en las tres secciones.
-- Fondo con tinte del sabor y patrón de línea (llamas, hojas o cristales).
+- Fondo con tinte del sabor y el patrón oficial correspondiente (llamas, hojas o cristales).
 - Botones con el color verde de marca; el acento del sabor se usa en títulos y detalles.
 
 ## Suscripciones y packs

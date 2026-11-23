@@ -3,6 +3,12 @@ import { RouterLink } from '@angular/router';
 import { SeoService } from '../../core/seo.service';
 import { UiService } from '../../core/ui.service';
 
+interface Influencer {
+  name: string;
+  handle: string;
+  image: string;
+}
+
 interface Team {
   name: string;
   color: string;
@@ -10,9 +16,11 @@ interface Team {
   symbol: 'flama' | 'mentisimo' | 'cocus';
   symbolLabel: string;
   concepts: string;
-  influencers: string[];
+  influencers: Influencer[];
   phrase: string;
   shirt: string;
+  canImage: string;
+  patternImage: string;
 }
 
 interface LightboxImage {
@@ -41,9 +49,19 @@ export class BestialRace {
       symbol: 'flama',
       symbolLabel: 'Llamas',
       concepts: 'Energía, fuerza y velocidad.',
-      influencers: ['Armide Soliveres Acuyo', 'Anixua Perera Dávila', 'Lola Ortiz'],
+      influencers: [
+        {
+          name: 'Armide Soliveres',
+          handle: '@armidesoliveres1',
+          image: 'assets/influencers/armidesoliveres1.webp',
+        },
+        { name: 'Anixua Perera', handle: '@anixuapd', image: 'assets/influencers/anixuapd.webp' },
+        { name: 'Lola Ortiz', handle: '@lolita_ol', image: 'assets/influencers/lolita_ol.webp' },
+      ],
       phrase: 'Enciende tu instinto',
       shirt: 'Camiseta roja con llamas, identidad SURGE y nombre del equipo.',
+      canImage: 'assets/img/lata3d-flama.webp',
+      patternImage: 'assets/patterns/patron-flama.webp',
     },
     {
       name: 'Team Mentisimo',
@@ -52,9 +70,19 @@ export class BestialRace {
       symbol: 'mentisimo',
       symbolLabel: 'Hoja de menta',
       concepts: 'Resistencia, equilibrio y frescura.',
-      influencers: ['Iraida Martín', 'Pablo Vera', 'Gazz'],
+      influencers: [
+        { name: 'Iraida Martín', handle: '@iraida_33', image: 'assets/influencers/iraida_33.webp' },
+        {
+          name: 'Pablo Vera',
+          handle: '@pabloverarr',
+          image: 'assets/influencers/pabloverarr.webp',
+        },
+        { name: 'Gazz', handle: '@gaziello', image: 'assets/influencers/gaziello.webp' },
+      ],
       phrase: 'Encuentra tu ritmo',
       shirt: 'Camiseta verde con hojas, identidad SURGE y nombre del equipo.',
+      canImage: 'assets/img/lata3d-mentisimo.webp',
+      patternImage: 'assets/patterns/patron-mentisimo.webp',
     },
     {
       name: 'Team Cocus',
@@ -63,9 +91,27 @@ export class BestialRace {
       symbol: 'cocus',
       symbolLabel: 'Cristal de hielo',
       concepts: 'Frescura, agilidad y resistencia.',
-      influencers: ['Zulay Marrero', 'El Morito Canario', 'Tania Pyetku'],
+      influencers: [
+        {
+          name: 'Zulay Marrero',
+          handle: '@zulay_marrero',
+          image: 'assets/influencers/zulay_marrero.webp',
+        },
+        {
+          name: 'El Morito Canario',
+          handle: '@elmoritocanario',
+          image: 'assets/influencers/elmoritocanario.webp',
+        },
+        {
+          name: 'Tania Pyetku',
+          handle: '@taniapyetku',
+          image: 'assets/influencers/taniapyetku.webp',
+        },
+      ],
       phrase: 'Mantente imparable',
       shirt: 'Camiseta azul con ilustraciones de hielo, identidad SURGE y nombre del equipo.',
+      canImage: 'assets/img/lata3d-cocus.webp',
+      patternImage: 'assets/patterns/patron-cocus.webp',
     },
   ];
 

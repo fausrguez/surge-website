@@ -44,6 +44,9 @@ Modal de packs y modal de suscripción se abren desde cualquier CTA.
 - No se usa «Hecho en Canarias»; sí «marca canaria».
 - Checkout en modo demostración: no se piden datos de tarjeta.
 - Instagram se muestra como selección estática de contenido, sin API ni cookies de terceros.
+- Los fondos de los sabores usan el patrón oficial `08-pattern-board.png`, recortado en tres bandas.
+- Dónde comprar usa un mapa real con Leaflet y OpenStreetMap, con Decathlon Tamaraceite y cinco gimnasios de Las Palmas.
+- Bestial Race muestra avatares públicos de los influencers, sin enlaces ni biografías.
 - Los assets vienen de `../surge/assets`, renombrados y optimizados a WebP/GLB.
 
 ## Pendientes
@@ -51,7 +54,7 @@ Modal de packs y modal de suscripción se abren desde cualquier CTA.
 1. Sustituir `inicial.webp`, `lata-flama.webp` y `lata-cocus.webp` por versiones con la etiqueta correcta.
 2. Confirmar el email `hola@surge.es`.
 3. Conectar el formulario a un servicio real.
-4. Publicar puntos de venta reales para el mapa.
+4. Ampliar el mapa con más puntos y confirmar disponibilidad de stock en cada uno.
 5. Confirmar fecha y acuerdo de Bestial Race 2027.
 6. Revisar legalmente privacidad, cookies y aviso legal.
 

@@ -59,7 +59,7 @@ export class BestialPromo {
         this.visible.set(false);
         return;
       }
-      this.visible.set(window.scrollY < window.innerHeight * 1.05);
+      this.visible.set(window.scrollY < window.innerHeight * 0.55);
     };
     window.addEventListener('scroll', update, { passive: true });
     window.addEventListener('resize', update, { passive: true });

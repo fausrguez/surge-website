@@ -18,11 +18,10 @@ import {
 } from '../../core/content';
 import { SeoService } from '../../core/seo.service';
 import { UiService } from '../../core/ui.service';
-import { FlavorPattern } from '../../shared/flavor-pattern';
 
 @Component({
   selector: 'app-home',
-  imports: [RouterLink, FlavorPattern],
+  imports: [RouterLink],
   templateUrl: './home.html',
   styleUrl: './home.scss',
   schemas: [CUSTOM_ELEMENTS_SCHEMA],

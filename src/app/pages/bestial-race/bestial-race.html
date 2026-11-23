@@ -23,8 +23,8 @@
         <img
           src="assets/bestial-race/portada-bestial-race.webp"
           srcset="
-            assets/bestial-race/portada-bestial-race-768.webp 768w,
-            assets/bestial-race/portada-bestial-race.webp 1536w
+            assets/bestial-race/portada-bestial-race-768.webp  768w,
+            assets/bestial-race/portada-bestial-race.webp     1536w
           "
           sizes="(max-width: 960px) 100vw, 50vw"
           alt="Portada ilustrada de SURGE en la Bestial Race, con corredores, palmeras y las tres latas de los equipos Flama, Mentisimo y Cocus."
@@ -32,19 +32,173 @@
           height="864"
           fetchpriority="high"
         />
-        <figcaption>Imagen oficial de la campaña. Evento en junio de 2027, día por confirmar.</figcaption>
+        <figcaption>
+          Imagen oficial de la campaña. Evento en junio de 2027, día por confirmar.
+        </figcaption>
         <button
           type="button"
           class="br-hero__zoom"
-          (click)="openLightbox(
-            'assets/bestial-race/portada-bestial-race.webp',
-            'Portada ilustrada de SURGE en la Bestial Race, con corredores, palmeras y las tres latas de los equipos Flama, Mentisimo y Cocus.',
-            'Portada oficial de la campaña. La fecha impresa en la ilustración es anterior y no corresponde al evento de 2027.'
-          )"
+          (click)="
+            openLightbox(
+              'assets/bestial-race/portada-bestial-race.webp',
+              'Portada ilustrada de SURGE en la Bestial Race, con corredores, palmeras y las tres latas de los equipos Flama, Mentisimo y Cocus.',
+              'Portada oficial de la campaña. La fecha impresa en la ilustración es anterior y no corresponde al evento de 2027.'
+            )
+          "
         >
           Ampliar portada
         </button>
       </figure>
+    </div>
+  </section>
+
+  <section class="br-equipos" id="equipos" aria-labelledby="equipos-titulo">
+    <div class="contenedor">
+      <div class="seccion__cabecera">
+        <p class="kicker">Los tres equipos</p>
+        <h2 id="equipos-titulo">Elige tu equipo.</h2>
+        <p class="lead">
+          Cada equipo tiene su color, su símbolo y su camiseta. La misma esencia SURGE, tres formas
+          de vivir la carrera.
+        </p>
+      </div>
+
+      <div class="br-equipos__grid">
+        @for (team of teams; track team.name) {
+          <article class="team" [style.--team]="team.color" [style.--tinte]="team.tint">
+            <div
+              class="team__patron"
+              [style.background-image]="'url(' + team.patternImage + ')'"
+              aria-hidden="true"
+            ></div>
+            <div class="team__top">
+              <div class="team__simbolo" aria-hidden="true">
+                @switch (team.symbol) {
+                  @case ('flama') {
+                    <svg viewBox="0 0 80 80">
+                      <path
+                        d="M40 8c6 12 3 18 10 27 5-4 6-12 4-19 12 8 18 22 14 34-4 12-16 20-28 18-14-2-22-14-18-26 3-9 10-12 10-20 0-5 4-10 8-14Z"
+                      />
+                    </svg>
+                  }
+                  @case ('mentisimo') {
+                    <svg viewBox="0 0 80 80">
+                      <path d="M16 66C16 36 36 16 66 16c0 30-20 50-50 50Z" />
+                      <path d="M16 66c14-26 32-44 50-50" />
+                    </svg>
+                  }
+                  @case ('cocus') {
+                    <svg viewBox="0 0 80 80">
+                      <path
+                        d="M40 8v28M40 36L26 48M40 36l14 12M40 22l-9-8M40 22l9-8M26 48l-7 14M54 48l7 14"
+                      />
+                      <path d="M40 8l-5 9h10L40 8ZM26 48l-2 16 9-7-7-9ZM54 48l2 16-9-7 7-9Z" />
+                    </svg>
+                  }
+                }
+              </div>
+              <img
+                class="team__lata"
+                [src]="team.canImage"
+                [alt]="'Lata ' + team.name + ' de SURGE'"
+                width="196"
+                height="480"
+                loading="lazy"
+              />
+            </div>
+            <p class="team__etiqueta">{{ team.symbolLabel }}</p>
+            <h3>{{ team.name }}</h3>
+            <p class="team__concepto">{{ team.concepts }}</p>
+
+            <div class="team__influencers">
+              <span>Influencers</span>
+              <ul class="team__personas">
+                @for (person of team.influencers; track person.name) {
+                  <li>
+                    <img
+                      [src]="person.image"
+                      [alt]="'Foto de perfil de ' + person.name"
+                      width="40"
+                      height="40"
+                      loading="lazy"
+                    />
+                    <span>{{ person.name }}</span>
+                  </li>
+                }
+              </ul>
+            </div>
+
+            <blockquote class="team__frase">«{{ team.phrase }}»</blockquote>
+            <p class="team__camiseta">{{ team.shirt }}</p>
+          </article>
+        }
+      </div>
+
+      <p class="br-nota br-nota--centrada">
+        Los nombres oficiales de los equipos son Team Flama, Team Mentisimo y Team Cocus. Los
+        nombres de las latas no sustituyen a los nombres de los equipos.
+      </p>
+    </div>
+  </section>
+
+  <section class="br-merch" id="merchandising" aria-labelledby="merch-titulo">
+    <div class="contenedor">
+      <div class="seccion__cabecera">
+        <p class="kicker">Merchandising oficial</p>
+        <h2 id="merch-titulo">La camiseta es el centro. El resto, el recuerdo.</h2>
+        <p class="lead">
+          Cada equipo tiene su camiseta, con un diseño común de colección y variaciones de color,
+          ilustración y nombre. Los complementos acompañan la experiencia dentro y fuera de la
+          carrera.
+        </p>
+      </div>
+
+      <button
+        type="button"
+        class="br-merch__media"
+        (click)="
+          openLightbox(
+            'assets/bestial-race/merchandising-bestial-race.webp',
+            'Lámina de merchandising SURGE para la Bestial Race con camisetas de los tres equipos, bragas deportivas, gorras, calcetines, botellas, medallas, mochilas y pack de participante.',
+            'Lámina de merchandising de la colección SURGE × Bestial Race.'
+          )
+        "
+      >
+        <img
+          src="assets/bestial-race/merchandising-bestial-race.webp"
+          alt="Lámina de merchandising SURGE para la Bestial Race con camisetas de los tres equipos, bragas deportivas, gorras, calcetines, botellas, medallas, mochilas y pack de participante."
+          width="1312"
+          height="1199"
+          loading="lazy"
+        />
+        <span class="br-merch__zoom">Ampliar lámina</span>
+      </button>
+
+      <div class="br-merch__grid">
+        <article>
+          <h3>Camisetas de equipo</h3>
+          <p>Tres diseños, una misma esencia. Camiseta del equipo elegido como pieza central.</p>
+        </article>
+        <article>
+          <h3>Complementos</h3>
+          <p>
+            Braga deportiva, gorra, calcetines, botella reutilizable, medalla y mochila tipo saco.
+          </p>
+        </article>
+        <article>
+          <h3>Pack de participante</h3>
+          <p>Propuesta visual con camiseta, braga, botella y dorsal personalizado.</p>
+        </article>
+        <article>
+          <h3>Materiales propuestos</h3>
+          <p>Poliéster técnico transpirable, sublimación, corte deportivo y costuras suaves.</p>
+        </article>
+      </div>
+
+      <p class="br-nota">
+        Los productos complementarios y el pack de participante son propuestas sujetas a presupuesto
+        y aprobación. No están confirmados para venta ni entrega.
+      </p>
     </div>
   </section>
 
@@ -78,67 +232,6 @@
     </div>
   </section>
 
-  <section class="br-equipos" id="equipos" aria-labelledby="equipos-titulo">
-    <div class="contenedor">
-      <div class="seccion__cabecera">
-        <p class="kicker">Los tres equipos</p>
-        <h2 id="equipos-titulo">Elige tu equipo.</h2>
-        <p class="lead">
-          Cada equipo tiene su color, su símbolo y su camiseta. La misma esencia SURGE, tres formas
-          de vivir la carrera.
-        </p>
-      </div>
-
-      <div class="br-equipos__grid">
-        @for (team of teams; track team.name) {
-          <article class="team" [style.--team]="team.color" [style.--tinte]="team.tint">
-            <div class="team__simbolo" aria-hidden="true">
-              @switch (team.symbol) {
-                @case ('flama') {
-                  <svg viewBox="0 0 80 80">
-                    <path d="M40 8c6 12 3 18 10 27 5-4 6-12 4-19 12 8 18 22 14 34-4 12-16 20-28 18-14-2-22-14-18-26 3-9 10-12 10-20 0-5 4-10 8-14Z" />
-                  </svg>
-                }
-                @case ('mentisimo') {
-                  <svg viewBox="0 0 80 80">
-                    <path d="M16 66C16 36 36 16 66 16c0 30-20 50-50 50Z" />
-                    <path d="M16 66c14-26 32-44 50-50" />
-                  </svg>
-                }
-                @case ('cocus') {
-                  <svg viewBox="0 0 80 80">
-                    <path d="M40 8v28M40 36L26 48M40 36l14 12M40 22l-9-8M40 22l9-8M26 48l-7 14M54 48l7 14" />
-                    <path d="M40 8l-5 9h10L40 8ZM26 48l-2 16 9-7-7-9ZM54 48l2 16-9-7 7-9Z" />
-                  </svg>
-                }
-              }
-            </div>
-            <p class="team__etiqueta">{{ team.symbolLabel }}</p>
-            <h3>{{ team.name }}</h3>
-            <p class="team__concepto">{{ team.concepts }}</p>
-
-            <div class="team__influencers">
-              <span>Influencers</span>
-              <ul>
-                @for (influencer of team.influencers; track influencer) {
-                  <li>{{ influencer }}</li>
-                }
-              </ul>
-            </div>
-
-            <blockquote class="team__frase">«{{ team.phrase }}»</blockquote>
-            <p class="team__camiseta">{{ team.shirt }}</p>
-          </article>
-        }
-      </div>
-
-      <p class="br-nota br-nota--centrada">
-        Los nombres oficiales de los equipos son Team Flama, Team Mentisimo y Team Cocus. Los
-        nombres de las latas no sustituyen a los nombres de los equipos.
-      </p>
-    </div>
-  </section>
-
   <section class="seccion" id="dinamica" aria-labelledby="dinamica-titulo">
     <div class="contenedor br-dinamica">
       <div class="br-dinamica__texto">
@@ -165,63 +258,6 @@
     </div>
   </section>
 
-  <section class="br-merch" id="merchandising" aria-labelledby="merch-titulo">
-    <div class="contenedor">
-      <div class="seccion__cabecera">
-        <p class="kicker">Merchandising oficial</p>
-        <h2 id="merch-titulo">La camiseta es el centro. El resto, el recuerdo.</h2>
-        <p class="lead">
-          Cada equipo tiene su camiseta, con un diseño común de colección y variaciones de color,
-          ilustración y nombre. Los complementos acompañan la experiencia dentro y fuera de la
-          carrera.
-        </p>
-      </div>
-
-      <button
-        type="button"
-        class="br-merch__media"
-        (click)="openLightbox(
-          'assets/bestial-race/merchandising-bestial-race.webp',
-          'Lámina de merchandising SURGE para la Bestial Race con camisetas de los tres equipos, bragas deportivas, gorras, calcetines, botellas, medallas, mochilas y pack de participante.',
-          'Lámina de merchandising de la colección SURGE × Bestial Race.'
-        )"
-      >
-        <img
-          src="assets/bestial-race/merchandising-bestial-race.webp"
-          alt="Lámina de merchandising SURGE para la Bestial Race con camisetas de los tres equipos, bragas deportivas, gorras, calcetines, botellas, medallas, mochilas y pack de participante."
-          width="1312"
-          height="1199"
-          loading="lazy"
-        />
-        <span class="br-merch__zoom">Ampliar lámina</span>
-      </button>
-
-      <div class="br-merch__grid">
-        <article>
-          <h3>Camisetas de equipo</h3>
-          <p>Tres diseños, una misma esencia. Camiseta del equipo elegido como pieza central.</p>
-        </article>
-        <article>
-          <h3>Complementos</h3>
-          <p>Braga deportiva, gorra, calcetines, botella reutilizable, medalla y mochila tipo saco.</p>
-        </article>
-        <article>
-          <h3>Pack de participante</h3>
-          <p>Propuesta visual con camiseta, braga, botella y dorsal personalizado.</p>
-        </article>
-        <article>
-          <h3>Materiales propuestos</h3>
-          <p>Poliéster técnico transpirable, sublimación, corte deportivo y costuras suaves.</p>
-        </article>
-      </div>
-
-      <p class="br-nota">
-        Los productos complementarios y el pack de participante son propuestas sujetas a
-        presupuesto y aprobación. No están confirmados para venta ni entrega.
-      </p>
-    </div>
-  </section>
-
   <section class="seccion" id="comunidad" aria-labelledby="comunidad-titulo">
     <div class="contenedor">
       <div class="seccion__cabecera">
@@ -235,11 +271,24 @@
 
       <div class="br-comunidad__grid">
         @for (team of teams; track team.name) {
-          <article class="br-comunidad__equipo" [style.--team]="team.color" [style.--tinte]="team.tint">
+          <article
+            class="br-comunidad__equipo"
+            [style.--team]="team.color"
+            [style.--tinte]="team.tint"
+          >
             <h3>{{ team.name }}</h3>
-            <ul>
-              @for (influencer of team.influencers; track influencer) {
-                <li>{{ influencer }}</li>
+            <ul class="br-comunidad__personas">
+              @for (person of team.influencers; track person.name) {
+                <li>
+                  <img
+                    [src]="person.image"
+                    [alt]="'Foto de perfil de ' + person.name"
+                    width="36"
+                    height="36"
+                    loading="lazy"
+                  />
+                  <span>{{ person.name }}</span>
+                </li>
               }
             </ul>
           </article>
@@ -256,7 +305,8 @@
 
       <p class="br-nota">
         No se añaden biografías, cifras de seguidores ni enlaces a perfiles. Los nombres son los
-        facilitados por el equipo de campaña.
+        facilitados por el equipo de campaña y las fotos son las imágenes públicas de sus perfiles
+        de Instagram.
       </p>
     </div>
   </section>
@@ -345,8 +395,21 @@
   </section>
 
   @if (lightbox(); as image) {
-    <div class="lightbox" role="dialog" aria-modal="true" aria-label="Imagen ampliada" (click)="closeLightbox()">
-      <button type="button" class="lightbox__cerrar" (click)="closeLightbox()" aria-label="Cerrar imagen">×</button>
+    <div
+      class="lightbox"
+      role="dialog"
+      aria-modal="true"
+      aria-label="Imagen ampliada"
+      (click)="closeLightbox()"
+    >
+      <button
+        type="button"
+        class="lightbox__cerrar"
+        (click)="closeLightbox()"
+        aria-label="Cerrar imagen"
+      >
+        ×
+      </button>
       <figure class="lightbox__figura" (click)="$event.stopPropagation()">
         <img [src]="image.src" [alt]="image.alt" />
         <figcaption>{{ image.caption }}</figcaption>

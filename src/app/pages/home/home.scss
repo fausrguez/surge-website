@@ -177,8 +177,12 @@
   position: relative;
   overflow: hidden;
   padding-block: clamp(56px, 8vw, 108px);
-  background:
-    linear-gradient(180deg, rgba(255, 253, 245, 0.35), var(--tinte) 40%, rgba(255, 253, 245, 0.35));
+  background: linear-gradient(
+    180deg,
+    rgba(255, 253, 245, 0.35),
+    var(--tinte) 40%,
+    rgba(255, 253, 245, 0.35)
+  );
   scroll-margin-top: var(--header);
 }
 
@@ -189,6 +193,18 @@
   grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
   align-items: center;
   gap: clamp(24px, 5vw, 72px);
+}
+
+.sabor-seccion__patron {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  opacity: 0.16;
+  mix-blend-mode: multiply;
+  pointer-events: none;
 }
 
 .sabor-seccion__modelo {
@@ -203,7 +219,8 @@
   height: 100%;
   background: transparent;
   --poster-color: transparent;
-  --progress-bar-color: var(--sabor);
+  --progress-bar-color: transparent;
+  --progress-mask: transparent;
 }
 
 .sabor-seccion__texto {

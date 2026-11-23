@@ -41,24 +41,25 @@ No inventar puntos de venta. Publicar solo puntos reales y comprobados. Ahora mi
 
 ### Puntos seleccionados en Canarias
 
-- H2: `En tienda, ya puedes encontrarla`.
-- Punto publicado:
-  - **Decathlon Tamaraceite**.
-  - Dirección: `C.C. Tamaraceite, Tamaraceite Sur, 35018 Las Palmas de Gran Canaria`.
-  - Horario: lunes a sábado, 10:00–21:30. Domingo cerrado.
-  - Teléfono: `928 91 70 60`.
-  - Enlaces: ficha oficial de Decathlon y Google Maps.
-  - Nota: recogida en tienda en 1 hora. Preguntar por SURGE en el lineal o en la nevera.
-- Estado de ampliación: `Estamos cerrando más puntos. Si quieres que SURGE esté en tu tienda, escríbenos.`
-- Canales previstos (sin nombres inventados): gimnasios y boxes, cafeterías, tiendas de productos naturales, supermercados locales, eventos deportivos.
+- H2: `Ya puedes encontrarla en Las Palmas`.
+- Puntos publicados:
+  - **Decathlon Tamaraceite**. C.C. Tamaraceite, Tamaraceite Sur, 35018. L–S 10:00–21:30, D cerrado. Tel. 928 91 70 60.
+  - **CD Tamaraceite**. C/ José Antonio Gutiérrez Mellado esq. Juan Pulido Rodríguez s/n, 35018. Tel. 928 916 811.
+  - **GOfit Las Palmas**. C/ Secretario Padilla 88-90, 35010, Guanarteme · Las Canteras. L–V 6:00–23:00, S 8:00–22:00, D 8:00–18:00.
+  - **Areafit Las Palmas**. C/ Henry Dunant 1, C.C. Las Escaleritas, 35011. Abierto 365 días.
+  - **Beats Las Palmas**. Av. Escaleritas 31, 35014. L–V 6:00–22:30, S 9:00–21:00, D 9:00–15:00. Tel. 722 340 493.
+  - **Macro Fit Las Palmas**. Av. Juan XXIII 3, 35004. Consultar horario.
+- Cada tarjeta incluye tipo (tienda/gimnasio), dirección, horario, teléfono si existe, enlace web y enlace a Google Maps.
+- Estado de ampliación: `Estamos cerrando más puntos. Si tienes una tienda, un gimnasio o una cafetería, escríbenos.`
 
 ### Mapa
 
-- Contenedor con la ilustración de Canarias y la etiqueta `1 punto · Gran Canaria`.
-- Mostrar un marcador en Gran Canaria para Decathlon Tamaraceite.
-- No mostrar marcadores inventados.
-- Cuando existan más datos, cada punto tendrá nombre, dirección, horario y tipo de canal.
-- Mientras no haya mapa interactivo, usar una ilustración vectorial de las islas, sin claims.
+- Mapa real interactivo con Leaflet y OpenStreetMap.
+- Marcadores para cada punto publicado, con popup de nombre, dirección y tipo.
+- Centrado y ajustado a Las Palmas de Gran Canaria.
+- Sin scroll de rueda para no secuestrar el scroll de la página.
+- Atribución `© OpenStreetMap`.
+- Los puntos también aparecen como tarjetas accesibles debajo.
 
 ### ¿Tienes una tienda?
 

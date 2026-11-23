@@ -216,6 +216,13 @@ Nombres limpios en `public/assets/`:
 | `bestial-race/portada-bestial-race.webp` | `assets/bestial-race/portada-bestial-race.jpeg` | Hero de Bestial Race, 1536 px |
 | `bestial-race/portada-bestial-race-768.webp` | Versión móvil de la portada | 768 px |
 | `bestial-race/merchandising-bestial-race.webp` | `assets/bestial-race/merchandising-bestial-race.jpeg` | Lámina de merchandising, 1312 px |
+| `patterns/patron-flama.webp` | Banda superior de `08-pattern-board.png` | Fondo de Flama |
+| `patterns/patron-mentisimo.webp` | Banda central de `08-pattern-board.png` | Fondo de Mentisimo |
+| `patterns/patron-cocus.webp` | Banda inferior de `08-pattern-board.png` | Fondo de Cocus |
+| `img/lata3d-flama.webp` | Render transparente del GLB de Flama | Tarjetas de equipo |
+| `img/lata3d-mentisimo.webp` | Render transparente del GLB de Mentisimo | Tarjetas de equipo |
+| `img/lata3d-cocus.webp` | Render transparente del GLB de Cocus | Tarjetas de equipo |
+| `influencers/*.webp` | Fotos públicas de perfil de Instagram | Avatares de influencers |
 
 - `08-pattern-board.jpg` está corrupto (2 bytes) y no se usa.
 - Las imágenes definitivas deben sustituir a las actuales conservando el nombre.

@@ -57,6 +57,8 @@ Lámina de merchandising SURGE para la Bestial Race con camisetas de los tres eq
 No usar estas imágenes como fondo con recorte agresivo. En móvil, permitir que se adapten o se puedan ampliar/abrir para ver los detalles.
 5. Estructura y experiencia de la página
 Crear una landing larga, con navegación clara y secciones en este orden aproximado. Ajustar el orden si la arquitectura actual del sitio lo aconseja, sin eliminar contenido importante.
+Orden aplicado en la implementación: Hero → Elige tu equipo → Merchandising / la camiseta → La colaboración → Cómo funciona → Influencers y comunidad → Activaciones → Calendario → Cierre.
+
 Sección 1 — Hero / portada
 - Utilizar portada-bestial-race.jpeg como imagen protagonista.
 - Presentar el título: SURGE llega a la Bestial Race.
@@ -206,6 +208,22 @@ Antes de terminar:
 - Comprobar que no se rompen otras secciones.
 - Resumir qué archivos se han creado/modificado y qué datos siguen pendientes.
 - Dejar todo preparado para revisión. No hacer commit, push ni publicar sin autorización.
+## Imágenes de influencers
+
+Fotos públicas de perfil obtenidas de Instagram y guardadas en `public/assets/influencers/`:
+
+- `armidesoliveres1.webp` — Armide Soliveres.
+- `anixuapd.webp` — Anixua Perera.
+- `lolita_ol.webp` — Lola Ortiz.
+- `iraida_33.webp` — Iraida Martín.
+- `pabloverarr.webp` — Pablo Vera.
+- `gaziello.webp` — Gazz.
+- `zulay_marrero.webp` — Zulay Marrero.
+- `elmoritocanario.webp` — El Morito Canario.
+- `taniapyetku.webp` — Tania Pyetku.
+
+Se muestran como avatares sin enlace al perfil. No se añaden biografías ni cifras de seguidores.
+
 9. SEO
 - Title: SURGE en la Bestial Race | Elige tu equipo
 - Meta description: Descubre la experiencia SURGE en la Bestial Race: Team Flama, Team Mentisimo y Team Cocus. Tres equipos, merchandising y una misma pasión por el deporte.
