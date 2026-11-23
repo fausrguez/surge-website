@@ -107,6 +107,86 @@
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: 14px;
+  margin-top: 18px;
+}
+
+.comprar-tienda {
+  margin-bottom: 18px;
+}
+
+.tienda {
+  display: grid;
+  gap: 12px;
+  padding: clamp(22px, 3vw, 30px);
+  border: 1px solid rgba(45, 106, 79, 0.34);
+  border-radius: var(--radio-md);
+  background: var(--superficie);
+  box-shadow: var(--sombra);
+}
+
+.tienda__cabecera {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.tienda__cabecera .chip {
+  background: var(--lima);
+  color: var(--verde-oscuro);
+  border-color: transparent;
+}
+
+.tienda__tipo {
+  color: var(--secundario);
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.tienda h3 {
+  font-size: clamp(1.4rem, 2.2vw, 1.8rem);
+}
+
+.tienda__datos {
+  display: grid;
+  gap: 8px;
+  margin: 0;
+}
+
+.tienda__datos > div {
+  display: grid;
+  grid-template-columns: 100px 1fr;
+  gap: 12px;
+  padding-bottom: 6px;
+  border-bottom: 1px solid var(--linea);
+}
+
+.tienda__datos dt {
+  color: var(--secundario);
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.tienda__datos dd {
+  margin: 0;
+  font-size: 0.9rem;
+}
+
+.tienda__datos a {
+  color: var(--verde);
+  font-weight: 600;
+}
+
+.tienda__nota {
+  color: var(--secundario);
+  font-size: 0.82rem;
+}
+
+.tienda__acciones {
+  margin-top: 2px;
 }
 
 .canal {
@@ -201,6 +281,41 @@
   fill: rgba(45, 106, 79, 0.18);
   stroke: var(--verde);
   stroke-width: 1.4;
+}
+
+.isla--activa {
+  fill: rgba(45, 106, 79, 0.32);
+  stroke-width: 2;
+}
+
+.pin {
+  fill: var(--verde);
+  stroke: var(--crema);
+  stroke-width: 2;
+}
+
+.pin-pulso {
+  fill: none;
+  stroke: var(--verde);
+  stroke-width: 1.5;
+  opacity: 0.6;
+  animation: pin-pulse 2.4s ease-out infinite;
+  transform-origin: 352px 148px;
+}
+
+@keyframes pin-pulse {
+  0% {
+    transform: scale(1);
+    opacity: 0.6;
+  }
+  70% {
+    transform: scale(2.6);
+    opacity: 0;
+  }
+  100% {
+    transform: scale(2.6);
+    opacity: 0;
+  }
 }
 
 .ruta {

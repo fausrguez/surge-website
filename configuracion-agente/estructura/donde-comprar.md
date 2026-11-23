@@ -4,7 +4,7 @@
 
 Que alguien que ya quiere una lata sepa en menos de un minuto **dónde comprarla hoy** y qué hacer si tiene una tienda.
 
-No inventar puntos de venta. Mientras no haya acuerdos firmados, la página muestra canales y una lista de espera de tiendas, no un listado falso.
+No inventar puntos de venta. Publicar solo puntos reales y comprobados. Ahora mismo hay un punto: Decathlon Tamaraceite.
 
 ## Ruta
 
@@ -15,7 +15,7 @@ No inventar puntos de venta. Mientras no haya acuerdos firmados, la página mues
 1. Hero compacto.
 2. Venta online.
 3. Puntos seleccionados en Canarias.
-4. Mapa (placeholder hasta tener datos reales).
+4. Mapa (ilustración con los puntos publicados).
 5. ¿Tienes una tienda? (contacto).
 6. Footer global.
 
@@ -41,16 +41,23 @@ No inventar puntos de venta. Mientras no haya acuerdos firmados, la página mues
 
 ### Puntos seleccionados en Canarias
 
-- H2: `En tienda, cuando toca`.
-- Texto: `Estamos cerrando los primeros puntos en Gran Canaria: gimnasios, cafeterías, tiendas de productos naturales y comercio de barrio.`
-- Estado vacío honesto: `Todavía no hay puntos publicados. Si quieres que SURGE esté en tu tienda, escríbenos y lo vemos.`
+- H2: `En tienda, ya puedes encontrarla`.
+- Punto publicado:
+  - **Decathlon Tamaraceite**.
+  - Dirección: `C.C. Tamaraceite, Tamaraceite Sur, 35018 Las Palmas de Gran Canaria`.
+  - Horario: lunes a sábado, 10:00–21:30. Domingo cerrado.
+  - Teléfono: `928 91 70 60`.
+  - Enlaces: ficha oficial de Decathlon y Google Maps.
+  - Nota: recogida en tienda en 1 hora. Preguntar por SURGE en el lineal o en la nevera.
+- Estado de ampliación: `Estamos cerrando más puntos. Si quieres que SURGE esté en tu tienda, escríbenos.`
 - Canales previstos (sin nombres inventados): gimnasios y boxes, cafeterías, tiendas de productos naturales, supermercados locales, eventos deportivos.
 
 ### Mapa
 
-- Contenedor con el mapa de Canarias y la etiqueta `Mapa de puntos en construcción`.
+- Contenedor con la ilustración de Canarias y la etiqueta `1 punto · Gran Canaria`.
+- Mostrar un marcador en Gran Canaria para Decathlon Tamaraceite.
 - No mostrar marcadores inventados.
-- Cuando existan datos, cada punto tendrá nombre, dirección, horario y tipo de canal.
+- Cuando existan más datos, cada punto tendrá nombre, dirección, horario y tipo de canal.
 - Mientras no haya mapa interactivo, usar una ilustración vectorial de las islas, sin claims.
 
 ### ¿Tienes una tienda?

@@ -5,8 +5,8 @@
         <p class="kicker">Canarias · Venta online y puntos seleccionados</p>
         <h1 id="comprar-titulo">Dónde comprar</h1>
         <p class="lead">
-          SURGE se vende online y en puntos seleccionados de Canarias. Si todavía no estamos en tu
-          tienda, pídenos y la buscamos contigo.
+          SURGE se vende online y en puntos seleccionados de Canarias. Ya puedes encontrarla en
+          Decathlon Tamaraceite, en Las Palmas de Gran Canaria.
         </p>
         <div class="fila">
           <button type="button" class="btn" (click)="openPacks()">Crea tu pack</button>
@@ -58,11 +58,42 @@
     <div class="contenedor">
       <div class="seccion__cabecera">
         <p class="kicker">02 — En tienda</p>
-        <h2 id="tiendas-titulo">En tienda, cuando toca.</h2>
+        <h2 id="tiendas-titulo">En tienda, ya puedes encontrarla.</h2>
         <p class="lead">
-          Estamos cerrando los primeros puntos en Gran Canaria: gimnasios, cafeterías, tiendas de
-          productos naturales y comercio de barrio.
+          Ya puedes encontrar SURGE en Decathlon Tamaraceite. Seguimos cerrando gimnasios,
+          cafeterías, tiendas de productos naturales y comercio de barrio en Gran Canaria.
         </p>
+      </div>
+
+      <div class="comprar-tienda">
+        @for (store of stores; track store.name) {
+          <article class="tienda">
+            <div class="tienda__cabecera">
+              <span class="chip chip--color">{{ store.island }}</span>
+              <span class="tienda__tipo">{{ store.type }}</span>
+            </div>
+            <h3>{{ store.name }}</h3>
+            <dl class="tienda__datos">
+              <div>
+                <dt>Dirección</dt>
+                <dd>{{ store.address }}</dd>
+              </div>
+              <div>
+                <dt>Horario</dt>
+                <dd>{{ store.hours }}</dd>
+              </div>
+              <div>
+                <dt>Teléfono</dt>
+                <dd><a [href]="store.phoneHref">{{ store.phone }}</a></dd>
+              </div>
+            </dl>
+            <p class="tienda__nota">{{ store.note }}</p>
+            <div class="fila tienda__acciones">
+              <a class="btn" [href]="store.web" target="_blank" rel="noopener noreferrer">Ver tienda</a>
+              <a class="btn btn--secundario" [href]="store.maps" target="_blank" rel="noopener noreferrer">Cómo llegar</a>
+            </div>
+          </article>
+        }
       </div>
 
       <div class="comprar-canales">
@@ -95,7 +126,7 @@
 
       <div class="comprar-vacio">
         <p>
-          <strong>Todavía no hay puntos publicados.</strong> Si quieres que SURGE esté en tu tienda,
+          <strong>Estamos cerrando más puntos.</strong> Si quieres que SURGE esté en tu tienda,
           escríbenos y lo vemos.
         </p>
         <a class="btn" routerLink="/sobre-nosotros" [queryParams]="{ asunto: 'tienda' }" fragment="hablemos">
@@ -109,28 +140,31 @@
     <div class="contenedor comprar-mapa__grid">
       <div>
         <p class="kicker">03 — Mapa</p>
-        <h2 id="mapa-titulo">El mapa está en construcción.</h2>
+        <h2 id="mapa-titulo">El mapa, punto a punto.</h2>
         <p class="lead">
-          Cuando haya puntos firmados, aquí verás cada tienda con su dirección, horario y tipo de
-          canal. No vamos a rellenar el mapa con chinchetas que no existen.
+          Decathlon Tamaraceite ya está publicado. El mapa interactivo con direcciones y horarios
+          llegará cuando haya más puntos firmados. No vamos a rellenarlo con chinchetas que no
+          existen.
         </p>
         <a class="enlace" routerLink="/sobre-nosotros" [queryParams]="{ asunto: 'tienda' }" fragment="hablemos">
           Proponer un punto de venta →
         </a>
       </div>
 
-      <div class="mapa" role="img" aria-label="Ilustración del archipiélago canario con la etiqueta mapa de puntos en construcción">
+      <div class="mapa" role="img" aria-label="Ilustración del archipiélago canario con un punto publicado en Gran Canaria">
         <svg viewBox="0 0 560 320" aria-hidden="true">
           <path class="isla" d="M60 90c18-14 46-10 58 6s4 40-16 48-46 2-52-16 0-28 10-38Z" />
           <path class="isla" d="M132 46c12-10 30-6 38 6s2 28-12 34-30 0-34-12 2-20 8-28Z" />
           <path class="isla" d="M196 78c18-12 44-4 50 14s-8 38-28 42-40-6-40-22 8-26 18-34Z" />
           <path class="isla" d="M268 104c14-8 34-2 38 12s-8 28-24 30-30-6-30-18 6-18 16-24Z" />
-          <path class="isla" d="M330 130c16-10 40-2 44 14s-10 32-28 34-34-8-32-22 6-20 16-26Z" />
+          <path class="isla isla--activa" d="M330 130c16-10 40-2 44 14s-10 32-28 34-34-8-32-22 6-20 16-26Z" />
           <path class="isla" d="M404 156c12-8 30-2 32 10s-8 24-22 24-24-8-22-18 4-12 12-16Z" />
           <path class="isla" d="M468 186c10-6 24-2 26 8s-6 20-18 20-20-6-18-16 4-8 10-12Z" />
           <path class="ruta" d="M60 110c60-20 120 40 190 30s120-40 200-20" />
+          <circle class="pin" cx="352" cy="148" r="7" />
+          <circle class="pin-pulso" cx="352" cy="148" r="7" />
         </svg>
-        <span>Mapa de puntos en construcción</span>
+        <span>1 punto · Gran Canaria</span>
       </div>
     </div>
   </section>

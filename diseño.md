@@ -213,6 +213,9 @@ Nombres limpios en `public/assets/`:
 | `img/modelo-flama.webp` | Render del GLB de Flama | Etiqueta correcta, para Instagram |
 | `img/modelo-mentisimo.webp` | Render del GLB de Mentisimo | Etiqueta correcta, para Instagram |
 | `img/modelo-cocus.webp` | Render del GLB de Cocus | Etiqueta correcta, para Instagram |
+| `bestial-race/portada-bestial-race.webp` | `assets/bestial-race/portada-bestial-race.jpeg` | Hero de Bestial Race, 1536 px |
+| `bestial-race/portada-bestial-race-768.webp` | Versión móvil de la portada | 768 px |
+| `bestial-race/merchandising-bestial-race.webp` | `assets/bestial-race/merchandising-bestial-race.jpeg` | Lámina de merchandising, 1312 px |
 
 - `08-pattern-board.jpg` está corrupto (2 bytes) y no se usa.
 - Las imágenes definitivas deben sustituir a las actuales conservando el nombre.
