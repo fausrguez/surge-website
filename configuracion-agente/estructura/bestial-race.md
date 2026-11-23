@@ -310,3 +310,10 @@ SURGE es marca canaria y comparte público con la carrera: gente activa, de 24 a
 - Prometer resultados deportivos o beneficios de salud.
 - Usar fotos de la carrera sin permiso.
 - Usar «hecho en Canarias» o «producto canario».
+## Imágenes oficiales de la campaña
+
+### Portada de Bestial Race
+![Portada SURGE Bestial Race](../../assets/bestial-race/portada-bestial-race.jpeg)
+
+### Merchandising de los tres equipos
+![Merchandising SURGE Bestial Race](../../assets/bestial-race/merchandising-bestial-race.jpeg)
