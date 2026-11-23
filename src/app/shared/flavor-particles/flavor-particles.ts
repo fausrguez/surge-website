@@ -190,8 +190,7 @@ const PARTICLES: Record<ParticleKind, Particle[]> = {
         opacity: var(--op);
       }
       50% {
-        transform: translate3d(calc(var(--drift) * 0.5), -22px, 0)
-          rotate(calc(var(--spin) * 0.5));
+        transform: translate3d(calc(var(--drift) * 0.5), -22px, 0) rotate(calc(var(--spin) * 0.5));
       }
       86% {
         opacity: var(--op);
