@@ -20,7 +20,7 @@ La página debe sentirse como una conversación, no como un dossier corporativo.
 - **Posicionamiento:** natural, honesta, transparente, sin greenwashing. “Calma + potencia” frente a las energéticas agresivas y neón.
 - **Público:** 24–40 años, activo, consciente, urbano.
 - **Tono:** cercano, positivo, transparente y motivador. Invita a un estilo de vida activo y equilibrado.
-- **Primer paso real del proyecto:** un piloto de **3.000 latas**, **1.000 de cada sabor**, para validar la demanda antes de crecer.
+- **Primer paso real del proyecto:** un piloto de **6.000 latas**, **1.000 de cada sabor**, para validar la demanda antes de crecer.
 - **Canales:** venta online y puntos seleccionados de Canarias.
 - **Packaging:** aluminio reciclable, cartón FSC, sin retráctil ni film.
 - **Atributos de producto:** ingredientes reales, composición transparente, sin aditivos artificiales, vegano.
@@ -74,13 +74,13 @@ Texto:
 
 > Nacimos en Gran Canaria, entre entrenamientos, cafés y conversaciones sobre lo que bebíamos para rendir. Nos gustaba la energía, pero no los nervios ni el ruido de las latas de siempre. Queríamos algo más natural, más nuestro, que pudiéramos tomarnos sin sentir que estábamos traicionando nuestros hábitos.
 >
-> Empezamos probando, mezclando y escuchando. De ahí salieron tres sabores: Flama, Mentisimo y Cocus. Después llegó el primer piloto: 3.000 latas, 1.000 de cada sabor, para aprender de la gente, medir de verdad y mejorar antes de crecer.
+> Empezamos probando, mezclando y escuchando. De ahí salieron tres sabores: Flama, Mentisimo y Cocus. Después llegó el primer piloto: 6.000 latas, 1.000 de cada sabor, para aprender de la gente, medir de verdad y mejorar antes de crecer.
 >
 > No nacimos para ser la bebida más fuerte. Nacimos para ser la que mejor te sienta.
 
 - Acompaña el texto con una **línea de tiempo de tres hitos**, sin fechas inventadas:
   1. **La idea** — “Una energía que respete tu ritmo.”
-  2. **El piloto** — “3.000 latas. 1.000 de cada sabor.”
+  2. **El piloto** — “6.000 latas. 1.000 de cada sabor.”
   3. **El lanzamiento** — “Online y en puntos seleccionados de Canarias.”
 - Usa una foto del producto o de la caja (`caja-pack.webp`) como apoyo visual, no como fondo de texto.
 - Frase destacada opcional, en tamaño medio: “La energía también puede ser tranquila.”

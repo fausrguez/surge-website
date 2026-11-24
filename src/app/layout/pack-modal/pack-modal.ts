@@ -15,6 +15,11 @@ import { UiService } from '../../core/ui.service';
 
 type Qty = Record<FlavorId, number>;
 
+interface PackCan {
+  color: string;
+  image: string;
+}
+
 @Component({
   selector: 'app-pack-modal',
   imports: [FocusTrap],
@@ -41,20 +46,20 @@ export class PackModal {
   readonly totalCans = computed(() => this.qty().flama + this.qty().mentisimo + this.qty().cocus);
   readonly remaining = computed(() => this.size() - this.totalCans());
   readonly complete = computed(() => this.totalCans() === this.size());
-  readonly columns = computed(() => (this.size() === 6 ? 3 : this.size() === 12 ? 4 : 6));
+  readonly columns = computed(() => (this.size() === 24 ? 8 : 6));
   readonly options = computed(() => Array.from({ length: this.size() + 1 }, (_, index) => index));
 
-  readonly slots = computed<(string | null)[]>(() => {
-    const colors: (string | null)[] = [];
+  readonly slots = computed<(PackCan | null)[]>(() => {
+    const cans: (PackCan | null)[] = [];
     for (const flavor of this.flavors) {
       for (let i = 0; i < this.qty()[flavor.id]; i += 1) {
-        colors.push(flavor.color);
+        cans.push({ color: flavor.color, image: flavor.canImage });
       }
     }
-    while (colors.length < this.size()) {
-      colors.push(null);
+    while (cans.length < this.size()) {
+      cans.push(null);
     }
-    return colors.slice(0, this.size());
+    return cans.slice(0, this.size());
   });
 
   readonly breakdown = computed(() =>

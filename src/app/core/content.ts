@@ -16,6 +16,7 @@ export interface Flavor {
   textColor: string;
   model: string;
   image: string;
+  canImage: string;
   description: string;
   pattern: 'flames' | 'leaves' | 'crystals';
   patternImage: string;
@@ -47,6 +48,7 @@ export const FLAVORS: Flavor[] = [
     textColor: '#7A241A',
     model: 'assets/models/flama.glb',
     image: 'assets/img/modelo-flama.webp',
+    canImage: 'assets/img/lata3d-flama.webp',
     description:
       'Té negro al frente, jengibre en medio y pimienta al final. El mango redondea. La lata que empuja antes de entrenar, sin pedir permiso.',
     pattern: 'flames',
@@ -67,6 +69,7 @@ export const FLAVORS: Flavor[] = [
     textColor: '#1D4A36',
     model: 'assets/models/mentisimo.glb',
     image: 'assets/img/modelo-mentisimo.webp',
+    canImage: 'assets/img/lata3d-mentisimo.webp',
     description:
       'Té verde, menta fresca y un final de lima. La lata diaria para empezar sin chute y seguir con la cabeza clara.',
     pattern: 'leaves',
@@ -87,6 +90,7 @@ export const FLAVORS: Flavor[] = [
     textColor: '#153A47',
     model: 'assets/models/cocus.glb',
     image: 'assets/img/modelo-cocus.webp',
+    canImage: 'assets/img/lata3d-cocus.webp',
     description:
       'Coco suave, lima al frente y jengibre al final. Mucho hielo. La pausa fresca para después del deporte o de la tarde.',
     pattern: 'crystals',

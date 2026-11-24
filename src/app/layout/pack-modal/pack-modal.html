@@ -87,21 +87,24 @@
             }
           </div>
 
-          <div class="caja" [style.--cols]="columns()">
+          <div class="caja" [class.caja--completa]="complete()">
             <div class="caja__tapa">
-              <img src="assets/logo.svg" alt="" width="34" height="34" />
+              <!-- <img src="assets/logo.svg" alt="" width="34" height="34" /> -->
               <span>SURGE</span>
+              <span class="caja__contador" aria-hidden="true">{{ totalCans() }}/{{ size() }}</span>
             </div>
             <p class="caja__tipo">Variety Pack</p>
             <p class="caja__info">{{ size() }} latas · 330 ml</p>
-            <div class="caja__slots" aria-hidden="true">
-              @for (slot of slots(); track $index) {
-                <span
-                  class="slot"
-                  [class.slot--lleno]="slot"
-                  [style.background]="slot ?? null"
-                ></span>
-              }
+            <div class="caja__hueco" aria-hidden="true">
+              <div class="caja__grid" [style.--cols]="columns()">
+                @for (slot of slots(); track $index) {
+                  <span class="lata" [class.lata--llena]="slot !== null">
+                    @if (slot) {
+                      <img [src]="slot.image" alt="" width="196" height="480" />
+                    }
+                  </span>
+                }
+              </div>
             </div>
             <p class="caja__desglose">
               @for (item of breakdown(); track item.name) {
@@ -138,10 +141,11 @@
                   <small>{{ flavor.ingredients }}</small>
                 </div>
                 <img
-                  [src]="flavor.image"
+                  class="sabor__lata"
+                  [src]="flavor.canImage"
                   [alt]="'Lata ' + flavor.name + ' de SURGE'"
-                  width="74"
-                  height="92"
+                  width="196"
+                  height="480"
                   loading="lazy"
                 />
                 <div class="sabor__control">

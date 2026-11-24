@@ -49,7 +49,7 @@ Modal de packs y modal de suscripción se abren desde cualquier CTA.
 - Bestial Race muestra avatares públicos de los influencers, sin enlaces ni biografías.
 - Sobre nosotros incluye al equipo: Juan, Antonio, Carla, Marianna y Fausto.
 - La suscripción se presenta como SURGE Club; la campaña usa #SurgeCanarias.
-- El piloto que se comunica es de 3.000 latas, no las 6.000 de una diapositiva antigua de Canva.
+- El piloto que se comunica es de 6.000 latas, no las 6.000 de una diapositiva antigua de Canva.
 - Los assets vienen de `../surge/assets`, renombrados y optimizados a WebP/GLB.
 
 ## Fuentes
