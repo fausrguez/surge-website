@@ -138,6 +138,19 @@
   gap: 8px;
 }
 
+.punto__numero {
+  display: grid;
+  place-items: center;
+  width: 44px;
+  height: 44px;
+  border-radius: 10px;
+  background: var(--verde-oscuro);
+  color: var(--crema);
+  font-family: var(--fuente-titulo);
+  font-size: 1.1rem;
+  font-weight: 700;
+}
+
 .punto__logo {
   display: grid;
   place-items: center;

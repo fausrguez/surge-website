@@ -24,7 +24,7 @@ export interface MapPoint {
     <div
       #mapContainer
       class="mapa-real"
-      role="application"
+      role="region"
       aria-label="Mapa de puntos de venta y gimnasios en Las Palmas de Gran Canaria"
     ></div>
     <p class="mapa-real__nota">
@@ -82,28 +82,27 @@ export class StoreMap implements AfterViewInit, OnDestroy {
       attribution: '© OpenStreetMap',
     }).addTo(this.map);
 
-    const icon = L.divIcon({
-      className: 'surge-pin',
-      html: '',
-      iconSize: [22, 22],
-      iconAnchor: [11, 11],
-      popupAnchor: [0, -12],
-    });
-
     const coords: [number, number][] = [];
-    for (const point of this.points()) {
+    this.points().forEach((point, index) => {
+      const icon = L.divIcon({
+        className: 'surge-pin',
+        html: String(index + 1),
+        iconSize: [24, 24],
+        iconAnchor: [12, 12],
+        popupAnchor: [0, -14],
+      });
       const marker = L.marker([point.lat, point.lng], {
         icon,
         title: point.name,
         alt: point.name,
-      }).addTo(this.map);
+      }).addTo(this.map!);
       const markerElement = marker.getElement();
-      markerElement?.setAttribute('aria-label', `${point.name}. ${point.address}`);
+      markerElement?.setAttribute('aria-label', `${index + 1}. ${point.name}. ${point.address}`);
       marker.bindPopup(
-        `<strong>${point.name}</strong><br>${point.address}<br><small>${point.kind === 'tienda' ? 'Punto de venta' : 'Gimnasio'}</small>`,
+        `<strong>${index + 1}. ${point.name}</strong><br>${point.address}<br><small>${point.kind === 'tienda' ? 'Punto de venta' : 'Gimnasio'}</small>`,
       );
       coords.push([point.lat, point.lng]);
-    }
+    });
 
     if (coords.length > 1) {
       this.map.fitBounds(L.latLngBounds(coords), { padding: [36, 36], maxZoom: 14 });

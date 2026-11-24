@@ -1,4 +1,59 @@
 <footer class="footer">
+  <div class="contenedor footer__newsletter">
+    <div class="footer__newsletter-texto">
+      <p class="footer__titulo">Newsletter</p>
+      <p class="footer__newsletter-titulo">La energía, en tu correo.</p>
+      <p>Nuevos sabores, lanzamientos y avisos de SURGE. Sin ruido.</p>
+    </div>
+
+    @if (newsletterSent()) {
+      <div class="footer__newsletter-ok" role="status">
+        <p>
+          Se ha abierto tu cliente de correo para confirmar el alta. Si no se abre, escríbenos a
+          <a [href]="'mailto:' + email">{{ email }}</a>.
+        </p>
+        <button type="button" class="footer__reset" (click)="resetNewsletter()">
+          Usar otro email
+        </button>
+      </div>
+    } @else {
+      <form class="footer__form" (submit)="subscribe($event)" novalidate>
+        <label class="footer__label" for="newsletter-email">Tu email</label>
+        <div class="footer__form-fila">
+          <input
+            id="newsletter-email"
+            type="email"
+            name="email"
+            autocomplete="email"
+            placeholder="tu@email.com"
+            [value]="newsletterEmail()"
+            (input)="newsletterEmail.set($any($event.target).value)"
+            [attr.aria-invalid]="newsletterError() ? true : null"
+            [attr.aria-describedby]="
+              newsletterError() ? 'newsletter-ayuda newsletter-error' : 'newsletter-ayuda'
+            "
+            required
+          />
+          <button type="submit" class="btn btn--claro">Suscribirme</button>
+        </div>
+        <label class="check footer__consent">
+          <input
+            type="checkbox"
+            [checked]="newsletterConsent()"
+            (change)="newsletterConsent.set($any($event.target).checked)"
+          />
+          <span>Acepto la <a routerLink="/legal/privacidad">política de privacidad</a>.</span>
+        </label>
+        <p class="footer__ayuda" id="newsletter-ayuda">
+          Te enviaremos un correo para confirmar el alta. Puedes darte de baja cuando quieras.
+        </p>
+        @if (newsletterError()) {
+          <p class="footer__error" id="newsletter-error" role="alert">{{ newsletterError() }}</p>
+        }
+      </form>
+    }
+  </div>
+
   <div class="contenedor footer__grid">
     <div class="footer__marca">
       <a routerLink="/" class="footer__logo" aria-label="SURGE, inicio">
@@ -8,7 +63,9 @@
           <small>Energy from the earth.</small>
         </span>
       </a>
-      <p class="footer__claim">+ Natural − Agresivo.<br />Bebida energética de ingredientes reales, nacida en Canarias.</p>
+      <p class="footer__claim">
+        + Natural − Agresivo.<br />Bebida energética de ingredientes reales, nacida en Canarias.
+      </p>
       <div class="footer__redes">
         <a [href]="socials.instagram" target="_blank" rel="noopener noreferrer">Instagram</a>
         <a [href]="socials.linktree" target="_blank" rel="noopener noreferrer">Linktree</a>
@@ -16,7 +73,7 @@
     </div>
 
     <nav class="footer__col" aria-label="Pie de página">
-      <h2 class="footer__titulo">Explorar</h2>
+      <p class="footer__titulo">Explorar</p>
       <a routerLink="/">Inicio</a>
       <a routerLink="/bestial-race">Bestial Race</a>
       <a routerLink="/sobre-nosotros">Sobre nosotros</a>
@@ -24,14 +81,14 @@
     </nav>
 
     <div class="footer__col">
-      <h2 class="footer__titulo">Contacto</h2>
+      <p class="footer__titulo">Contacto</p>
       <a [href]="'mailto:' + email">{{ email }}</a>
       <p>Las Palmas de Gran Canaria<br />Canarias, España</p>
       <p class="footer__pequeno">Venta online y puntos seleccionados.</p>
     </div>
 
     <div class="footer__col">
-      <h2 class="footer__titulo">Legal</h2>
+      <p class="footer__titulo">Legal</p>
       <a routerLink="/legal/privacidad">Privacidad</a>
       <a routerLink="/legal/aviso-legal">Aviso legal</a>
       <a routerLink="/legal/cookies">Cookies</a>
@@ -40,6 +97,8 @@
 
   <div class="contenedor footer__legal">
     <p class="footer__aviso">{{ warning }}</p>
-    <p class="footer__copy">© {{ year }} SURGE · Marca canaria · Precios con IGIC incluido. Consumir con moderación.</p>
+    <p class="footer__copy">
+      © {{ year }} SURGE · Marca canaria · Precios con IGIC incluido. Consumir con moderación.
+    </p>
   </div>
 </footer>

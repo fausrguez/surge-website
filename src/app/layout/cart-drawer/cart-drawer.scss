@@ -40,6 +40,19 @@
   border-radius: var(--radio-md);
 }
 
+.drawer__aviso-pedido {
+  padding: 10px 20px;
+  border-bottom: 1px solid var(--linea);
+  background: rgba(244, 211, 94, 0.16);
+  color: var(--secundario);
+  font-size: 0.76rem;
+  line-height: 1.4;
+}
+
+.drawer__aviso-pedido strong {
+  color: var(--tierra);
+}
+
 .drawer__envio {
   padding: 16px 20px;
   border-bottom: 1px solid var(--linea);
@@ -66,6 +79,19 @@
   border-radius: inherit;
   background: var(--verde);
   transition: width 300ms var(--curva);
+}
+
+.drawer__upsell {
+  width: 100%;
+  margin-top: 10px;
+  padding: 8px 12px;
+  border: 1px dashed rgba(45, 106, 79, 0.4);
+  border-radius: 8px;
+  background: rgba(183, 228, 199, 0.18);
+  color: var(--verde-oscuro);
+  font-size: 0.76rem;
+  font-weight: 700;
+  text-align: left;
 }
 
 .drawer__lineas {
@@ -104,17 +130,21 @@
   display: flex;
   flex-wrap: wrap;
   align-items: center;
-  gap: 4px 8px;
+  gap: 6px 12px;
   margin-top: 8px;
   color: var(--secundario);
   font-size: 0.78rem;
 }
 
-.punto {
-  display: inline-block;
-  width: 9px;
-  height: 9px;
-  border-radius: 50%;
+.linea__sabor {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.linea__sabor img {
+  width: 18px;
+  height: auto;
 }
 
 .linea__acciones {
@@ -124,12 +154,57 @@
   margin-top: 10px;
 }
 
-.linea__cantidad select {
-  min-height: 36px;
-  padding: 4px 10px;
+.linea__cantidad {
+  display: inline-flex;
+  align-items: center;
+  gap: 2px;
   border: 1px solid var(--linea);
   border-radius: 8px;
   background: var(--blanco);
+}
+
+.linea__cantidad button {
+  display: grid;
+  place-items: center;
+  width: 34px;
+  height: 34px;
+  border: 0;
+  background: transparent;
+  color: var(--tierra);
+  font-size: 1rem;
+}
+
+.linea__cantidad button:disabled {
+  opacity: 0.35;
+  cursor: not-allowed;
+}
+
+.linea__cantidad span {
+  min-width: 22px;
+  text-align: center;
+  font-size: 0.84rem;
+  font-weight: 700;
+}
+
+.drawer__deshacer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  margin: 0 20px 8px;
+  padding: 8px 12px;
+  border-radius: 10px;
+  background: rgba(244, 211, 94, 0.2);
+  color: var(--tierra);
+  font-size: 0.8rem;
+}
+
+.drawer__deshacer button {
+  border: 0;
+  background: transparent;
+  color: var(--verde);
+  font-weight: 700;
+  text-decoration: underline;
 }
 
 .linea__eliminar {
@@ -173,17 +248,28 @@
   font-weight: 700;
 }
 
-.drawer__impuestos,
-.drawer__demo {
+.drawer__impuestos {
+  margin-bottom: 8px;
   color: var(--secundario);
   font-size: 0.74rem;
 }
 
-.drawer__impuestos {
+.drawer__aviso-cafeina {
   margin-bottom: 12px;
+  color: var(--secundario);
+  font-size: 0.68rem;
+  line-height: 1.4;
 }
 
-.drawer__demo {
-  margin-top: 8px;
+.drawer__seguir {
+  display: block;
+  width: 100%;
+  margin-top: 10px;
+  padding: 4px;
+  border: 0;
+  background: transparent;
+  color: var(--verde);
+  font-size: 0.8rem;
+  font-weight: 700;
   text-align: center;
 }

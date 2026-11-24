@@ -20,8 +20,6 @@ export interface Flavor {
   pattern: 'flames' | 'leaves' | 'crystals';
   patternImage: string;
   particles: 'fire' | 'wind' | 'ice';
-  decorLeft: string;
-  decorRight: string;
 }
 
 export interface Pack {
@@ -54,8 +52,6 @@ export const FLAVORS: Flavor[] = [
     pattern: 'flames',
     patternImage: 'assets/patterns/patron-flama.webp',
     particles: 'fire',
-    decorLeft: 'assets/flavors/mango.webp',
-    decorRight: 'assets/flavors/jengibre.webp',
   },
   {
     id: 'mentisimo',
@@ -76,8 +72,6 @@ export const FLAVORS: Flavor[] = [
     pattern: 'leaves',
     patternImage: 'assets/patterns/patron-mentisimo.webp',
     particles: 'wind',
-    decorLeft: 'assets/flavors/menta.webp',
-    decorRight: 'assets/flavors/lima.webp',
   },
   {
     id: 'cocus',
@@ -98,8 +92,6 @@ export const FLAVORS: Flavor[] = [
     pattern: 'crystals',
     patternImage: 'assets/patterns/patron-cocus.webp',
     particles: 'ice',
-    decorLeft: 'assets/flavors/coco.webp',
-    decorRight: 'assets/flavors/hielo.webp',
   },
 ];
 
@@ -190,9 +182,9 @@ export const INSTAGRAM_POSTS = [
     caption: 'Seis latas. Tres formas de parar.',
   },
   {
-    image: 'assets/img/fondo-producto.webp',
-    alt: 'Fondo neutro de SURGE con sombras de palmera',
-    caption: 'Energy from the earth.',
+    image: 'assets/img/lifestyle-mentisimo.webp',
+    alt: 'Una persona sostiene una lata Mentisimo de SURGE sobre una mesa de madera',
+    caption: 'MORNING · La pausa de media mañana.',
   },
 ];
 

@@ -1,0 +1,35 @@
+.no-encontrada {
+  display: grid;
+  place-items: center;
+  min-height: calc(100svh - var(--header));
+  padding-block: clamp(56px, 10vw, 120px);
+}
+
+.no-encontrada__caja {
+  max-width: 720px;
+  padding: clamp(24px, 5vw, 56px);
+  border: 1px solid var(--linea);
+  border-radius: var(--radio-lg);
+  background: var(--superficie);
+  box-shadow: var(--sombra);
+}
+
+.no-encontrada__caja h1 {
+  margin-top: 10px;
+  color: var(--verde-oscuro);
+  font-size: clamp(2.4rem, 6vw, 4.6rem);
+}
+
+.no-encontrada__caja .lead {
+  margin-top: 14px;
+}
+
+.no-encontrada__caja .fila {
+  margin-top: 24px;
+}
+
+.no-encontrada__ayuda {
+  margin-top: 22px;
+  color: var(--secundario);
+  font-size: 0.86rem;
+}

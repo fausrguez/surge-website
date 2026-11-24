@@ -3,6 +3,7 @@ import { RouterLink } from '@angular/router';
 import { CONTACT_EMAIL } from '../../core/content';
 import { SeoService } from '../../core/seo.service';
 import { UiService } from '../../core/ui.service';
+import { Reveal } from '../../shared/reveal/reveal';
 import { MapPoint, StoreMap } from '../../shared/store-map';
 
 interface StorePoint extends MapPoint {
@@ -19,7 +20,7 @@ interface StorePoint extends MapPoint {
 
 @Component({
   selector: 'app-donde-comprar',
-  imports: [RouterLink, StoreMap],
+  imports: [RouterLink, StoreMap, Reveal],
   templateUrl: './donde-comprar.html',
   styleUrl: './donde-comprar.scss',
 })
@@ -119,7 +120,7 @@ export class DondeComprar {
     this.seo.setPage({
       title: 'Dónde comprar · SURGE — Energy from the earth',
       description:
-        'Compra SURGE online, en Decathlon Tamaraceite y en gimnasios de Las Palmas de Gran Canaria. Packs de 6, 12 y 24 latas. Envío gratis desde 39,95 €.',
+        'Compra bebida energética natural SURGE online y en puntos de Canarias. Packs de 6, 12 y 24 latas, suscripción mensual y envío gratis desde 39,95 €.',
       path: '/donde-comprar',
     });
   }

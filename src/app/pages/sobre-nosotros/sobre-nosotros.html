@@ -1,43 +1,14 @@
-<main class="nosotros">
-  <section class="nosotros-hero" aria-labelledby="nosotros-titulo">
-    <div class="contenedor nosotros-hero__grid">
-      <div class="nosotros-hero__texto">
-        <p class="kicker">Sobre nosotros · Energy from the earth</p>
-        <h1 id="nosotros-titulo" class="nosotros-hero__lema">
-          <span>Más natural,</span>
-          <span>menos agresivo.</span>
-        </h1>
-        <p class="nosotros-hero__sello">Sé equilibrado</p>
-        <p class="lead">
-          Somos SURGE. Nacimos en Canarias con una idea sencilla: la energía no tiene por qué ser
-          agresiva. Queremos acompañarte con ingredientes reales, sabor honesto y un equilibrio que
-          puedas mantener.
-        </p>
-        <div class="fila">
-          <button type="button" class="btn" (click)="openPacks()">Descubre los packs</button>
-          <a class="btn btn--secundario" href="#hablemos">Hablemos</a>
-        </div>
-        <ul class="chips" aria-label="Características de SURGE">
-          <li class="chip">330 ml</li>
-          <li class="chip">Sin aditivos artificiales</li>
-          <li class="chip">Vegano</li>
-          <li class="chip">Cartón FSC</li>
-        </ul>
-      </div>
-
-      <figure class="nosotros-hero__imagen">
-        <img
-          src="assets/img/inicial.webp"
-          alt="Las tres latas de SURGE: Flama, Mentisimo y Cocus, juntas sobre piedra clara"
-          width="1376"
-          height="768"
-        />
-        <figcaption>Flama, Mentisimo y Cocus. Una familia, tres momentos.</figcaption>
-      </figure>
+<main class="nosotros" id="contenido">
+  <section class="manifiesto" aria-label="Nuestro manifiesto" appReveal>
+    <div class="contenedor centrado">
+      <p class="kicker">Nuestro manifiesto</p>
+      <blockquote>“Más natural, menos agresivo. Sé equilibrado”</blockquote>
+      <svg class="manifiesto__linea" viewBox="0 0 240 20" aria-hidden="true">
+        <path d="M2 14c30-16 58 10 88-4s58-6 88 2 32-2 60-8" />
+      </svg>
     </div>
   </section>
-
-  <section class="seccion" aria-labelledby="origen-titulo">
+  <section class="seccion" appReveal aria-labelledby="origen-titulo">
     <div class="contenedor nosotros-grid">
       <div class="nosotros-texto">
         <p class="kicker">01 — Nuestro origen</p>
@@ -60,8 +31,8 @@
       <div class="nosotros-lateral">
         <figure class="nosotros-lateral__imagen">
           <img
-            src="assets/img/caja-pack.webp"
-            alt="Caja Variety Pack de SURGE con seis latas, dos de cada sabor"
+            src="assets/img/lifestyle-mentisimo.webp"
+            alt="Una persona sostiene una lata Mentisimo de SURGE sobre una mesa de madera"
             width="928"
             height="1152"
             loading="lazy"
@@ -85,7 +56,7 @@
     </div>
   </section>
 
-  <section class="seccion seccion--ajustada" aria-label="Misión y visión">
+  <section class="seccion seccion--ajustada" appReveal aria-label="Misión y visión">
     <div class="contenedor nosotros-dos">
       <article class="tarjeta mision">
         <svg class="mision__hoja" viewBox="0 0 120 120" aria-hidden="true">
@@ -95,9 +66,9 @@
         <p class="kicker">02 — Nuestra misión</p>
         <h2>Nuestra misión</h2>
         <p>
-          Hacer que la energía del día a día sea más natural y menos agresiva: bebidas con
-          ingredientes reales, sabor honesto y envases responsables, para que rindas sin dejar de
-          estar en equilibrio.
+          Hacer que la energía del día a día sea más natural y menos agresiva: bebidas energéticas
+          naturales con ingredientes reales, sabor honesto y envases responsables, para que rindas
+          sin dejar de estar en equilibrio.
         </p>
       </article>
 
@@ -117,7 +88,7 @@
     </div>
   </section>
 
-  <section class="seccion" aria-labelledby="valores-titulo">
+  <section class="seccion" appReveal aria-labelledby="valores-titulo">
     <div class="contenedor">
       <div class="seccion__cabecera">
         <p class="kicker">04 — Nuestros valores</p>
@@ -156,7 +127,12 @@
     </div>
   </section>
 
-  <section class="compromiso banda-verde" id="compromiso" aria-labelledby="compromiso-titulo">
+  <section
+    class="compromiso banda-verde"
+    id="compromiso"
+    aria-labelledby="compromiso-titulo"
+    appReveal
+  >
     <div class="contenedor">
       <div class="seccion__cabecera">
         <p class="kicker">05 — Nuestro compromiso</p>
@@ -182,17 +158,7 @@
     </div>
   </section>
 
-  <section class="manifiesto" aria-label="Nuestro manifiesto">
-    <div class="contenedor centrado">
-      <p class="kicker">Nuestro manifiesto</p>
-      <blockquote>“Más natural, menos agresivo. Sé equilibrado”</blockquote>
-      <svg class="manifiesto__linea" viewBox="0 0 240 20" aria-hidden="true">
-        <path d="M2 14c30-16 58 10 88-4s58-6 88 2 32-2 60-8" />
-      </svg>
-    </div>
-  </section>
-
-  <section class="seccion equipo" aria-labelledby="equipo-titulo">
+  <section class="seccion equipo" appReveal aria-labelledby="equipo-titulo">
     <div class="contenedor equipo__grid">
       <div class="equipo__texto">
         <p class="kicker">El equipo</p>
@@ -212,7 +178,7 @@
     </div>
   </section>
 
-  <section class="seccion contacto" id="hablemos" aria-labelledby="hablemos-titulo">
+  <section class="seccion contacto" appReveal id="hablemos" aria-labelledby="hablemos-titulo">
     <div class="contenedor contacto__grid">
       <div class="contacto__canales">
         <p class="kicker">06 — Hablemos</p>
@@ -247,33 +213,31 @@
       <div class="contacto__caja">
         @if (submitted()) {
           <div class="contacto__exito" role="status">
-            <span class="contacto__check" aria-hidden="true">
-              <svg width="26" height="26" viewBox="0 0 24 24" fill="none">
-                <path
-                  d="M5 12.5l4.5 4.5L19 7.5"
-                  stroke="currentColor"
-                  stroke-width="2.2"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                />
-              </svg>
-            </span>
-            <h3 #successTitle tabindex="-1">
-              ¡El mensaje ha sido enviado con éxito! Nos pondremos en contacto con usted con la
-              mayor brevedad posible. Gracias; Equipo Surge.
-            </h3>
+            <span class="contacto__check" aria-hidden="true">✉</span>
+            <h3 #successTitle tabindex="-1">Vista previa: tu mensaje no se ha enviado</h3>
+            <p>
+              Esta web todavía no tiene conectado el envío del formulario. Prepara el email y
+              termínalo desde tu cliente de correo: se abrirá con tu nombre, email, asunto y mensaje
+              ya rellenados.
+            </p>
+            <a class="btn" [href]="mailtoHref()">Abrir email con el mensaje</a>
             <p class="contacto__demo">
-              Modo demostración: el formulario no envía datos a ningún servidor todavía.
+              También puedes escribirnos por
+              <a [href]="socials.instagram" target="_blank" rel="noopener noreferrer">Instagram</a>
+              o a <a [href]="'mailto:' + email">{{ email }}</a>.
             </p>
             <button type="button" class="btn btn--secundario" (click)="sendAnother()">
-              Enviar otro mensaje
+              Volver al formulario
             </button>
           </div>
         } @else {
           <h3 class="contacto__titulo">Escríbenos</h3>
           <form [formGroup]="form" (ngSubmit)="submit()" novalidate>
+            <p class="contacto__obligatorios">
+              Los campos con <span aria-hidden="true">*</span> son obligatorios.
+            </p>
             @if (errorSummary().length > 0) {
-              <div class="resumen-errores" role="alert">
+              <div #errorSummaryBox class="resumen-errores" role="alert" tabindex="-1">
                 <strong>Revisa estos campos:</strong>
                 <ul>
                   @for (message of errorSummary(); track message) {
@@ -284,13 +248,16 @@
             }
 
             <div class="campo">
-              <label for="nombre">Nombre</label>
+              <label for="nombre"
+                >Nombre <span class="campo__obligatorio" aria-hidden="true">*</span></label
+              >
               <input
                 #firstField
                 id="nombre"
                 type="text"
                 formControlName="nombre"
                 autocomplete="name"
+                aria-required="true"
                 [attr.aria-invalid]="showError('nombre')"
                 aria-describedby="error-nombre"
               />
@@ -300,12 +267,15 @@
             </div>
 
             <div class="campo">
-              <label for="email">Email</label>
+              <label for="email"
+                >Email <span class="campo__obligatorio" aria-hidden="true">*</span></label
+              >
               <input
                 id="email"
                 type="email"
                 formControlName="email"
                 autocomplete="email"
+                aria-required="true"
                 [attr.aria-invalid]="showError('email')"
                 aria-describedby="error-email"
               />
@@ -324,10 +294,13 @@
             </div>
 
             <div class="campo">
-              <label for="mensaje">Mensaje</label>
+              <label for="mensaje"
+                >Mensaje <span class="campo__obligatorio" aria-hidden="true">*</span></label
+              >
               <textarea
                 id="mensaje"
                 formControlName="mensaje"
+                aria-required="true"
                 [attr.aria-invalid]="showError('mensaje')"
                 aria-describedby="ayuda-mensaje error-mensaje"
               ></textarea>
@@ -344,6 +317,7 @@
                 <input
                   type="checkbox"
                   formControlName="privacidad"
+                  aria-required="true"
                   [attr.aria-invalid]="showError('privacidad')"
                   aria-describedby="error-privacidad"
                 />
@@ -359,9 +333,7 @@
               }
             </div>
 
-            <button type="submit" class="btn btn--ancho" [disabled]="sending()">
-              {{ sending() ? 'Enviando…' : 'Enviar' }}
-            </button>
+            <button type="submit" class="btn btn--ancho">Preparar email</button>
 
             <details class="contacto__datos">
               <summary>Cómo tratamos tus datos</summary>

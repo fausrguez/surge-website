@@ -116,7 +116,7 @@
 
 .nosotros-lateral__imagen img {
   width: 100%;
-  aspect-ratio: 4 / 5;
+  aspect-ratio: 16 / 10;
   object-fit: cover;
 }
 
@@ -470,9 +470,24 @@
   line-height: 1.25;
 }
 
+.contacto__exito p {
+  color: var(--secundario);
+  font-size: 0.9rem;
+}
+
 .contacto__demo {
   color: var(--secundario);
   font-size: 0.76rem;
+}
+
+.contacto__obligatorios {
+  margin-bottom: 14px;
+  color: var(--secundario);
+  font-size: 0.78rem;
+}
+
+.campo__obligatorio {
+  color: #8c2a1a;
 }
 
 @media (max-width: 960px) {

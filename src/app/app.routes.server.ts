@@ -8,5 +8,5 @@ export const serverRoutes: ServerRoute[] = [
   { path: 'legal/privacidad', renderMode: RenderMode.Prerender },
   { path: 'legal/aviso-legal', renderMode: RenderMode.Prerender },
   { path: 'legal/cookies', renderMode: RenderMode.Prerender },
-  { path: '**', renderMode: RenderMode.Prerender },
+  { path: '**', renderMode: RenderMode.Server },
 ];

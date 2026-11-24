@@ -1,9 +1,11 @@
 import { Component, ElementRef, HostListener, effect, inject, viewChild } from '@angular/core';
 import { formatPrice } from '../../core/content';
+import { FocusTrap } from '../../shared/focus-trap/focus-trap';
 import { UiService } from '../../core/ui.service';
 
 @Component({
   selector: 'app-subscription-modal',
+  imports: [FocusTrap],
   templateUrl: './subscription-modal.html',
   styleUrl: './subscription-modal.scss',
 })

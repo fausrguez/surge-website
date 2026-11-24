@@ -1,5 +1,5 @@
-<main class="br">
-  <section class="br-hero" aria-labelledby="br-titulo">
+<main class="br" id="contenido">
+  <section class="br-hero" appReveal aria-labelledby="br-titulo">
     <div class="contenedor br-hero__grid">
       <div class="br-hero__contenido">
         <p class="kicker">SURGE × Bestial Race · Canarias</p>
@@ -52,7 +52,7 @@
     </div>
   </section>
 
-  <section class="br-equipos" id="equipos" aria-labelledby="equipos-titulo">
+  <section class="br-equipos" appReveal id="equipos" aria-labelledby="equipos-titulo">
     <div class="contenedor">
       <div class="seccion__cabecera">
         <p class="kicker">Los tres equipos</p>
@@ -118,8 +118,8 @@
                     <img
                       [src]="person.image"
                       [alt]="'Foto de perfil de ' + person.name"
-                      width="40"
-                      height="40"
+                      width="58"
+                      height="58"
                       loading="lazy"
                     />
                     <span>{{ person.name }}</span>
@@ -138,10 +138,40 @@
         Los nombres oficiales de los equipos son Team Flama, Team Mentisimo y Team Cocus. Los
         nombres de las latas no sustituyen a los nombres de los equipos.
       </p>
+
+      <div class="br-equipos__aviso">
+        <p>
+          La inscripción todavía no está abierta. Si quieres que te avisemos cuando lo esté,
+          escríbenos y te apuntamos a la lista de espera.
+        </p>
+        <a class="btn" [href]="avisoHref">Avísame de la inscripción</a>
+      </div>
     </div>
   </section>
 
-  <section class="br-merch" id="merchandising" aria-labelledby="merch-titulo">
+  <section class="br-cierre banda-verde" appReveal aria-labelledby="cierre-br-titulo">
+    <div class="contenedor br-cierre__grid">
+      <div>
+        <p class="kicker">Vive la experiencia</p>
+        <h2 id="cierre-br-titulo">Tres equipos. Una misma pasión.</h2>
+        <p class="lead">
+          Elige equipo, sigue la campaña y comparte tus momentos. Nos vemos en la Bestial Race.
+        </p>
+        <div class="br-hashtags br-hashtags--claro">
+          @for (hashtag of hashtags; track hashtag) {
+            <span>{{ hashtag }}</span>
+          }
+        </div>
+      </div>
+      <div class="br-cierre__acciones">
+        <a class="btn btn--claro" href="#equipos">Elige tu equipo</a>
+        <button type="button" class="btn btn--fantasma" (click)="openPacks()">Ver los packs</button>
+        <a class="btn btn--fantasma" routerLink="/">Volver al inicio</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="br-merch" appReveal id="merchandising" aria-labelledby="merch-titulo">
     <div class="contenedor">
       <div class="seccion__cabecera">
         <p class="kicker">Merchandising oficial</p>
@@ -202,7 +232,7 @@
     </div>
   </section>
 
-  <section class="seccion" id="colaboracion" aria-labelledby="colaboracion-titulo">
+  <section class="seccion" appReveal id="colaboracion" aria-labelledby="colaboracion-titulo">
     <div class="contenedor br-intro">
       <div class="br-intro__titulo">
         <p class="kicker">La colaboración</p>
@@ -210,9 +240,10 @@
       </div>
       <div class="br-intro__texto">
         <p>
-          La Bestial Race es una oportunidad para acercar SURGE a personas activas y amantes del
-          deporte. La propuesta no se queda en colocar un logo en un evento: busca crear comunidad
-          alrededor de la carrera y de los tres sabores de la marca.
+          La Bestial Race es una oportunidad para acercar SURGE, la bebida energética natural con té
+          y guaraná, a personas activas y amantes del deporte. La propuesta no se queda en colocar
+          un logo en un evento: busca crear comunidad alrededor de la carrera y de los tres sabores
+          de la marca.
         </p>
         <p>
           Los tres equipos conectan las identidades visuales de Flama, Mentisimo y Cocus con la
@@ -232,86 +263,12 @@
     </div>
   </section>
 
-  <section class="seccion" id="dinamica" aria-labelledby="dinamica-titulo">
-    <div class="contenedor br-dinamica">
-      <div class="br-dinamica__texto">
-        <p class="kicker">Cómo funciona</p>
-        <h2 id="dinamica-titulo">Elige, viste y participa.</h2>
-        <p class="lead">
-          La dinámica es sencilla: cada participante elige el equipo con el que se identifica y
-          lleva su camiseta durante la experiencia.
-        </p>
-        <p class="br-nota">
-          El mecanismo técnico de selección y registro está pendiente de definir. No hay inscripción
-          activa en esta página.
-        </p>
-      </div>
-
-      <ol class="br-pasos">
-        @for (step of steps; track step; let index = $index) {
-          <li>
-            <span>{{ index + 1 }}</span>
-            <p>{{ step }}</p>
-          </li>
-        }
-      </ol>
-    </div>
-  </section>
-
-  <section class="seccion" id="comunidad" aria-labelledby="comunidad-titulo">
-    <div class="contenedor">
-      <div class="seccion__cabecera">
-        <p class="kicker">Influencers y comunidad</p>
-        <h2 id="comunidad-titulo">Tres equipos, mucha gente detrás.</h2>
-        <p class="lead">
-          La idea es participar con influencers y con la comunidad: suscriptores y seguidores que
-          quieran vivir la experiencia desde dentro.
-        </p>
-      </div>
-
-      <div class="br-comunidad__grid">
-        @for (team of teams; track team.name) {
-          <article
-            class="br-comunidad__equipo"
-            [style.--team]="team.color"
-            [style.--tinte]="team.tint"
-          >
-            <h3>{{ team.name }}</h3>
-            <ul class="br-comunidad__personas">
-              @for (person of team.influencers; track person.name) {
-                <li>
-                  <img
-                    [src]="person.image"
-                    [alt]="'Foto de perfil de ' + person.name"
-                    width="36"
-                    height="36"
-                    loading="lazy"
-                  />
-                  <span>{{ person.name }}</span>
-                </li>
-              }
-            </ul>
-          </article>
-        }
-      </div>
-
-      <div class="br-comunidad__surge">
-        <h3>El equipo de SURGE también juega</h3>
-        <p>
-          El equipo de SURGE forma parte de la experiencia y se reparte entre los tres equipos. La
-          campaña está pensada para vivirla, no solo para mirarla.
-        </p>
-      </div>
-
-      <p class="br-nota">
-        No se añaden biografías, cifras de seguidores ni enlaces a perfiles. Los nombres son los
-        facilitados por el equipo de campaña y las fotos son las imágenes públicas de sus perfiles
-        de Instagram.
-      </p>
-    </div>
-  </section>
-
-  <section class="br-activaciones" id="activaciones" aria-labelledby="activaciones-titulo">
+  <section
+    class="br-activaciones"
+    appReveal
+    id="activaciones"
+    aria-labelledby="activaciones-titulo"
+  >
     <div class="contenedor">
       <div class="seccion__cabecera">
         <p class="kicker">Activaciones</p>
@@ -339,7 +296,86 @@
     </div>
   </section>
 
-  <section class="seccion" id="calendario" aria-labelledby="calendario-titulo">
+  <section class="seccion" appReveal id="dinamica" aria-labelledby="dinamica-titulo">
+    <div class="contenedor br-dinamica">
+      <div class="br-dinamica__texto">
+        <p class="kicker">Cómo funciona</p>
+        <h2 id="dinamica-titulo">Elige, viste y participa.</h2>
+        <p class="lead">
+          La dinámica es sencilla: cada participante elige el equipo con el que se identifica y
+          lleva su camiseta durante la experiencia.
+        </p>
+        <p class="br-nota">
+          El mecanismo técnico de selección y registro está pendiente de definir. No hay inscripción
+          activa en esta página.
+        </p>
+      </div>
+
+      <ol class="br-pasos">
+        @for (step of steps; track step; let index = $index) {
+          <li>
+            <span>{{ index + 1 }}</span>
+            <p>{{ step }}</p>
+          </li>
+        }
+      </ol>
+    </div>
+  </section>
+
+  <!-- <section class="seccion" appReveal id="comunidad" aria-labelledby="comunidad-titulo">
+    <div class="contenedor">
+      <div class="seccion__cabecera">
+        <p class="kicker">Influencers y comunidad</p>
+        <h2 id="comunidad-titulo">Tres equipos, mucha gente detrás.</h2>
+        <p class="lead">
+          La idea es participar con influencers y con la comunidad: suscriptores y seguidores que
+          quieran vivir la experiencia desde dentro.
+        </p>
+      </div>
+
+      <div class="br-comunidad__grid">
+        @for (team of teams; track team.name) {
+          <article
+            class="br-comunidad__equipo"
+            [style.--team]="team.color"
+            [style.--tinte]="team.tint"
+          >
+            <h3>{{ team.name }}</h3>
+            <ul class="br-comunidad__personas">
+              @for (person of team.influencers; track person.name) {
+                <li>
+                  <img
+                    [src]="person.image"
+                    [alt]="'Foto de perfil de ' + person.name"
+                    width="72"
+                    height="72"
+                    loading="lazy"
+                  />
+                  <span>{{ person.name }}</span>
+                </li>
+              }
+            </ul>
+          </article>
+        }
+      </div>
+
+      <div class="br-comunidad__surge">
+        <h3>El equipo de SURGE también juega</h3>
+        <p>
+          El equipo de SURGE forma parte de la experiencia y se reparte entre los tres equipos. La
+          campaña está pensada para vivirla, no solo para mirarla.
+        </p>
+      </div>
+
+      <p class="br-nota">
+        No se añaden biografías, cifras de seguidores ni enlaces a perfiles. Los nombres son los
+        facilitados por el equipo de campaña y las fotos son las imágenes públicas de sus perfiles
+        de Instagram.
+      </p>
+    </div>
+  </section> -->
+
+  <!-- <section class="seccion" appReveal id="calendario" aria-labelledby="calendario-titulo">
     <div class="contenedor">
       <div class="seccion__cabecera">
         <p class="kicker">Calendario de campaña</p>
@@ -370,29 +406,7 @@
         }
       </div>
     </div>
-  </section>
-
-  <section class="br-cierre banda-verde" aria-labelledby="cierre-br-titulo">
-    <div class="contenedor br-cierre__grid">
-      <div>
-        <p class="kicker">Vive la experiencia</p>
-        <h2 id="cierre-br-titulo">Tres equipos. Una misma pasión.</h2>
-        <p class="lead">
-          Elige equipo, sigue la campaña y comparte tus momentos. Nos vemos en la Bestial Race.
-        </p>
-        <div class="br-hashtags br-hashtags--claro">
-          @for (hashtag of hashtags; track hashtag) {
-            <span>{{ hashtag }}</span>
-          }
-        </div>
-      </div>
-      <div class="br-cierre__acciones">
-        <a class="btn btn--claro" href="#equipos">Elige tu equipo</a>
-        <button type="button" class="btn btn--fantasma" (click)="openPacks()">Ver los packs</button>
-        <a class="btn btn--fantasma" routerLink="/">Volver al inicio</a>
-      </div>
-    </div>
-  </section>
+  </section> -->
 
   @if (lightbox(); as image) {
     <div

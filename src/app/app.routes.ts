@@ -16,8 +16,7 @@ export const routes: Routes = [
   },
   {
     path: 'donde-comprar',
-    loadComponent: () =>
-      import('./pages/donde-comprar/donde-comprar').then((m) => m.DondeComprar),
+    loadComponent: () => import('./pages/donde-comprar/donde-comprar').then((m) => m.DondeComprar),
   },
   {
     path: 'legal/privacidad',
@@ -34,5 +33,8 @@ export const routes: Routes = [
     loadComponent: () => import('./pages/legal/legal').then((m) => m.Legal),
     data: { slug: 'cookies' },
   },
-  { path: '**', redirectTo: '' },
+  {
+    path: '**',
+    loadComponent: () => import('./pages/no-encontrada/no-encontrada').then((m) => m.NoEncontrada),
+  },
 ];

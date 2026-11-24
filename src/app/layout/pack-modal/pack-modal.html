@@ -1,10 +1,27 @@
 @if (ui.packOpen()) {
   <div class="overlay" (click)="close()" aria-hidden="true"></div>
   <div class="modal" role="presentation">
-    <section class="modal__panel pack" role="dialog" aria-modal="true" aria-labelledby="pack-titulo">
-      <button #closeButton type="button" class="modal__cerrar" (click)="close()" aria-label="Cerrar diseñador de packs">
+    <section
+      class="modal__panel pack"
+      appFocusTrap
+      role="dialog"
+      aria-modal="true"
+      aria-labelledby="pack-titulo"
+    >
+      <button
+        #closeButton
+        type="button"
+        class="modal__cerrar"
+        (click)="close()"
+        aria-label="Cerrar diseñador de packs"
+      >
         <svg width="22" height="22" viewBox="0 0 24 24" fill="none" aria-hidden="true">
-          <path d="M6 6l12 12M18 6L6 18" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" />
+          <path
+            d="M6 6l12 12M18 6L6 18"
+            stroke="currentColor"
+            stroke-width="1.8"
+            stroke-linecap="round"
+          />
         </svg>
       </button>
 
@@ -18,7 +35,12 @@
         <div class="pack__izquierda">
           <div class="pack__paso">
             <h3>1. Elige tu pack</h3>
-            <div class="pack__tamanos" role="radiogroup" aria-label="Tamaño del pack">
+            <div
+              class="pack__tamanos"
+              role="radiogroup"
+              aria-label="Tamaño del pack"
+              (keydown)="onSizeKeydown($event)"
+            >
               @for (option of sizes; track option) {
                 <button
                   type="button"
@@ -31,7 +53,9 @@
                   <span class="tamano__numero">{{ option }}</span>
                   <span class="tamano__latas">latas · 330 ml</span>
                   <strong class="tamano__precio">{{ formatPrice(PACKS[option].price) }}</strong>
-                  <span class="tamano__porlata">{{ formatPrice(PACKS[option].pricePerCan) }} / lata</span>
+                  <span class="tamano__porlata"
+                    >{{ formatPrice(PACKS[option].pricePerCan) }} / lata</span
+                  >
                   <span class="tamano__etiqueta">{{ PACKS[option].tag }}</span>
                 </button>
               }
@@ -72,7 +96,11 @@
             <p class="caja__info">{{ size() }} latas · 330 ml</p>
             <div class="caja__slots" aria-hidden="true">
               @for (slot of slots(); track $index) {
-                <span class="slot" [class.slot--lleno]="slot" [style.background]="slot ?? null"></span>
+                <span
+                  class="slot"
+                  [class.slot--lleno]="slot"
+                  [style.background]="slot ?? null"
+                ></span>
               }
             </div>
             <p class="caja__desglose">
@@ -94,7 +122,10 @@
         <div class="pack__derecha">
           <div class="pack__paso">
             <h3>2. Reparte tus latas</h3>
-            <p class="pack__ayuda">Puedes mezclar los tres sabores. El total debe coincidir con tu pack.</p>
+            <p class="pack__ayuda">
+              Tu pack de bebida energética puede mezclar los tres sabores. El total debe coincidir
+              con las latas elegidas.
+            </p>
           </div>
 
           <div class="sabores">
@@ -106,18 +137,42 @@
                   <p>{{ flavor.slogan }}</p>
                   <small>{{ flavor.ingredients }}</small>
                 </div>
-                <img [src]="flavor.image" [alt]="'Lata ' + flavor.name + ' de SURGE'" width="74" height="92" loading="lazy" />
+                <img
+                  [src]="flavor.image"
+                  [alt]="'Lata ' + flavor.name + ' de SURGE'"
+                  width="74"
+                  height="92"
+                  loading="lazy"
+                />
                 <div class="sabor__control">
-                  <button type="button" (click)="decrement(flavor.id)" [attr.aria-label]="'Quitar una lata de ' + flavor.name">−</button>
+                  <button
+                    type="button"
+                    (click)="decrement(flavor.id)"
+                    [attr.aria-label]="'Quitar una lata de ' + flavor.name"
+                  >
+                    −
+                  </button>
                   <select
                     [attr.aria-label]="'Latas de ' + flavor.name"
                     (change)="setFlavor(flavor.id, $any($event.target).value)"
                   >
                     @for (option of options(); track option) {
-                      <option [value]="option" [selected]="option === qty()[flavor.id]" [disabled]="option > qty()[flavor.id] + remaining()">{{ option }}</option>
+                      <option
+                        [value]="option"
+                        [selected]="option === qty()[flavor.id]"
+                        [disabled]="option > qty()[flavor.id] + remaining()"
+                      >
+                        {{ option }}
+                      </option>
                     }
                   </select>
-                  <button type="button" (click)="increment(flavor.id)" [attr.aria-label]="'Añadir una lata de ' + flavor.name">+</button>
+                  <button
+                    type="button"
+                    (click)="increment(flavor.id)"
+                    [attr.aria-label]="'Añadir una lata de ' + flavor.name"
+                  >
+                    +
+                  </button>
                 </div>
               </article>
             }
@@ -144,7 +199,9 @@
             }
           </p>
 
-          <button type="button" class="btn btn--secundario btn--ancho" (click)="balance()">Reparto equilibrado</button>
+          <button type="button" class="btn btn--secundario btn--ancho" (click)="balance()">
+            Reparto equilibrado
+          </button>
 
           <button
             type="button"
@@ -160,6 +217,20 @@
           </button>
           <p class="pack__nota">Envío 4,00 € · Gratis desde 39,95 € · IGIC incluido.</p>
         </div>
+      </div>
+
+      <div class="pack__barra-movil">
+        <div class="pack__barra-datos">
+          <span>{{ totalCans() }} de {{ size() }} latas</span>
+          <strong>{{ formatPrice(unitPrice()) }}</strong>
+        </div>
+        <button type="button" class="btn" [disabled]="!complete()" (click)="add()">
+          @if (complete()) {
+            Añadir · {{ formatPrice(unitPrice()) }}
+          } @else {
+            Faltan {{ remaining() }} latas
+          }
+        </button>
       </div>
     </section>
   </div>

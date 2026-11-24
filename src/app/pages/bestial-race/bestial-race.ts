@@ -1,7 +1,9 @@
 import { Component, HostListener, inject, signal } from '@angular/core';
 import { RouterLink } from '@angular/router';
+import { CONTACT_EMAIL } from '../../core/content';
 import { SeoService } from '../../core/seo.service';
 import { UiService } from '../../core/ui.service';
+import { Reveal } from '../../shared/reveal/reveal';
 
 interface Influencer {
   name: string;
@@ -31,13 +33,17 @@ interface LightboxImage {
 
 @Component({
   selector: 'app-bestial-race',
-  imports: [RouterLink],
+  imports: [RouterLink, Reveal],
   templateUrl: './bestial-race.html',
   styleUrl: './bestial-race.scss',
 })
 export class BestialRace {
   private readonly seo = inject(SeoService);
   readonly ui = inject(UiService);
+  readonly email = CONTACT_EMAIL;
+  readonly avisoHref = `mailto:${CONTACT_EMAIL}?subject=${encodeURIComponent(
+    'Avísame de la Bestial Race',
+  )}`;
 
   readonly lightbox = signal<LightboxImage | null>(null);
 

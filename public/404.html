@@ -1,0 +1,114 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="robots" content="noindex" />
+    <title>Página no encontrada · SURGE</title>
+    <style>
+      :root {
+        color-scheme: light;
+        --crema: #fefae0;
+        --superficie: #fffdf5;
+        --tinta: #2a2118;
+        --verde: #2d6a4f;
+        --verde-oscuro: #1d4a36;
+        --lima: #b7e4c7;
+        --secundario: #6b5b4b;
+        --linea: rgba(61, 43, 31, 0.14);
+      }
+      * {
+        box-sizing: border-box;
+      }
+      body {
+        display: grid;
+        place-items: center;
+        min-height: 100vh;
+        margin: 0;
+        padding: 24px;
+        background:
+          radial-gradient(ellipse 60% 40% at 8% 4%, rgba(183, 228, 199, 0.34), transparent 70%),
+          var(--crema);
+        color: var(--tinta);
+        font-family: system-ui, -apple-system, 'Segoe UI', sans-serif;
+        line-height: 1.6;
+      }
+      main {
+        width: min(100%, 680px);
+        padding: clamp(24px, 5vw, 48px);
+        border: 1px solid var(--linea);
+        border-radius: 24px;
+        background: var(--superficie);
+        box-shadow: 0 18px 40px rgba(61, 43, 31, 0.08);
+      }
+      img {
+        width: 44px;
+        height: 44px;
+      }
+      p.kicker {
+        margin: 18px 0 0;
+        color: var(--verde);
+        font-size: 0.75rem;
+        font-weight: 700;
+        letter-spacing: 0.18em;
+        text-transform: uppercase;
+      }
+      h1 {
+        margin: 10px 0 0;
+        color: var(--verde-oscuro);
+        font-family: Georgia, 'Times New Roman', serif;
+        font-size: clamp(2.2rem, 6vw, 4rem);
+        line-height: 1;
+      }
+      p {
+        margin: 16px 0 0;
+        color: var(--secundario);
+      }
+      .acciones {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+        margin-top: 24px;
+      }
+      a.btn {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        min-height: 48px;
+        padding: 12px 22px;
+        border: 1px solid var(--verde);
+        border-radius: 999px;
+        background: var(--verde);
+        color: var(--crema);
+        font-weight: 700;
+        text-decoration: none;
+      }
+      a.btn--secundario {
+        background: transparent;
+        color: var(--verde);
+      }
+      a {
+        color: var(--verde);
+      }
+    </style>
+  </head>
+  <body>
+    <main>
+      <a href="/" aria-label="SURGE, inicio"><img src="/assets/logo.svg" alt="" /></a>
+      <p class="kicker">Error 404</p>
+      <h1>Esta lata no está en la nevera.</h1>
+      <p>
+        La página que buscas no existe o ha cambiado de sitio. Vuelve a la home o consulta dónde
+        comprar SURGE.
+      </p>
+      <div class="acciones">
+        <a class="btn" href="/">Volver a la home</a>
+        <a class="btn btn--secundario" href="/donde-comprar">Dónde comprar</a>
+      </div>
+      <p>
+        Si has llegado desde un enlace nuestro, escríbenos a
+        <a href="mailto:hola@surge.es">hola@surge.es</a>.
+      </p>
+    </main>
+  </body>
+</html>

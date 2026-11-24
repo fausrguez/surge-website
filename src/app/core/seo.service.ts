@@ -6,6 +6,7 @@ export interface PageMeta {
   description: string;
   path: string;
   image?: string;
+  jsonLd?: Record<string, unknown>;
 }
 
 const SITE_URL = 'https://surge-website-plum.vercel.app';
@@ -41,5 +42,14 @@ export class SeoService {
       this.document.head.appendChild(canonical);
     }
     canonical.setAttribute('href', url);
+
+    this.document.getElementById('page-jsonld')?.remove();
+    if (page.jsonLd) {
+      const script = this.document.createElement('script');
+      script.id = 'page-jsonld';
+      script.type = 'application/ld+json';
+      script.textContent = JSON.stringify(page.jsonLd);
+      this.document.head.appendChild(script);
+    }
   }
 }

@@ -1,4 +1,4 @@
-<main class="home">
+<main class="home" id="contenido">
   <section class="hero" id="inicio" aria-labelledby="hero-titulo">
     <img
       class="hero__fondo"
@@ -18,6 +18,7 @@
           aria-label="Ver Mentisimo"
         >
           <model-viewer
+            tabindex="-1"
             src="assets/models/mentisimo.glb"
             alt="Lata Mentisimo de SURGE"
             poster="assets/img/lata-mentisimo.webp"
@@ -36,6 +37,7 @@
           aria-label="Ver Cocus"
         >
           <model-viewer
+            tabindex="-1"
             src="assets/models/cocus.glb"
             alt="Lata Cocus de SURGE"
             poster="assets/img/lata-cocus.webp"
@@ -54,6 +56,7 @@
           aria-label="Ver Flama"
         >
           <model-viewer
+            tabindex="-1"
             src="assets/models/flama.glb"
             alt="Lata Flama de SURGE"
             poster="assets/img/lata-flama.webp"
@@ -75,11 +78,19 @@
           <span>− Agresivo</span>
         </h1>
         <p class="lead">
-          Bebidas energéticas de ingredientes reales, nacidas en Canarias. Cafeína de té y guaraná.
-          Sin el golpe de siempre.
+          Bebida energética natural con té y guaraná, nacida en Canarias. Ingredientes reales, sin
+          azúcar añadido y sin el golpe de siempre.
         </p>
+        <img
+          class="hero__producto-movil"
+          src="assets/img/hero-latas.webp"
+          alt="Las tres latas de SURGE: Flama, Mentisimo y Cocus"
+          width="1200"
+          height="600"
+          fetchpriority="high"
+        />
         <div class="hero__acciones">
-          <button type="button" class="btn" (click)="choosePack(12)">Crea tu pack</button>
+          <button type="button" class="btn" (click)="choosePack(12)">Crear mi pack</button>
           <a class="btn btn--secundario" routerLink="/donde-comprar">Dónde comprar</a>
         </div>
         <ul class="chips hero__chips" aria-label="Características del producto">
@@ -88,6 +99,11 @@
           <li class="chip">Vegano</li>
           <li class="chip">Cartón FSC</li>
         </ul>
+        <ul class="hero__confianza" aria-label="Ventajas de compra">
+          <li>Envío 24–72 h en Canarias</li>
+          <li>Gratis desde 39,95 €</li>
+          <li>IGIC incluido</li>
+        </ul>
         <button type="button" class="hero__scroll" (click)="go('sabores')">
           <span aria-hidden="true">↓</span> Tres sabores, tres momentos
         </button>
@@ -95,25 +111,42 @@
     </div>
   </section>
 
-  <section class="sabores-intro" id="sabores" aria-labelledby="sabores-titulo">
+  <section class="sabores-intro" id="sabores" aria-labelledby="sabores-titulo" appReveal>
     <div class="contenedor centrado">
       <p class="kicker">La familia</p>
       <h2 id="sabores-titulo">Tres latas. Tres momentos.</h2>
       <p class="lead">
-        No son tres sabores del mismo producto. Son tres formas de acompañar el día: el empujón, el
-        foco y la pausa.
+        No son tres sabores del mismo producto. Son tres bebidas energéticas con té y guaraná, cada
+        una con su momento: el empujón, el foco y la pausa.
       </p>
     </div>
   </section>
 
+  <nav class="sabores-tabs" aria-label="Elegir sabor">
+    @for (flavor of flavors; track flavor.id) {
+      <button
+        type="button"
+        class="sabores-tabs__boton"
+        [class.sabores-tabs__boton--activo]="flavor.id === activeFlavor()"
+        [attr.aria-pressed]="flavor.id === activeFlavor()"
+        [style.--sabor]="flavor.color"
+        (click)="activeFlavor.set(flavor.id)"
+      >
+        <span aria-hidden="true"></span>{{ flavor.name }}
+      </button>
+    }
+  </nav>
+
   @for (flavor of flavors; track flavor.id) {
     <section
       class="sabor-seccion"
+      [class.sabor-seccion--activa]="flavor.id === activeFlavor()"
       [id]="flavor.id"
       [style.--sabor]="flavor.color"
       [style.--tinte]="flavor.tint"
       [style.--texto-sabor]="flavor.textColor"
       [attr.aria-labelledby]="'titulo-' + flavor.id"
+      appReveal
     >
       <div
         class="sabor-seccion__patron"
@@ -123,24 +156,10 @@
 
       <app-flavor-particles [kind]="flavor.particles" />
 
-      <div class="sabor-seccion__decor" aria-hidden="true">
-        <img
-          class="sabor-seccion__fruta sabor-seccion__fruta--izq"
-          [src]="flavor.decorLeft"
-          alt=""
-          loading="lazy"
-        />
-        <img
-          class="sabor-seccion__fruta sabor-seccion__fruta--der"
-          [src]="flavor.decorRight"
-          alt=""
-          loading="lazy"
-        />
-      </div>
-
       <div class="contenedor sabor-seccion__grid">
         <div class="sabor-seccion__modelo">
           <model-viewer
+            tabindex="-1"
             [src]="flavor.model"
             [alt]="'Lata ' + flavor.name + ' de SURGE'"
             [poster]="flavor.image"
@@ -186,22 +205,30 @@
           </p>
 
           <div class="fila">
-            <button type="button" class="btn" (click)="choosePack(12)">Crea tu pack</button>
+            <button type="button" class="btn" (click)="choosePack(12, flavor.id)">
+              Crear mi pack
+            </button>
             <a class="btn btn--secundario" routerLink="/donde-comprar">Dónde comprar</a>
           </div>
+          <p class="sabor-seccion__aviso">{{ warning }}</p>
         </div>
       </div>
     </section>
   }
 
-  <section class="suscripciones" id="suscripciones" aria-labelledby="suscripciones-titulo">
+  <section
+    class="suscripciones"
+    id="suscripciones"
+    aria-labelledby="suscripciones-titulo"
+    appReveal
+  >
     <div class="contenedor">
       <div class="seccion__cabecera">
         <p class="kicker">Packs y suscripción</p>
         <h2 id="suscripciones-titulo">Elige cómo quieres llenar la nevera.</h2>
         <p class="lead">
-          Desde una caja para probar hasta la Rutina mensual de SURGE Club. Precios con IGIC
-          incluido y envío gratis desde 39,95 €.
+          Compra bebida energética natural en packs de 6, 12 y 24 latas, o elige la suscripción
+          mensual de SURGE Club. Precios con IGIC incluido y envío gratis desde 39,95 €.
         </p>
       </div>
 
@@ -220,14 +247,35 @@
                 <span>/ mes</span>
               }
             </p>
+            @if (size === 24) {
+              <p class="plan__alternativa">
+                o {{ formatPrice(packs[size].singlePrice ?? packs[size].price) }} en compra única ·
+                ahorras
+                {{
+                  formatPrice((packs[size].singlePrice ?? packs[size].price) - packs[size].price)
+                }}
+              </p>
+              <p class="plan__terminos">Sin permanencia · pausa o cancela cuando quieras.</p>
+            }
             <p class="plan__porlata">{{ formatPrice(packs[size].pricePerCan) }} por lata</p>
             <p class="plan__blurb">{{ packs[size].blurb }}</p>
-            <button type="button" class="btn btn--ancho" (click)="choosePack(size)">
-              {{ size === 24 ? 'Elegir Rutina' : 'Elegir pack' }}
-            </button>
             @if (size === 24) {
+              <button type="button" class="btn btn--ancho" (click)="choosePack(24, 'sub')">
+                Suscribirme · {{ formatPrice(packs[size].price) }}/mes
+              </button>
+              <button
+                type="button"
+                class="btn btn--secundario btn--ancho"
+                (click)="choosePack(24, 'single')"
+              >
+                Comprar una vez · {{ formatPrice(packs[size].singlePrice ?? packs[size].price) }}
+              </button>
               <button type="button" class="plan__enlace" (click)="ui.openSubscription()">
                 Cómo funciona la suscripción
+              </button>
+            } @else {
+              <button type="button" class="btn btn--ancho" (click)="choosePack(size)">
+                Crear mi pack
               </button>
             }
           </article>
@@ -247,17 +295,32 @@
           <p>
             Cartón FSC, sin retráctil ni film. Aluminio reciclable. Menos envoltorio, más producto.
           </p>
-          <a class="enlace" routerLink="/sobre-nosotros#compromiso">Nuestro compromiso →</a>
+          <a class="enlace" routerLink="/sobre-nosotros" fragment="compromiso"
+            >Nuestro compromiso →</a
+          >
         </div>
       </div>
     </div>
   </section>
 
-  <section class="instagram" id="instagram" aria-labelledby="instagram-titulo">
+  <section class="cierre banda-verde" aria-labelledby="cierre-titulo" appReveal>
+    <div class="contenedor cierre__grid">
+      <div>
+        <p class="kicker">El siguiente paso</p>
+        <h2 id="cierre-titulo">Monta tu pack. Nosotros ponemos la energía.</h2>
+      </div>
+      <div class="cierre__acciones">
+        <button type="button" class="btn btn--claro" (click)="choosePack(6)">Crear mi pack</button>
+        <a class="btn btn--fantasma" routerLink="/donde-comprar">Dónde comprar</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="instagram" id="instagram" aria-labelledby="instagram-titulo" appReveal>
     <div class="contenedor instagram__grid">
       <div>
         <div class="seccion__cabecera">
-          <p class="kicker">@surge.es</p>
+          <p class="kicker">Selección de nuestro feed · @surge.es</p>
           <h2 id="instagram-titulo">Lo último en Instagram.</h2>
           <p class="lead">
             Producto, ingredientes y gente que se mueve. Sin filtros de más. Comparte con
@@ -275,6 +338,10 @@
             </li>
           }
         </ul>
+        <p class="instagram__nota">
+          Selección de nuestro feed: cada tarjeta abre el perfil de
+          <a [href]="socials.instagram" target="_blank" rel="noopener noreferrer">@surge.es</a>.
+        </p>
       </div>
 
       <aside class="instagram__perfil" aria-label="Perfil de Instagram de SURGE">
@@ -319,15 +386,29 @@
     </div>
   </section>
 
-  <section class="cierre banda-verde" aria-labelledby="cierre-titulo">
-    <div class="contenedor cierre__grid">
-      <div>
-        <p class="kicker">El siguiente paso</p>
-        <h2 id="cierre-titulo">Monta tu pack. Nosotros ponemos la energía.</h2>
+  <section class="faq" id="preguntas" aria-labelledby="faq-titulo" appReveal>
+    <div class="contenedor">
+      <div class="seccion__cabecera">
+        <p class="kicker">Preguntas frecuentes</p>
+        <h2 id="faq-titulo">Bebida energética natural: dudas resueltas.</h2>
+        <p class="lead">
+          Qué lleva SURGE, qué la diferencia de una energética convencional y cómo comprarla en pack
+          o por suscripción.
+        </p>
       </div>
-      <div class="cierre__acciones">
-        <button type="button" class="btn btn--claro" (click)="choosePack(6)">Crea tu pack</button>
-        <a class="btn btn--fantasma" routerLink="/donde-comprar">Dónde comprar</a>
+
+      <div class="faq__lista">
+        @for (faq of faqs; track faq.question) {
+          <details class="faq__item">
+            <summary>{{ faq.question }}</summary>
+            <p>{{ faq.answer }}</p>
+          </details>
+        }
+      </div>
+
+      <div class="faq__acciones">
+        <button type="button" class="btn" (click)="choosePack(6)">Probar con el pack de 6</button>
+        <a class="btn btn--secundario" routerLink="/donde-comprar">Dónde comprar</a>
       </div>
     </div>
   </section>

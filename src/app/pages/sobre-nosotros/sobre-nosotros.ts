@@ -1,23 +1,14 @@
-import {
-  Component,
-  ElementRef,
-  inject,
-  signal,
-  viewChild,
-} from '@angular/core';
+import { Component, ElementRef, inject, signal, viewChild } from '@angular/core';
 import { FormBuilder, ReactiveFormsModule, Validators } from '@angular/forms';
 import { ActivatedRoute, RouterLink } from '@angular/router';
-import {
-  CONTACT_EMAIL,
-  CONTACT_SUBJECTS,
-  SOCIALS,
-} from '../../core/content';
+import { CONTACT_EMAIL, CONTACT_SUBJECTS, SOCIALS } from '../../core/content';
 import { SeoService } from '../../core/seo.service';
 import { UiService } from '../../core/ui.service';
+import { Reveal } from '../../shared/reveal/reveal';
 
 @Component({
   selector: 'app-sobre-nosotros',
-  imports: [ReactiveFormsModule, RouterLink],
+  imports: [ReactiveFormsModule, RouterLink, Reveal],
   templateUrl: './sobre-nosotros.html',
   styleUrl: './sobre-nosotros.scss',
 })
@@ -31,7 +22,6 @@ export class SobreNosotros {
   readonly socials = SOCIALS;
   readonly subjects = CONTACT_SUBJECTS;
 
-  readonly sending = signal(false);
   readonly submitted = signal(false);
   readonly errorSummary = signal<string[]>([]);
 
@@ -45,6 +35,7 @@ export class SobreNosotros {
 
   private readonly successTitle = viewChild<ElementRef<HTMLElement>>('successTitle');
   private readonly firstField = viewChild<ElementRef<HTMLInputElement>>('firstField');
+  private readonly errorSummaryBox = viewChild<ElementRef<HTMLElement>>('errorSummaryBox');
 
   constructor() {
     this.seo.setPage({
@@ -88,15 +79,28 @@ export class SobreNosotros {
     }
     this.errorSummary.set(messages);
     if (messages.length > 0) {
+      queueMicrotask(() => this.errorSummaryBox()?.nativeElement.focus());
       return;
     }
 
-    this.sending.set(true);
-    setTimeout(() => {
-      this.sending.set(false);
-      this.submitted.set(true);
-      queueMicrotask(() => this.successTitle()?.nativeElement.focus());
-    }, 900);
+    this.submitted.set(true);
+    queueMicrotask(() => this.successTitle()?.nativeElement.focus());
+  }
+
+  mailtoHref(): string {
+    const value = this.form.getRawValue();
+    const body = [
+      `Nombre: ${value.nombre}`,
+      `Email: ${value.email}`,
+      `Asunto: ${value.asunto}`,
+      '',
+      value.mensaje,
+      '',
+      'Acepto la política de privacidad.',
+    ].join('\n');
+    return `mailto:${this.email}?subject=${encodeURIComponent(
+      `Contacto web · ${value.asunto}`,
+    )}&body=${encodeURIComponent(body)}`;
   }
 
   sendAnother(): void {

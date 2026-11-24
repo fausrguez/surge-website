@@ -9,20 +9,15 @@ import {
   viewChild,
 } from '@angular/core';
 import { CartService } from '../../core/cart.service';
-import {
-  FLAVORS,
-  FlavorId,
-  PACKS,
-  PackMode,
-  PackSize,
-  formatPrice,
-} from '../../core/content';
+import { FLAVORS, FlavorId, PACKS, PackMode, PackSize, formatPrice } from '../../core/content';
+import { FocusTrap } from '../../shared/focus-trap/focus-trap';
 import { UiService } from '../../core/ui.service';
 
 type Qty = Record<FlavorId, number>;
 
 @Component({
   selector: 'app-pack-modal',
+  imports: [FocusTrap],
   templateUrl: './pack-modal.html',
   styleUrl: './pack-modal.scss',
 })
@@ -47,9 +42,7 @@ export class PackModal {
   readonly remaining = computed(() => this.size() - this.totalCans());
   readonly complete = computed(() => this.totalCans() === this.size());
   readonly columns = computed(() => (this.size() === 6 ? 3 : this.size() === 12 ? 4 : 6));
-  readonly options = computed(() =>
-    Array.from({ length: this.size() + 1 }, (_, index) => index),
-  );
+  readonly options = computed(() => Array.from({ length: this.size() + 1 }, (_, index) => index));
 
   readonly slots = computed<(string | null)[]>(() => {
     const colors: (string | null)[] = [];
@@ -75,9 +68,10 @@ export class PackModal {
   constructor() {
     effect(() => {
       if (this.ui.packOpen()) {
-        this.size.set(this.ui.packInitialSize());
-        this.mode.set('sub');
-        this.qty.set(this.balancedFor(this.ui.packInitialSize()));
+        const size = this.ui.packInitialSize();
+        this.size.set(size);
+        this.mode.set(this.ui.packInitialMode());
+        this.qty.set(this.balancedFor(size, this.ui.packInitialFlavor()));
         if (typeof document !== 'undefined') {
           document.body.style.overflow = 'hidden';
         }
@@ -93,6 +87,21 @@ export class PackModal {
     if (this.ui.packOpen()) {
       this.close();
     }
+  }
+
+  onSizeKeydown(event: KeyboardEvent): void {
+    if (!['ArrowRight', 'ArrowLeft', 'ArrowDown', 'ArrowUp'].includes(event.key)) {
+      return;
+    }
+    event.preventDefault();
+    const current = this.sizes.indexOf(this.size());
+    const direction = event.key === 'ArrowRight' || event.key === 'ArrowDown' ? 1 : -1;
+    const next = (current + direction + this.sizes.length) % this.sizes.length;
+    this.setSize(this.sizes[next]);
+    const buttons = (event.currentTarget as HTMLElement).querySelectorAll<HTMLButtonElement>(
+      '.tamano',
+    );
+    buttons[next]?.focus();
   }
 
   setSize(size: PackSize): void {
@@ -156,7 +165,12 @@ export class PackModal {
     this.ui.closePack();
   }
 
-  private balancedFor(size: PackSize): Qty {
+  private balancedFor(size: PackSize, flavor: FlavorId | null = null): Qty {
+    if (flavor) {
+      const qty: Qty = { flama: 0, mentisimo: 0, cocus: 0 };
+      qty[flavor] = size;
+      return qty;
+    }
     const per = size / 3;
     return { flama: per, mentisimo: per, cocus: per };
   }

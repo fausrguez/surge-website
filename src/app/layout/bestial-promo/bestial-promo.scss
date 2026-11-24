@@ -77,13 +77,6 @@
 
 @media (max-width: 760px) {
   .promo {
-    left: 10px;
-    bottom: 10px;
-    width: min(220px, calc(100vw - 20px));
-    padding: 10px 14px 12px;
-  }
-
-  .promo__texto {
     display: none;
   }
 }

@@ -55,13 +55,16 @@
           >{{ link.label }}</a
         >
       }
+      <button type="button" class="header__cta" (click)="ui.openPack(12)">Crear mi pack</button>
     </nav>
 
     <button
       type="button"
       class="header__icono header__carrito"
       (click)="ui.openCart()"
-      [attr.aria-label]="'Abrir carrito, ' + cart.count() + ' packs'"
+      [attr.aria-label]="
+        'Abrir carrito, ' + cart.count() + (cart.count() === 1 ? ' pack' : ' packs')
+      "
     >
       <svg width="22" height="22" viewBox="0 0 24 24" fill="none" aria-hidden="true">
         <path

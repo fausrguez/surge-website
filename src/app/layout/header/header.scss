@@ -90,6 +90,29 @@
   transform: scaleX(1);
 }
 
+.header__cta {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 38px;
+  padding: 7px 16px;
+  border: 1px solid var(--verde);
+  border-radius: var(--radio-pill);
+  background: var(--verde);
+  color: var(--crema);
+  font-size: 0.82rem;
+  font-weight: 700;
+  white-space: nowrap;
+  transition:
+    background-color 180ms var(--curva),
+    border-color 180ms var(--curva);
+}
+
+.header__cta:hover {
+  background: var(--verde-oscuro);
+  border-color: var(--verde-oscuro);
+}
+
 .header__icono {
   position: relative;
   display: grid;
@@ -187,6 +210,13 @@
 
   .header__nav a::after {
     display: none;
+  }
+
+  .header__cta {
+    width: 100%;
+    min-height: 48px;
+    margin-top: 14px;
+    font-size: 0.95rem;
   }
 }
 

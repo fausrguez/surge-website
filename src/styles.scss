@@ -110,6 +110,13 @@ a:hover {
   color: var(--verde-oscuro);
 }
 
+p a,
+li a:not(.btn) {
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 3px;
+}
+
 img,
 svg,
 video,
@@ -587,16 +594,64 @@ ol {
   animation: reveal-up 400ms var(--curva) both;
 }
 
+.reveal-pendiente {
+  opacity: 0;
+  transform: translateY(22px);
+}
+
+.reveal-visible {
+  opacity: 1;
+  transform: none;
+  transition:
+    opacity 520ms var(--curva),
+    transform 520ms var(--curva);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .reveal-pendiente {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+/* ---------- Saltar al contenido ---------- */
+
+.saltar {
+  position: fixed;
+  top: 10px;
+  left: 50%;
+  z-index: 200;
+  padding: 10px 18px;
+  border-radius: var(--radio-pill);
+  background: var(--verde);
+  color: var(--crema);
+  font-weight: 700;
+  text-decoration: none;
+  transform: translate(-50%, -200%);
+  transition: transform 180ms var(--curva);
+}
+
+.saltar:focus-visible {
+  transform: translate(-50%, 0);
+  outline-color: var(--crema);
+}
+
 /* ---------- Mapa real ---------- */
 
 .surge-pin {
-  display: block;
-  width: 22px;
-  height: 22px;
-  border: 3px solid var(--crema);
+  display: grid;
+  place-items: center;
+  width: 24px;
+  height: 24px;
+  border: 2px solid var(--crema);
   border-radius: 50%;
   background: var(--verde);
   box-shadow: 0 4px 12px rgba(42, 33, 24, 0.35);
+  color: var(--crema);
+  font-family: var(--fuente-texto);
+  font-size: 0.68rem;
+  font-weight: 700;
+  line-height: 1;
 }
 
 .leaflet-container {
